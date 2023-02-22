@@ -9,7 +9,7 @@ import Spinner from '../components/utils/Spinner';
 const TriggerQuestionPage = () => {
 	const [triggerQuestion, setTriggerQuestion] = useState({});
 	const [isLoading, setIsLoading] = useState(true);
-	console.log(triggerQuestion)
+	console.log(triggerQuestion);
 
 	const router = useRouter();
 	const { triggerQuestionId } = router.query;
@@ -25,9 +25,13 @@ const TriggerQuestionPage = () => {
 
 	return (
 		<>
-			{isLoading && <div className="text-8xl h-screen grid place-items-center text-black/10 "><Spinner /></div>}
+			{isLoading && (
+				<div className='text-8xl h-screen grid place-items-center text-black/10 '>
+					<Spinner />
+				</div>
+			)}
 
-			<div className='flex flex-col lg:p-4  h-screen gap-4 my-8 mx-2' >
+			<div className='flex flex-col lg:p-4  gap-4 my-8 mx-2'>
 				<div className='grid gap-2'>
 					<CategoryAndQuestion
 						category={triggerQuestion.category}
@@ -43,16 +47,19 @@ const TriggerQuestionPage = () => {
 						}
 					/>
 				</div>
-				<div className='flex-grow  grid   w-full h-full max-w-7xl mx-auto'>
-					<span className="text-xl mt-4">active discussions</span>
-					<DiscussionQuestionsDisplay
-						triggerQuestionId={triggerQuestion._id}
-					/>
+				<div className='grid   w-full h-full max-w-7xl mx-auto '>
+					<span className='text-xl mt-4'>active discussions</span>
+					<DiscussionQuestionsDisplay triggerQuestionId={triggerQuestion._id} />
 				</div>
 				<div className='max-w-7xl mx-auto w-full'>
-				<span className="text-xl mt-4">related articles</span>
+					<span className='text-xl mt-4'>related articles</span>
 					<MinimumArticle articles={triggerQuestion.relatedArticles} />
 				</div>
+				<div className="max-w-7xl mx-auto">
+				<MinimumArticle articles={triggerQuestion.relatedArticles} />
+				<div className="text-center">above will be discussions by category filtered out...dynamic api..and shit</div>
+				</div>
+				
 			</div>
 		</>
 	);

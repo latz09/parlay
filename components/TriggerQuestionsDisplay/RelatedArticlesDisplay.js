@@ -7,7 +7,7 @@ const RelatedArticlesDisplay = ({ relatedArticles }) => {
 			{relatedArticles.map((article, index) => (
 				<div
 					key={index}
-					className='snap-start w-full flex-shrink-0  flex   p-2'
+					className='snap-center  mx-8 flex-shrink-0 w-3/4 xl:w-1/3  flex shadow-lg  p-4'
 				>
 					<div className='grid gap-2'>
 						<span className='text-3xl'>

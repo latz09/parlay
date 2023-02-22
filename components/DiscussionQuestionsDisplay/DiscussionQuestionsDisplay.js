@@ -23,7 +23,7 @@ const DiscussionQuestionsDisplay = ({ triggerQuestionId }) => {
 				<div className=' snap-x mx-auto snap-mandatory  flex w-full   overflow-scroll scrollbar-hide my-2 '>
                      {/* <div className="text-center mt-8">all discussions</div> */}
 					{discussions.map((discussion) => (
-						<div key={discussion._id} className="snap-start w-3/4 xl:w-1/3    flex-shrink-0  flex px-4 py-2  mx-4 border shadow-lg">
+						<div key={discussion._id} className="snap-start w-3/4 xl:w-1/3    flex-shrink-0  flex px-4 py-2  mx-4  shadow-lg">
 							<div className='p-2  mx-auto'>
 								<DiscussionCard
 									topic={discussion.topic}
@@ -44,7 +44,7 @@ const DiscussionQuestionsDisplay = ({ triggerQuestionId }) => {
 
 export default DiscussionQuestionsDisplay;
 
-const DiscussionCard = ({ topic, upvotes, downvotes, discussion }) => {
+export const DiscussionCard = ({ topic, upvotes, downvotes, discussion }) => {
 	return (
 		<div className='flex flex-col justify-between gap-4 lg:gap-8 '>
 			<span className='text-xl lg:text-3xl'>{topic}</span>
