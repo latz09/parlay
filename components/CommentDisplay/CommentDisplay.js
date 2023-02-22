@@ -1,4 +1,4 @@
-import { BsHandThumbsUp, BsHandThumbsDown, BsChatLeft } from 'react-icons/bs';
+import { BsHandThumbsUp, BsHandThumbsDown } from 'react-icons/bs';
 
 const CommentDisplay = ({ discussion }) => {
 	console.log(discussion);

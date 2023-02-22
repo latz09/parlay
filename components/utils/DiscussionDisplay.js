@@ -1,14 +1,12 @@
 import VoteDisplay from '../TriggerQuestionsDisplay/VoteDisplay';
 import Spinner from './Spinner';
-import { useState } from 'react';
-import ModalOverlay from './ModalOverlay';
-import CommentDisplay from '../CommentDisplay/CommentDisplay';
+
 
 const DiscussionDisplay = ({ discussions }) => {
 
 
 	
-	console.log(discussions);
+	
 	return (
 		<>
 			{discussions ? (
@@ -17,7 +15,7 @@ const DiscussionDisplay = ({ discussions }) => {
 					{discussions.map((discussion) => (
 						<div
 							key={discussion._id}
-							className='snap-start w-3/4 xl:w-1/3    flex-shrink-0  flex px-4 py-2  mx-4 border border-triary/50 border-r-triary/20 shadow-lg rounded-md'
+							className='snap-start w-3/4 xl:w-1/3    flex-shrink-0  flex px-4 py-2  mx-4  shadow-lg  border-triary/70  rounded-tr-xl  border-l'
 						>
 							<div className='p-2  mx-auto'>
 								<DiscussionCard

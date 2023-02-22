@@ -1,9 +1,10 @@
+import { QuestionByCategory } from './TriggerQuestionDisplay';
 import VoteDisplay from './VoteDisplay';
 
 const TriggerQuestionStats = ({ category, question, upvotes, downvotes, discussions }) => {
 	return (
 		<>
-			<div className='text-3xl mb-4 text-center tracking-wider'>{question}</div>
+			<QuestionByCategory category={category} question={question} />
 			<VoteDisplay
 				upvotes={upvotes}
 				downvotes={downvotes}

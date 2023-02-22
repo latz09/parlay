@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import VoteDisplay from '../components/TriggerQuestionsDisplay/VoteDisplay';
+
 import TriggerQuestionStats from '../components/TriggerQuestionsDisplay/TriggerQuestionStats';
 import DiscussionQuestionsDisplay from '../components/DiscussionQuestionsDisplay/ActiveDiscussionsByTriggerQuestionId';
 import MinimumArticle from '../components/articleDisplays/MinimumArticle';
 import Spinner from '../components/utils/Spinner';
-import DiscussionByCategory from '../components/DiscussionQuestionsDisplay/byCategory/CategoryDiscussionFilter';
+
 import CategoryDiscussionFilter from '../components/DiscussionQuestionsDisplay/byCategory/CategoryDiscussionFilter';
 
 const TriggerQuestionPage = () => {
