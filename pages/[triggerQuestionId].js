@@ -48,11 +48,11 @@ const TriggerQuestionPage = () => {
 					/>
 				</div>
 				<div className='grid   w-full h-full max-w-7xl mx-auto '>
-					<span className='text-xl mt-4 text-primary'>active discussions</span>
+					<SectionHeading title='active discussions'/>
 					<DiscussionQuestionsDisplay id={triggerQuestion._id} />
 				</div>
-				<div className='max-w-7xl mx-auto w-full'>
-					<span className='text-xl mt-4'>related articles</span>
+				<div className='grid   w-full h-full max-w-7xl mx-auto'>
+					<SectionHeading title='related articles'/>
 					<MinimumArticle articles={triggerQuestion.relatedArticles} />
 				</div>
 				
@@ -64,4 +64,11 @@ const TriggerQuestionPage = () => {
 
 export default TriggerQuestionPage;
 
+const SectionHeading = ({ title }) => {
+	return (
+		<div className="text-xl mt-4 text-primary">
+			<span>{title}</span>
+		</div>
+	)
+}
 
