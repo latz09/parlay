@@ -3,15 +3,14 @@ import { DummyTriggerQuestions, DummyDiscussionData } from '../data/DUMMY_DATA';
 import connectToDatabase from '../helpers/mongodb';
 
 export default function Home({ triggerQuestions }) {
-	console.log(JSON.stringify(DummyDiscussionData))
 	return (
-		<div className='grid gap-24  max-w-5xl mx-auto p-4'>
+		<div className='grid gap-16  max-w-5xl mx-auto p-4 my-16'>
 			{triggerQuestions.map((question) => (
 				<div key={question._id}>
 					<TriggerQuestionDisplay
 						id={question._id}
 						category={question.category}
-            question={question.question}
+						question={question.question}
 						upvotes={question.upvotes}
 						downvotes={question.downvotes}
 						discussions={question.discussions}
@@ -23,9 +22,8 @@ export default function Home({ triggerQuestions }) {
 	);
 }
 
-
 export async function getStaticProps() {
-	const client = await connectToDatabase; 
+	const client = await connectToDatabase;
 	const db = client.db('Parlay');
 	const triggerQuestionsCollection = db.collection('trigger_questions');
 	const data = await triggerQuestionsCollection.find().toArray();

@@ -27,7 +27,7 @@ const TriggerQuestionPage = () => {
 		<>
 			{isLoading && <div className="text-8xl h-screen grid place-items-center text-black/10 "><Spinner /></div>}
 
-			<div className='flex flex-col justify-between p-4  h-screen gap-8 my-8' >
+			<div className='flex flex-col lg:p-4  h-screen gap-4 my-8 mx-2' >
 				<div className='grid gap-2'>
 					<CategoryAndQuestion
 						category={triggerQuestion.category}
