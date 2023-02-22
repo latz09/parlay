@@ -1,8 +1,11 @@
 
+ 
 const Spinner = () => {
 	return (
-		<div className='grid place-items-center h-full'>
-			<div className='animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-cyan-400'></div>
+		<div className='grid place-items-center h-screen'>
+			<div className='animate-spin  bg-primary rounded-full h-36 w-8 border-t-4 border-b-8 border-primary '>
+				
+				</div>
 		</div>
 	);
 }

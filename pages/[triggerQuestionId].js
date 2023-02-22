@@ -24,6 +24,7 @@ const TriggerQuestionPage = () => {
 			});
 	}, [triggerQuestionId]);
 
+	
 	return (
 		<>
 			{isLoading && (

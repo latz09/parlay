@@ -3,7 +3,7 @@ import SocialShares from '../utils/SocialShares';
 
 const RelatedArticlesDisplay = ({ articles }) => {
 	return (
-		<div className='snap-x mx-auto snap-mandatory  flex w-full  overflow-scroll scrollbar-hide my-4'>
+		<div className='snap-x mx-auto snap-mandatory  flex w-full  overflow-scroll scrollbar-hide '>
 			{articles.map((article, index) => (
 				<div
 					key={index}

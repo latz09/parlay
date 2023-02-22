@@ -23,6 +23,7 @@ const TriggerQuestionDisplay = ({
 				upvotes={upvotes}
 				downvotes={downvotes}
 				discussions={discussions}
+				disabled={true}
 				
 			/>
 			<RelatedArticlesDisplay articles={relatedArticles} />
