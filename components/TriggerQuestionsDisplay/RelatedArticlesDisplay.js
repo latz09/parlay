@@ -10,13 +10,13 @@ const RelatedArticlesDisplay = ({ articles }) => {
 					className='snap-center   mx-4 lg:mx-8 flex-shrink-0 w-5/6 xl:w-2/3  flex shadow-lg  p-4'
 				>
 					<div className='grid gap-2'>
-						<span className='text-3xl'>
+						<span className='text-3xl text-triary'>
 							<MdOutlineArticle />
 						</span>
 
-						<div className='font-bold'> {article.title}</div>
-						<span>{article.source}</span>
-						<div>{article.openingParagraph}</div>
+						<div className='font-bold text-secondary'> {article.title}</div>
+						<span className="font-semibold text-dark/70">{article.source}</span>
+						<div className="opacity-90">{article.openingParagraph}</div>
 						<div className="my-2">
 							<SocialShares url={article.articleLink} />
 						</div>

@@ -2,7 +2,8 @@ html,
 body {
 	padding: 0;
 	margin: 0;
-	background-color: #C2FFF9;
+	background-color: #ECFAFF;
+	color: #00243A;
 }
 
 @tailwind base;
@@ -11,16 +12,11 @@ body {
 
 @layer components {
 	.btn {
-		@apply p-4  text-center  text-white rounded;
+		@apply py-2 px-8 text-xl text-center text-light tracking-wider font-semibold bg-primary    rounded;
 	}
 
-	,
-	.btn:hover {
-		@apply bg-gray-800 transition duration-700 cursor-pointer;
-	}
 
-	
 	.vote-display {
-		@apply flex items-center space-x-2 text-xl;
+		@apply flex items-center space-x-2 text-lg text-secondary font-semibold;
 	}
 }

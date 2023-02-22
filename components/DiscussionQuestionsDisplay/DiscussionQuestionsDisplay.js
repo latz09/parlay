@@ -20,10 +20,10 @@ const DiscussionQuestionsDisplay = ({ triggerQuestionId }) => {
 		<>
 			{discussions ? (
                
-				<div className=' snap-x mx-auto snap-mandatory  flex w-full   overflow-scroll scrollbar-hide my-2 '>
+				<div className=' snap-x mx-auto snap-mandatory   flex w-full   overflow-scroll scrollbar-hide my-2 '>
                      {/* <div className="text-center mt-8">all discussions</div> */}
 					{discussions.map((discussion) => (
-						<div key={discussion._id} className="snap-start w-3/4 xl:w-1/3    flex-shrink-0  flex px-4 py-2  mx-4  shadow-lg">
+						<div key={discussion._id} className="snap-start w-3/4 xl:w-1/3    flex-shrink-0  flex px-4 py-2  mx-4 border border-triary shadow-lg ">
 							<div className='p-2  mx-auto'>
 								<DiscussionCard
 									topic={discussion.topic}
@@ -47,7 +47,7 @@ export default DiscussionQuestionsDisplay;
 export const DiscussionCard = ({ topic, upvotes, downvotes, discussion }) => {
 	return (
 		<div className='flex flex-col justify-between gap-4 lg:gap-8 '>
-			<span className='text-xl lg:text-3xl'>{topic}</span>
+			<span className='text-xl lg:text-3xl text-primary'>{topic}</span>
 			<CommentPreview comments={discussion} />
 			<VoteDisplay
 				upvotes={upvotes}
@@ -62,8 +62,8 @@ const CommentPreview = ({ comments }) => {
 	console.log(comments);
 
 	return (
-		<div className='grid gap-2 lg:mx-4'>
-			<span className='text-xl font-semibold'>user{comments[0].userId}</span>
+		<div className='grid gap-2 lg:mx-4 '>
+			<span className='text-xl font-bold text-triary tracking-wider'>user{comments[0].userId}</span>
 			<span className="mx-4">{comments[0].comment}</span>
 		</div>
 	);

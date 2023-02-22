@@ -8,18 +8,19 @@ module.exports = {
 		// Or if using `src` directory:
 		'./src/**/*.{js,ts,jsx,tsx}',
 	],
+
 	theme: {
-		theme: {
-			extend: {},
-			colors: {
-				primary: '#EC449B',
-				secondary: '#5EBAB1',
-				dark: '#6A0037',
-				light: '#C2FFF9',
-				medium: '#4b8178',
-			},
+		extend: {},
+		colors: {
+			primary: '#39B3FF',
+			secondary: '#007FC6',
+			dark: '#00243A',
+			light: '#ECFAFF',
+			triary: '#EC449b',
+			
 		},
 	},
+
 	plugins: [
 		require('tailwind-scrollbar-hide'),
 		// ...
