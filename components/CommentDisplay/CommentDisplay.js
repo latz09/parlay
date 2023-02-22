@@ -28,8 +28,8 @@ export default CommentDisplay;
 const Comment = ({ comment, userId, upvotes, downvotes }) => {
 	return (
 		<div className=' grid'>
-			<span className='text-2xl font-semibold'>user {userId}</span>
-			<span className='text-xl font-semibold/90 tracking-wider text-dark/80  '>
+			<span className='text-xl lg:text-2xl font-semibold text-primary'>user {userId}</span>
+			<span className='text-lg lg:text-xl font-semibold tracking-wider text-light/70 '>
 				{comment}
 			</span>
 			<div className=" place-self-end">
@@ -41,7 +41,7 @@ const Comment = ({ comment, userId, upvotes, downvotes }) => {
 
 const CreateComment = () => {
 	return (
-		<div className=' w-full p-2 flex justify-between gap-4'>
+		<div className=' w-full p-2   lg:flex justify-between gap-4'>
 			<div className=' flex-grow '>
 				<input
 					type='text'
@@ -49,8 +49,8 @@ const CreateComment = () => {
 					className='w-full h-full px-4 py-2 bg-triary/10 focus'
 				/>
 			</div>
-			<div>
-				<button className='btn bg-triary'>Send it</button>
+			<div className="text-center mt-4">
+				<button className='btn bg-primary'>Send it</button>
 			</div>
 		</div>
 	);
@@ -59,14 +59,14 @@ const CreateComment = () => {
 const CommentVotes = ({ upvotes, downvotes }) => {
 	return (
 		<div className='flex space-x-8 '>
-			<div className='vote-display'>
-				<span className='text-2xl'>
+			<div className='vote-display text-primary'>
+				<span className='text-2xl text-triary'>
 					<BsHandThumbsUp />
 				</span>
 				<span>{upvotes}</span>
 			</div>
-			<div className='vote-display'>
-				<span className='text-2xl'>
+			<div className='vote-display text-triary'>
+				<span className='text-2xl text-primary'>
 					<BsHandThumbsDown />
 				</span>
 				<span>{downvotes}</span>
