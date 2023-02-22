@@ -205,6 +205,35 @@ export const DummyDiscussionData = [
 		],
 	},	
 	{
+		topic: 'Tom Brady is the goat and will play till he is 50',
+		category: 'Sports',
+		triggerQuestionID: '63f4e0d53fcb69c17deb527f',
+		upvotes: 0,
+		downvotes: 0,
+		comments: [
+			{
+				userId: '1',
+				comment:
+					'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Metus vulputate eu scelerisque felis imperdiet.',
+				upvotes: 0,
+				downvotes: 0,
+			},
+			{
+				userId: '2',
+				comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+				upvotes: 0,
+				downvotes: 0,
+			},
+			{
+				userId: '3',
+				comment:
+					'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
+				upvotes: 0,
+				downvotes: 0,
+			},
+		],
+	},	
+	{
 		topic: 'Leave Brittney Alone!',
 		category: 'entertainment',
 		triggerQuestionID:'63f4e0d53fcb69c17deb5280',
@@ -234,7 +263,65 @@ export const DummyDiscussionData = [
 		],
 	},
 	{
+		topic: 'Brittney Spears is still alive?',
+		category: 'entertainment',
+		triggerQuestionID:'63f4e0d53fcb69c17deb5280',
+		upvotes: 0,
+		downvotes: 0,
+		comments: [
+			{
+				userId: '1',
+				comment:
+					'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Metus vulputate eu scelerisque felis imperdiet.',
+				upvotes: 0,
+				downvotes: 0,
+			},
+			{
+				userId: '2',
+				comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+				upvotes: 0,
+				downvotes: 0,
+			},
+			{
+				userId: '3',
+				comment:
+					'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
+				upvotes: 0,
+				downvotes: 0,
+			},
+		],
+	},
+	{
 		topic: 'They are fucking up this show',
+		category: 'entertainment',
+		triggerQuestionID: '63f4e0d53fcb69c17deb5281',
+		upvotes: 0,
+		downvotes: 0,
+		comments: [
+			{
+				userId: '1',
+				comment:
+					'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Metus vulputate eu scelerisque felis imperdiet.',
+				upvotes: 0,
+				downvotes: 0,
+			},
+			{
+				userId: '2',
+				comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+				upvotes: 0,
+				downvotes: 0,
+			},
+			{
+				userId: '3',
+				comment:
+					'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
+				upvotes: 0,
+				downvotes: 0,
+			},
+		],
+	},
+	{
+		topic: 'The last of us is going to be the best show ever!',
 		category: 'entertainment',
 		triggerQuestionID: '63f4e0d53fcb69c17deb5281',
 		upvotes: 0,

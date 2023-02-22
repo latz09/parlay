@@ -25,9 +25,9 @@ const TriggerQuestionPage = () => {
 
 	return (
 		<>
-			{isLoading && <div className="text-8xl h-screen grid place-items-center text-black/10"><Spinner /></div>}
+			{isLoading && <div className="text-8xl h-screen grid place-items-center text-black/10 "><Spinner /></div>}
 
-			<div className='flex flex-col justify-between p-4  h-screen'>
+			<div className='flex flex-col justify-between p-4  h-screen gap-8 my-8' >
 				<div className='grid gap-2'>
 					<CategoryAndQuestion
 						category={triggerQuestion.category}
@@ -43,12 +43,14 @@ const TriggerQuestionPage = () => {
 						}
 					/>
 				</div>
-				<div className='flex-grow '>
+				<div className='flex-grow  grid   w-full h-full max-w-7xl mx-auto'>
+					<span className="text-xl mt-4">active discussions</span>
 					<DiscussionQuestionsDisplay
 						triggerQuestionId={triggerQuestion._id}
 					/>
 				</div>
-				<div className='max-w-7xl mx-auto '>
+				<div className='max-w-7xl mx-auto w-full'>
+				<span className="text-xl mt-4">related articles</span>
 					<MinimumArticle articles={triggerQuestion.relatedArticles} />
 				</div>
 			</div>

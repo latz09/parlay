@@ -3,6 +3,7 @@ import { DummyTriggerQuestions, DummyDiscussionData } from '../data/DUMMY_DATA';
 import connectToDatabase from '../helpers/mongodb';
 
 export default function Home({ triggerQuestions }) {
+	console.log(JSON.stringify(DummyDiscussionData))
 	return (
 		<div className='grid gap-24  max-w-5xl mx-auto p-4'>
 			{triggerQuestions.map((question) => (
