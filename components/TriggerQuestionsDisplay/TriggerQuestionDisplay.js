@@ -22,7 +22,7 @@ const TriggerQuestionDisplay = ({
 				downvotes={downvotes}
 				discussions={discussions.length}
 			/>
-			<RelatedArticlesDisplay relatedArticles={relatedArticles} />
+			<RelatedArticlesDisplay articles={relatedArticles} />
 			<CastTriggerQuestionVote />
 			<Link href={`/${id}`}>
 				<JoinDiscussionLink />
