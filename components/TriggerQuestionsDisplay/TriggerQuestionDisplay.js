@@ -32,3 +32,8 @@ const TriggerQuestionDisplay = ({
 };
 
 export default TriggerQuestionDisplay;
+
+
+
+// pink: #EC449b
+// green #99F443 

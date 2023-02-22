@@ -9,7 +9,16 @@ module.exports = {
 		'./src/**/*.{js,ts,jsx,tsx}',
 	],
 	theme: {
-		extend: {},
+		theme: {
+			extend: {},
+			colors: {
+				primary: '#EC449B',
+				secondary: '#5EBAB1',
+				dark: '#6A0037',
+				light: '#C2FFF9',
+				medium: '#4b8178',
+			},
+		},
 	},
 	plugins: [
 		require('tailwind-scrollbar-hide'),

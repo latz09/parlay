@@ -2,6 +2,7 @@ html,
 body {
 	padding: 0;
 	margin: 0;
+	background-color: #C2FFF9;
 }
 
 @tailwind base;
@@ -10,7 +11,7 @@ body {
 
 @layer components {
 	.btn {
-		@apply p-4  text-center bg-gray-700 text-white rounded;
+		@apply p-4  text-center  text-white rounded;
 	}
 
 	,
