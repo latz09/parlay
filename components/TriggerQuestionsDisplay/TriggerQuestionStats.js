@@ -11,6 +11,7 @@ const TriggerQuestionStats = ({ category, question, upvotes, downvotes, discussi
 				discussions={
 					discussions ? discussions.length : 0
 				}
+				disabled={true}
 			/>
 		</>
 	);

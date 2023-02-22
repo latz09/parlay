@@ -3,12 +3,11 @@ import { useState } from 'react';
 import ModalOverlay from '../utils/ModalOverlay';
 import CommentDisplay from '../CommentDisplay/CommentDisplay';
 
-const VoteDisplay = ({ upvotes, downvotes, discussions, topic }) => {
+const VoteDisplay = ({ upvotes, downvotes, discussions, topic, disabled }) => {
 	const [commentsOpen, setCommentsOpen] = useState(false);
 	const handleClick = () => {
-		setCommentsOpen(true);
+		disabled ? null : setCommentsOpen(true);
 	};
-	
 
 	return (
 		<>
@@ -25,21 +24,22 @@ const VoteDisplay = ({ upvotes, downvotes, discussions, topic }) => {
 					</span>
 					<span>{downvotes}</span>
 				</div>
-				<div className='vote-display ' onClick={handleClick}>
+				<div
+					className='vote-display '
+					onClick={handleClick}
+				>
 					<span className='text-2xl'>
 						<BsChatLeft />
 					</span>
-					<span>{discussions.length}</span>
+					<span>{discussions ? discussions.length : 0}</span>
 				</div>
 			</div>
 			{commentsOpen && (
 				<ModalOverlay setModalIsOpen={setCommentsOpen} topic={topic}>
-					<CommentDisplay discussion={discussions} topic={topic}/>
+					<CommentDisplay discussion={discussions} topic={topic} />
 				</ModalOverlay>
 			)}
 		</>
 	);
 };
 export default VoteDisplay;
-
-
