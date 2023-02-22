@@ -36,8 +36,8 @@ const DiscussionQuestionsDisplay = ({ id }) => {
 					))}{' '}
 				</div>
 			) : (
-				// <Spinner />
-				<div>broke</div>
+				<Spinner />
+				
 			)}
 		</>
 	);
