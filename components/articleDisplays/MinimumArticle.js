@@ -9,16 +9,16 @@ const MinimumArticle = ({ articles }) => {
 			{articles ? articles.map((article, index) => (
 				<div
 					key={index}
-					className='snap-start w-1/2 xl:w-1/4  flex-shrink-0  flex px-4 py-8  m-4 border border-triary shadow-lg '
+					className='snap-start w-1/2 xl:w-1/4  flex-shrink-0  flex px-4 py-8  m-4 border border-primary/50 border-r-primary/30 shadow-lg '
 				>
 					<div className='flex flex-col justify-between gap-4  '>
 						<div className='grid gap-2'>
-							<span className='text-xl'>
+							<span className='text-3xl text-triary'>
 								<MdOutlineArticle />
 							</span>
-							<div className='font-bold '> {article.title}</div>
+							<div className='font-bold text-primary  '> {article.title}</div>
 						</div>
-						<span>{article.source}</span>
+						<span className="text-triary font-bold tracking-wider">{article.source}</span>
 						{/* <div>{article.openingParagraph}</div> */}
 					</div>
 				</div>
