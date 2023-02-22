@@ -1,4 +1,4 @@
-// import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const ModalOverlay = ({ children, setModalIsOpen, topic }) => {
 	
@@ -19,8 +19,8 @@ const ModalOverlay = ({ children, setModalIsOpen, topic }) => {
 	};
 
 	return (
-		// <AnimatePresence mode='wait'>
-		<div
+		<AnimatePresence >
+		<motion.div
 			variants={backDropVariant}
 			initial='hidden'
 			animate='visible'
@@ -28,7 +28,7 @@ const ModalOverlay = ({ children, setModalIsOpen, topic }) => {
 			className='fixed top-0 left-0 w-full h-full   text-light bg-dark/90 backdrop-blur-md '
 		>
 			<div className=' flex flex-col max-w-4xl mx-auto  '>
-				<div className='grid place-items-center lg:flex justify-between items-center text-lg lg:text-3xl tracking-wider h-[10vh] mx-4'>
+				<div className='grid place-items-center lg:flex justify-between items-center text-lg lg:text-3xl tracking-wider h-[15vh] mx-4'>
 					<div className="italic opacity-70 text-primary font-semibold">{topic}</div>
 					<div
 						className=' text-white  cursor-pointer  '
@@ -41,8 +41,8 @@ const ModalOverlay = ({ children, setModalIsOpen, topic }) => {
 				</div>
 				<div className='h-full '>{children}</div>
 			</div>
-		</div>
-		// </AnimatePresence>
+		</motion.div>
+		</AnimatePresence>
 	);
 };
 
