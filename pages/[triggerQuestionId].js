@@ -55,10 +55,7 @@ const TriggerQuestionPage = () => {
 					<span className='text-xl mt-4'>related articles</span>
 					<MinimumArticle articles={triggerQuestion.relatedArticles} />
 				</div>
-				<div className="max-w-7xl mx-auto">
-				<MinimumArticle articles={triggerQuestion.relatedArticles} />
-				<div className="text-center">above will be discussions by category filtered out...dynamic api..and shit</div>
-				</div>
+				
 				
 			</div>
 		</>
