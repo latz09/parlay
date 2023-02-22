@@ -28,10 +28,10 @@ const ModalOverlay = ({ children, setModalIsOpen, topic }) => {
 			className='fixed top-0 left-0 w-full h-full   text-light bg-dark/90 backdrop-blur-md '
 		>
 			<div className=' flex flex-col max-w-4xl mx-auto  '>
-				<div className='grid place-items-center lg:flex justify-between items-center text-lg lg:text-3xl tracking-wider h-[15vh] mx-4'>
-					<div className="italic opacity-70 text-primary font-semibold">{topic}</div>
+				<div className='grid place-items-center w-full  lg:flex lg:justify-between lg:items-center text-lg lg:text-3xl tracking-wider h-[10vh] mx-4'>
+					<div className="italic opacity-70 text-primary font-semibold order-2 lg:order-1 ">{topic}</div>
 					<div
-						className=' text-white  cursor-pointer  '
+						className=' text-white  cursor-pointer order  order-1 lg:order-2'
 						onClick={() => {
 							setModalIsOpen(false);
 						}}

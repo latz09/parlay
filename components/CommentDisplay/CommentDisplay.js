@@ -41,7 +41,7 @@ const Comment = ({ comment, userId, upvotes, downvotes }) => {
 
 const CreateComment = () => {
 	return (
-		<div className=' w-full p-2   lg:flex justify-between gap-4 items-center'>
+		<div className=' w-full p-2 bord  lg:flex justify-between gap-4 items-center'>
 			<div className=' flex-grow '>
 				<input
 					type='text'
@@ -49,7 +49,7 @@ const CreateComment = () => {
 					className='w-full h-full p-4 bg-triary/10 focus'
 				/>
 			</div>
-			<div className="text-center ">
+			<div className="text-center my-4 lg:my-0">
 				<button className='btn bg-primary'>Send it</button>
 			</div>
 		</div>
