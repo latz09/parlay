@@ -1,15 +1,16 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import VoteDisplay from '../components/TriggerQuestionsDisplay/VoteDisplay';
-import CategoryAndQuestion from '../components/TriggerQuestionsDisplay/CategoryAndQuestion';
-import DiscussionQuestionsDisplay from '../components/DiscussionQuestionsDisplay/DiscussionQuestionsDisplay';
+import TriggerQuestionStats from '../components/TriggerQuestionsDisplay/TriggerQuestionStats';
+import DiscussionQuestionsDisplay from '../components/DiscussionQuestionsDisplay/ActiveDiscussionsByTriggerQuestionId';
 import MinimumArticle from '../components/articleDisplays/MinimumArticle';
 import Spinner from '../components/utils/Spinner';
+import DiscussionByCategory from '../components/DiscussionQuestionsDisplay/byCategory/CategoryDiscussionFilter';
+import CategoryDiscussionFilter from '../components/DiscussionQuestionsDisplay/byCategory/CategoryDiscussionFilter';
 
 const TriggerQuestionPage = () => {
 	const [triggerQuestion, setTriggerQuestion] = useState({});
 	const [isLoading, setIsLoading] = useState(true);
-	console.log('test' , triggerQuestion);
 
 	const router = useRouter();
 	const { triggerQuestionId } = router.query;
@@ -32,31 +33,19 @@ const TriggerQuestionPage = () => {
 			)}
 
 			<div className='flex flex-col lg:p-4  gap-4 my-8 mx-2'>
-				<div className='grid gap-2'>
-					<CategoryAndQuestion
-						category={triggerQuestion.category}
-						question={triggerQuestion.question}
-					/>
-					<VoteDisplay
-						upvotes={triggerQuestion.upvotes}
-						downvotes={triggerQuestion.downvotes}
-						discussions={
-							triggerQuestion.discussions
-								? triggerQuestion.discussions.length
-								: 0
-						}
-					/>
-				</div>
-				<div className='grid   w-full h-full max-w-7xl mx-auto '>
-					<SectionHeading title='active discussions'/>
-					<DiscussionQuestionsDisplay id={triggerQuestion._id} />
-				</div>
-				<div className='grid   w-full h-full max-w-7xl mx-auto'>
-					<SectionHeading title='related articles'/>
-					<MinimumArticle articles={triggerQuestion.relatedArticles} />
-				</div>
-				
-				
+				<TriggerQuestionStats
+					category={triggerQuestion.category}
+					question={triggerQuestion.question}
+					upvotes={triggerQuestion.upvotes}
+					downvotes={triggerQuestion.downvotes}
+					discussions={
+						triggerQuestion.discussions ? triggerQuestion.discussions.length : 0
+					}
+				/>
+				<DiscussionQuestionsDisplay id={triggerQuestion._id} />
+				<MinimumArticle articles={triggerQuestion.relatedArticles} />
+				<CategoryDiscussionFilter category='sports' />
+				<CategoryDiscussionFilter category='entertainment' />
 			</div>
 		</>
 	);
@@ -64,11 +53,10 @@ const TriggerQuestionPage = () => {
 
 export default TriggerQuestionPage;
 
-const SectionHeading = ({ title }) => {
+export const SectionHeading = ({ title }) => {
 	return (
-		<div className="text-xl mt-4 text-primary">
+		<div className='text-xl mt-4 text-primary'>
 			<span>{title}</span>
 		</div>
-	)
-}
-
+	);
+};
