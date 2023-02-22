@@ -9,7 +9,7 @@ import Spinner from '../components/utils/Spinner';
 const TriggerQuestionPage = () => {
 	const [triggerQuestion, setTriggerQuestion] = useState({});
 	const [isLoading, setIsLoading] = useState(true);
-	console.log(triggerQuestion);
+	console.log('test' , triggerQuestion);
 
 	const router = useRouter();
 	const { triggerQuestionId } = router.query;
@@ -48,8 +48,8 @@ const TriggerQuestionPage = () => {
 					/>
 				</div>
 				<div className='grid   w-full h-full max-w-7xl mx-auto '>
-					<span className='text-xl mt-4 text-primary tracking-widest'>active discussions</span>
-					<DiscussionQuestionsDisplay triggerQuestionId={triggerQuestion._id} />
+					<span className='text-xl mt-4 text-primary'>active discussions</span>
+					<DiscussionQuestionsDisplay id={triggerQuestion._id} />
 				</div>
 				<div className='max-w-7xl mx-auto w-full'>
 					<span className='text-xl mt-4'>related articles</span>

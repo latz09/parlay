@@ -2,19 +2,19 @@ import { useState, useEffect } from 'react';
 import VoteDisplay from '../TriggerQuestionsDisplay/VoteDisplay';
 import Spinner from '../utils/Spinner';
 
-const DiscussionQuestionsDisplay = ({ triggerQuestionId }) => {
+const DiscussionQuestionsDisplay = ({ id }) => {
 	//go through all of discussions that have a triggerquestionId that matches the current trigger question
 	const [discussions, setDiscussions] = useState();
 
 	console.log(discussions);
 
 	useEffect(() => {
-		fetch(`/api/discussions/${triggerQuestionId}`)
+		fetch(`/api/discussions/${id}`)
 			.then((res) => res.json())
 			.then((data) => {
 				setDiscussions(data);
 			});
-	}, [triggerQuestionId]);
+	}, [id]);
 
 	return (
 		<>
@@ -36,7 +36,8 @@ const DiscussionQuestionsDisplay = ({ triggerQuestionId }) => {
 					))}{' '}
 				</div>
 			) : (
-				<Spinner />
+				// <Spinner />
+				<div>broke</div>
 			)}
 		</>
 	);
