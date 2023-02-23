@@ -22,7 +22,8 @@ const DiscussionById = ({ discussion, id }) => {
 			<div className="h-[75vh] ">
 				<CommentDisplay comments={comments} />
 			</div>
-			<DiscussionsByCategory category={category} />
+			<DiscussionsByCategory category={'entertainment'} />
+			<DiscussionsByCategory category={'sports'} />
 		</div>
 	);
 };

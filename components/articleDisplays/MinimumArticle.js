@@ -1,7 +1,6 @@
 import { MdOutlineArticle } from 'react-icons/md';
-
 import SectionHeading from '../utils/SectionHeading';
-
+import { motion } from 'framer-motion';
 
 const MinimumArticle = ({ articles }) => {
 	return (

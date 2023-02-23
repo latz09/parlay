@@ -15,10 +15,10 @@ const DiscussionDisplay = ({ discussions }) => {
 				<div className=' snap-y mx-auto snap-mandatory   flex w-full   overflow-y-scroll scrollbar-hide my-2 '>
 					{/* <div className="text-center mt-8">all discussions</div> */}
 					{discussions.map((discussion) => (
-						<motion.div
-							initial={{ opacity: 0, scale: .7 }}
-							whileInView={{ opacity: 1, scale: 1 }}
-							transition={{ duration: 1, delay: .2 }}
+						<div
+							// initial={{ opacity: 0, scale: .7 }}
+							// whileInView={{ opacity: 1, scale: 1 }}
+							// transition={{ duration: 1, delay: .2 }}
 							key={discussion._id}
 							className='snap-center w-3/4 xl:w-1/3    flex-shrink-0  flex px-4 py-2  mx-4  shadow-lg  border-triary/40  rounded-tr-xl  rounded-tl-md border-x'
 						>
@@ -31,7 +31,7 @@ const DiscussionDisplay = ({ discussions }) => {
 									discussion={discussion.comments}
 								/>
 							</div>
-						</motion.div>
+						</div>
 					))}{' '}
 				</div>
 			) : (
