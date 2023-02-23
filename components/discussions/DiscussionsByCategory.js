@@ -2,15 +2,15 @@
 // setState  handle loading
 
 import { useState, useEffect } from 'react';
-import { SectionHeading } from '../../../pages/[triggerQuestionId]';
-import DiscussionDisplay from '../../utils/DiscussionDisplay';
+import SectionHeading from '../utils/SectionHeading';
+import DiscussionDisplay from './utils/DiscussionDisplay';
 
-const CategoryDiscussionFilter = ({ category }) => {
+const DiscussionsByCategory = ({ category }) => {
 	const [isLoading, setIsLoading] = useState(true);
 	const [discussions, setDiscussions] = useState([]);
 
 	useEffect(() => {
-		fetch(`/api/discussionsByCategory/${category}`)
+		fetch(`/api/discussions/byCategory/${category}`)
 			.then((res) => res.json())
 
 			.then((data) => {
@@ -32,4 +32,4 @@ const CategoryDiscussionFilter = ({ category }) => {
 	);
 };
 
-export default CategoryDiscussionFilter;
+export default DiscussionsByCategory;

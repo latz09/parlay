@@ -1,5 +1,5 @@
 import { ObjectId } from "mongodb";
-import connectToDatabase from "../../helpers/mongodb"
+import connectToDatabase from "../../../../helpers/mongodb"
 
 //dynamic api route
 // **can do if req.method === 'DELETE' etc etc so can make dynamic delete api routes

@@ -1,10 +1,10 @@
-import { QuestionByCategory } from './TriggerQuestionDisplay';
-import VoteDisplay from './VoteDisplay';
+import { TriggerQuestion } from './TriggerQuestionDisplay';
+import VoteDisplay from '../utils/VoteDisplay';
 
 const TriggerQuestionStats = ({ category, question, upvotes, downvotes, discussions }) => {
 	return (
 		<>
-			<QuestionByCategory category={category} question={question} />
+			<TriggerQuestion question={question} />
 			<VoteDisplay
 				upvotes={upvotes}
 				downvotes={downvotes}

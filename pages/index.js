@@ -1,5 +1,6 @@
-import TriggerQuestionDisplay from '../components/TriggerQuestionsDisplay/TriggerQuestionDisplay';
-import { DummyTriggerQuestions, DummyDiscussionData } from '../data/DUMMY_DATA';
+
+import TriggerQuestionDisplay from '../components/triggerQuestions/TriggerQuestionDisplay';
+// import { DummyTriggerQuestions, DummyDiscussionData } from '../data/DUMMY_DATA';
 import connectToDatabase from '../helpers/mongodb';
 
 export default function Home({ triggerQuestions }) {
@@ -32,3 +33,8 @@ export async function getStaticProps() {
 		props: { triggerQuestions: JSON.parse(JSON.stringify(data)) },
 	};
 }
+
+
+
+
+// HOW DO I PASS THE

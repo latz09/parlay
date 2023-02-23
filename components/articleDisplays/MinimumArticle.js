@@ -1,6 +1,7 @@
 import { MdOutlineArticle } from 'react-icons/md';
-import { useState, useEffect } from 'react';
-import { SectionHeading } from '../../pages/[triggerQuestionId]';
+
+import SectionHeading from '../utils/SectionHeading';
+
 
 const MinimumArticle = ({ articles }) => {
 	return (

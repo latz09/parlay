@@ -1,5 +1,6 @@
-import VoteDisplay from '../TriggerQuestionsDisplay/VoteDisplay';
-import Spinner from './Spinner';
+import VoteDisplay from '../../utils/VoteDisplay';
+import Spinner from '../../utils/Spinner';
+import { motion } from 'framer-motion';
 
 
 const DiscussionDisplay = ({ discussions }) => {
@@ -13,19 +14,23 @@ const DiscussionDisplay = ({ discussions }) => {
 				<div className=' snap-x mx-auto snap-mandatory   flex w-full   overflow-scroll scrollbar-hide my-2 '>
 					{/* <div className="text-center mt-8">all discussions</div> */}
 					{discussions.map((discussion) => (
-						<div
+						<motion.div
+							initial={{ opacity: 0, scale: .7 }}
+							whileInView={{ opacity: 1, scale: 1 }}
+							transition={{ duration: 1, delay: .2 }}
 							key={discussion._id}
-							className='snap-start w-3/4 xl:w-1/3    flex-shrink-0  flex px-4 py-2  mx-4  shadow-lg  border-triary/70  rounded-tr-xl  border-l'
+							className='snap-start w-3/4 xl:w-1/3    flex-shrink-0  flex px-4 py-2  mx-4  shadow-lg  border-triary/40  rounded-tr-xl  rounded-tl-md border-x'
 						>
-							<div className='p-2  mx-auto'>
+							<div className='p-2  mx-auto '>
 								<DiscussionCard
+									id={discussion._id}
 									topic={discussion.topic}
 									upvotes={discussion.upvotes}
 									downvotes={discussion.downvotes}
 									discussion={discussion.comments}
 								/>
 							</div>
-						</div>
+						</motion.div>
 					))}{' '}
 				</div>
 			) : (
@@ -37,7 +42,7 @@ const DiscussionDisplay = ({ discussions }) => {
 
 export default DiscussionDisplay;
 
-export const DiscussionCard = ({ topic, upvotes, downvotes, discussion }) => {
+export const DiscussionCard = ({ topic, upvotes, downvotes, discussion, id }) => {
 	return (
 		<div className='flex flex-col justify-between gap-4 lg:gap-8 '>
 			<span className='text-xl lg:text-3xl text-primary'>{topic}</span>
@@ -47,6 +52,7 @@ export const DiscussionCard = ({ topic, upvotes, downvotes, discussion }) => {
 				downvotes={downvotes}
 				discussions={discussion}
 				topic={topic}
+				discussionId={id}
 			/>
 		</div>
 	);

@@ -1,4 +1,4 @@
-// import {motion } from 'framer-motion';
+import {motion } from 'framer-motion';
 import {
 	TwitterShareButton,
 	TwitterIcon,
@@ -36,16 +36,16 @@ const SocialShares = ({ url }) => {
 
 export default SocialShares;
 
-const FloatContainer = ({ children }) => {
+export const FloatContainer = ({ children }) => {
 	return (
 		<>
-			<div
+			<motion.div
 				initial={{ scale: 0.97, y: '-3px', opacity: .78 }}
 				animate={{ scale: 1.02, y: '3px', opacity: 1 }}
 				transition={{ duration: 2, repeat: Infinity, repeatType: 'reverse' }}
 			>
 				{children}
-			</div>
+			</motion.div>
 		</>
 	);
 };

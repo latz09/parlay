@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react';
-import { SectionHeading } from '../../pages/[triggerQuestionId]';
+import SectionHeading from '../utils/SectionHeading';
 
-import DiscussionDisplay from '../utils/DiscussionDisplay';
 
-const ActiveDiscussionsByTriggerQuestionId = ({ id }) => {
+import DiscussionDisplay from './utils/DiscussionDisplay';
+
+const DiscussionsByTriggerQuestionId = ({ id }) => {
 	//go through all of discussions that have a triggerquestionId that matches the current trigger question
 	const [discussions, setDiscussions] = useState();
 
 	useEffect(() => {
-		fetch(`/api/discussions/${id}`)
+		fetch(`/api/discussions/byTriggerQuestion/${id}`)
 			.then((res) => res.json())
 			.then((data) => {
 				setDiscussions(data);
@@ -23,4 +24,4 @@ const ActiveDiscussionsByTriggerQuestionId = ({ id }) => {
 	);
 };
 
-export default ActiveDiscussionsByTriggerQuestionId;
+export default DiscussionsByTriggerQuestionId;

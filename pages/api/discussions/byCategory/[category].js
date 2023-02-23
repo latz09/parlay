@@ -1,6 +1,6 @@
 // =======DYNAMIC API FOR DISCUSSION CATEGORY PAGE======= //
 
-import connectToDatabase from "../../../helpers/mongodb";
+import connectToDatabase from "../../../../helpers/mongodb";
 
 async function handler(request, response) {
     const category = request.query.category;

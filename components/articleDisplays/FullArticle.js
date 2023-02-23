@@ -1,13 +1,19 @@
 import { MdOutlineArticle } from 'react-icons/md';
 import SocialShares from '../utils/SocialShares';
+import { motion } from 'framer-motion';
 
 const RelatedArticlesDisplay = ({ articles }) => {
+	console.log(articles);
 	return (
 		<div className='snap-x mx-auto snap-mandatory  flex w-full  overflow-scroll scrollbar-hide '>
 			{articles.map((article, index) => (
-				<div
+				<motion.div
 					key={index}
-					className='snap-center   mx-4 lg:mx-8 flex-shrink-0 w-5/6 xl:w-2/3  flex   '
+					className='snap-center   mx-4 lg:mx-8 flex-shrink-0 w-4/5 xl:w-1/2  flex   '
+					initial={{ opacity: 0, scale: .7 }}
+					whileInView={{ opacity: 1, scale: 1 }}
+					transition={{ duration: 0.9 }}
+
 				>
 					<div className='grid gap-2'>
 						<span className='text-3xl text-triary'>
@@ -21,7 +27,7 @@ const RelatedArticlesDisplay = ({ articles }) => {
 							<SocialShares url={article.articleLink} />
 						</div>
 					</div>
-				</div>
+				</motion.div>
 			))}
 		</div>
 	);
