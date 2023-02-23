@@ -25,7 +25,7 @@ const ModalOverlay = ({ children, setModalIsOpen, topic }) => {
 			initial='hidden'
 			animate='visible'
 			exit='exit'
-			className='fixed top-0 left-0 w-full h-full   text-light bg-dark/90 backdrop-blur-md'
+			className='fixed top-0 left-0 w-full h-full     backdrop-blur-md'
 		>
 			<div className=' flex flex-col  w-full max-w-4xl mx-auto z-20'>
 				<div className='grid place-items-center lg:w-full  lg:flex lg:justify-between lg:items-center text-lg lg:text-3xl tracking-wider h-[10vh] mx-4'>

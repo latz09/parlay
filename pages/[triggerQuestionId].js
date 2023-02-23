@@ -7,8 +7,11 @@ import Spinner from '../components/utils/Spinner';
 import DiscussionsByCategory from '../components/discussions/DiscussionsByCategory';
 
 import { ObjectId } from 'mongodb';
+import StartDiscussion from '../components/utils/StartDiscussion';
 
-const TriggerQuestionPage = ({ discussions }) => {
+const TriggerQuestionPage = ({ discussions, id }) => {
+
+	console.log(id)
 	
 
 	return (
@@ -23,6 +26,7 @@ const TriggerQuestionPage = ({ discussions }) => {
 						discussions.discussions ? discussions.discussions.length : 0
 					}
 				/>
+				<StartDiscussion id={id} />
 				<DiscussionsByTriggerQuestionId id={discussions._id} />
 				<MinimumArticle articles={discussions.relatedArticles} />
 				<DiscussionsByCategory category='sports' />
@@ -45,6 +49,6 @@ export async function getServerSideProps({ params, req, res }) {
 	});
 
 	return {
-		props: { discussions: JSON.parse(JSON.stringify(data)) },
+		props: { discussions: JSON.parse(JSON.stringify(data)), id: triggerQuestionId },
 	};
 }
