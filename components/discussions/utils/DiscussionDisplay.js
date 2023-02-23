@@ -1,6 +1,7 @@
 import VoteDisplay from '../../utils/VoteDisplay';
 import Spinner from '../../utils/Spinner';
 import { motion } from 'framer-motion';
+import { UserDisplay } from '../../CommentDisplay/utils/CommentInput';
 
 
 const DiscussionDisplay = ({ discussions }) => {
@@ -61,9 +62,7 @@ export const DiscussionCard = ({ topic, upvotes, downvotes, discussion, id }) =>
 const CommentPreview = ({ comments }) => {
 	return (
 		<div className='grid gap-2 lg:mx-4 '>
-			<span className='text-xl font-bold text-triary tracking-wider'>
-				user{comments[0].userId}
-			</span>
+			<UserDisplay userId={comments[0].userId} />
 			<span className='mx-4'>{comments[0].comment}</span>
 		</div>
 	);

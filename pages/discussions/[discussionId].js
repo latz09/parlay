@@ -1,16 +1,28 @@
 import connectToDatabase from '../../helpers/mongodb';
 import { ObjectId } from 'mongodb';
+import { TriggerQuestion } from '../../components/triggerQuestions/TriggerQuestionDisplay';
+import VoteDisplay from '../../components/utils/VoteDisplay';
+import CommentDisplay from '../../components/CommentDisplay/CommentDisplay';
+import DiscussionsByCategory from '../../components/discussions/DiscussionsByCategory';
 
 const DiscussionById = ({ discussion, id }) => {
-	// console.log(discussion);
+	const { upvotes, downvotes, topic, comments, category } = discussion;
+	console.log(discussion);
 	return (
-		<div className='grid place-items-center my-24 gap24'>
-			<div>DISCUSSIONS PAGE</div>
-			<div className='grid gap-2'>
-				{discussion.topic}
-			
+		<div className='grid gap-2  max-w-7xl mx-auto px-4'>
+			<div className="my-4 lg:my-0 lg:h-[15vh] grid items-center">
+				<DiscussionTopic topic={topic} />
+				<VoteDisplay
+					upvotes={upvotes}
+					downvotes={downvotes + 1}
+					discussions={comments}
+					disabled={true}
+				/>
 			</div>
-            {id}
+			<div className="h-[75vh] ">
+				<CommentDisplay comments={comments} />
+			</div>
+			<DiscussionsByCategory category={category} />
 		</div>
 	);
 };
@@ -19,7 +31,6 @@ export default DiscussionById;
 
 export async function getServerSideProps({ params, req, res }) {
 	const { discussionId } = params;
-    
 
 	// const discussionId = '63f56ffb3fcb69c17deb52a6'
 
@@ -32,3 +43,11 @@ export async function getServerSideProps({ params, req, res }) {
 		props: { discussion: JSON.parse(JSON.stringify(data)), id: discussionId },
 	};
 }
+
+const DiscussionTopic = ({ topic }) => {
+	return (
+		<div className='text-center text-lg lg:text-3xl self-end text-primary lg:text-primary/70 tracking-wider'>
+			<span>{topic}</span>
+		</div>
+	);
+};

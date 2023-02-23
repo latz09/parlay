@@ -39,16 +39,30 @@ const VoteDisplay = ({
 					</span>
 					<span>{downvote}</span>
 				</div>
-				<Link href={`/discussions/${discussionId}`}>
-					<div className='vote-display '>
-						<span className='text-2xl'>
-							<BsChatLeft />
-						</span>
-						<span>{discussions ? discussions.length : 0}</span>
+				{!disabled ? (
+					<div>
+						<Link href={`/discussions/${discussionId}`}>
+							<ChatBox discussions={discussions} />
+						</Link>
 					</div>
-				</Link>
+				) : (
+					<div>
+						<ChatBox discussions={discussions} />
+					</div>
+				)}
 			</div>
 		</>
 	);
 };
 export default VoteDisplay;
+
+const ChatBox = ({ discussions }) => {
+	return (
+		<div className='vote-display '>
+			<span className='text-2xl'>
+				<BsChatLeft />
+			</span>
+			<span>{discussions ? discussions.length : 0}</span>
+		</div>
+	);
+};

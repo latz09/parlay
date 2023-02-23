@@ -5,11 +5,11 @@ import { motion } from 'framer-motion';
 const RelatedArticlesDisplay = ({ articles }) => {
 	console.log(articles);
 	return (
-		<div className='snap-x mx-auto snap-mandatory  flex w-full  overflow-scroll scrollbar-hide '>
+		<div className='snap-x mx-auto snap-mandatory  flex w-full   overflow-scroll scrollbar-hide '>
 			{articles.map((article, index) => (
 				<motion.div
 					key={index}
-					className='snap-center   mx-4 lg:mx-8 flex-shrink-0 w-4/5 xl:w-1/2  flex   '
+					className='snap-center    mx-4 lg:mx-8 flex-shrink-0 w-3/4 xl:w-1/2  flex   '
 					initial={{ opacity: 0, scale: .7 }}
 					whileInView={{ opacity: 1, scale: 1 }}
 					transition={{ duration: 0.9 }}
