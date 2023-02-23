@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 const RelatedArticlesDisplay = ({ articles }) => {
 	console.log(articles);
 	return (
-		<div className='snap-x mx-auto snap-mandatory  flex w-full   overflow-scroll scrollbar-hide '>
+		<div className='snap-y mx-auto snap-mandatory  flex w-full  overflow-scroll scrollbar-hide my-2 '>
 			{articles.map((article, index) => (
 				<motion.div
 					key={index}

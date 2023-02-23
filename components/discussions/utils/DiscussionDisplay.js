@@ -12,7 +12,7 @@ const DiscussionDisplay = ({ discussions }) => {
 	return (
 		<>
 			{discussions ? (
-				<div className=' snap-x mx-auto snap-mandatory   flex w-full   overflow-scroll scrollbar-hide my-2 '>
+				<div className=' snap-y mx-auto snap-mandatory   flex w-full   overflow-scroll scrollbar-hide my-2 '>
 					{/* <div className="text-center mt-8">all discussions</div> */}
 					{discussions.map((discussion) => (
 						<motion.div
