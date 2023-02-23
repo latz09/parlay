@@ -12,7 +12,7 @@ const DiscussionDisplay = ({ discussions }) => {
 	return (
 		<>
 			{discussions ? (
-				<div className=' snap-y mx-auto snap-mandatory   flex w-full   overflow-scroll scrollbar-hide my-2 '>
+				<div className=' snap-y mx-auto snap-mandatory   flex w-full   overflow-y-scroll scrollbar-hide my-2 '>
 					{/* <div className="text-center mt-8">all discussions</div> */}
 					{discussions.map((discussion) => (
 						<motion.div
@@ -20,7 +20,7 @@ const DiscussionDisplay = ({ discussions }) => {
 							whileInView={{ opacity: 1, scale: 1 }}
 							transition={{ duration: 1, delay: .2 }}
 							key={discussion._id}
-							className='snap-start w-3/4 xl:w-1/3    flex-shrink-0  flex px-4 py-2  mx-4  shadow-lg  border-triary/40  rounded-tr-xl  rounded-tl-md border-x'
+							className='snap-center w-3/4 xl:w-1/3    flex-shrink-0  flex px-4 py-2  mx-4  shadow-lg  border-triary/40  rounded-tr-xl  rounded-tl-md border-x'
 						>
 							<div className='p-2  mx-auto '>
 								<DiscussionCard
