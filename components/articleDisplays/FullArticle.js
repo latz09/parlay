@@ -3,7 +3,7 @@ import SocialShares from '../utils/SocialShares';
 import { motion } from 'framer-motion';
 
 const RelatedArticlesDisplay = ({ articles }) => {
-	console.log(articles);
+	
 	return (
 		<div className='snap-y mx-auto snap-mandatory  flex w-full  overflow-y-scroll scrollbar-hide my-2 '>
 			{articles.map((article, index) => (

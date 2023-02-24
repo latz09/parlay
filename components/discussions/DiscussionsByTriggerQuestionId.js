@@ -7,7 +7,7 @@ import DiscussionDisplay from './utils/DiscussionDisplay';
 const DiscussionsByTriggerQuestionId = ({ id }) => {
 	//go through all of discussions that have a triggerquestionId that matches the current trigger question
 	const [discussions, setDiscussions] = useState();
-
+console.log(discussions)
 	useEffect(() => {
 		fetch(`/api/discussions/byTriggerQuestion/${id}`)
 			.then((res) => res.json())

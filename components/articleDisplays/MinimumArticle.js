@@ -12,7 +12,7 @@ const MinimumArticle = ({ articles }) => {
 					? articles.map((article, index) => (
 							<div
 								key={index}
-								className='snap-start w-1/2 xl:w-1/4  flex-shrink-0  flex px-4 py-8  m-4 border border-primary/50 border-r-primary/30 shadow-lg '
+								className='snap-start w-1/2 xl:w-1/4  flex-shrink-0  flex px-4 py-8  m-4 bordr border-primary/50 border-r-primary/30 bg-triary/30 shadow-lg '
 							>
 								<div className='flex flex-col justify-between gap-4  '>
 									<div className='grid gap-2'>

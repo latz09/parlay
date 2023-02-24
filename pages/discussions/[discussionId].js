@@ -7,7 +7,7 @@ import DiscussionsByCategory from '../../components/discussions/DiscussionsByCat
 
 const DiscussionById = ({ discussion, id }) => {
 	const { upvotes, downvotes, topic, comments, category } = discussion;
-	console.log(discussion);
+	
 	return (
 		<div className='grid gap-2  max-w-7xl mx-auto px-4'>
 			<div className="my-4 lg:my-0 lg:h-[15vh] grid items-center">

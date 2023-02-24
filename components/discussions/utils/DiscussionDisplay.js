@@ -3,12 +3,7 @@ import Spinner from '../../utils/Spinner';
 import { motion } from 'framer-motion';
 import { UserDisplay } from '../../CommentDisplay/utils/CommentInput';
 
-
 const DiscussionDisplay = ({ discussions }) => {
-
-
-	
-	
 	return (
 		<>
 			{discussions ? (
@@ -20,7 +15,7 @@ const DiscussionDisplay = ({ discussions }) => {
 							// whileInView={{ opacity: 1, scale: 1 }}
 							// transition={{ duration: 1, delay: .2 }}
 							key={discussion._id}
-							className='snap-center w-3/4 xl:w-1/3    flex-shrink-0  flex px-4 py-2  mx-4  shadow-lg  border-triary/40  rounded-tr-xl  rounded-tl-md border-x'
+							className='snap-center w-3/4 xl:w-1/3    flex-shrink-0  flex px-4 py-2  mx-4     rounded-tl-md shadow-lg  bg-primary/10'
 						>
 							<div className='p-2  mx-auto '>
 								<DiscussionCard
@@ -43,7 +38,13 @@ const DiscussionDisplay = ({ discussions }) => {
 
 export default DiscussionDisplay;
 
-export const DiscussionCard = ({ topic, upvotes, downvotes, discussion, id }) => {
+export const DiscussionCard = ({
+	topic,
+	upvotes,
+	downvotes,
+	discussion,
+	id,
+}) => {
 	return (
 		<div className='flex flex-col justify-between gap-4 lg:gap-8 '>
 			<span className='text-xl lg:text-3xl text-primary'>{topic}</span>

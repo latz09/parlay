@@ -11,7 +11,7 @@ import StartDiscussion from '../components/utils/StartDiscussion';
 
 const TriggerQuestionPage = ({ discussions, id }) => {
 
-	console.log(id)
+	
 	
 
 	return (

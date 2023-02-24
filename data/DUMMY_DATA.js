@@ -3,9 +3,10 @@ const ObjectId = require('mongo-objectid');
 export const DummyTriggerQuestions = [
 	{
 		category: 'Sports',
+		author: '',
 		question: 'Should Tom Brady have stayed retired?',
-		upvotes: 0,
-		downvotes: 0,
+		upvotes: [],
+		downvotes: [],
 		discussions: [],
 		relatedArticles: [
 			{
@@ -70,9 +71,10 @@ export const DummyTriggerQuestions = [
 	},
 	{
 		category: 'Entertainment',
+		author: '',
 		question: 'Brittney Spears husband should have stormed off',
-		upvotes: 0,
-		downvotes: 0,
+		upvotes: [],
+		downvotes: [],
 		discussions: [],
 		relatedArticles: [
 			{
@@ -123,9 +125,10 @@ export const DummyTriggerQuestions = [
 	},
 	{
 		category: 'Entertainment',
+		author: '',
 		question: 'The Last of Us will surpass the popularity of The Walking Dead',
-		upvotes: 0,
-		downvotes: 0,
+		upvotes: [],
+		downvotes: [],
 		discussions: [],
 		relatedArticles: [
 			{
@@ -178,175 +181,214 @@ export const DummyDiscussionData = [
 	{
 		topic: 'Tom Brady is washed up',
 		category: 'Sports',
+		author: '63f839003fcb69c17deb52c3',
 		triggerQuestionID: '63f4e0d53fcb69c17deb527f',
-		upvotes: 0,
-		downvotes: 0,
+		upvotes: [],
+		downvotes: [],
 		comments: [
 			{
-				userId: '1',
+				userId: '3f839003fcb69c17deb52c8',
 				comment:
 					'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Metus vulputate eu scelerisque felis imperdiet.',
-				upvotes: 0,
-				downvotes: 0,
+				upvotes: [],
+				downvotes: [],
 			},
 			{
-				userId: '2',
+				userId: '63f839003fcb69c17deb52c3',
 				comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-				upvotes: 0,
-				downvotes: 0,
+				upvotes: [],
+				downvotes: [],
 			},
 			{
-				userId: '3',
+				userId: '3f839003fcb69c17deb52c8',
 				comment:
 					'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
-				upvotes: 0,
-				downvotes: 0,
+				upvotes: [],
+				downvotes: [],
 			},
 		],
-	},	
+	},
 	{
 		topic: 'Tom Brady is the goat and will play till he is 50',
 		category: 'Sports',
+		author: '63f839003fcb69c17deb52c4',
 		triggerQuestionID: '63f4e0d53fcb69c17deb527f',
-		upvotes: 0,
-		downvotes: 0,
+		upvotes: [],
+		downvotes: [],
 		comments: [
 			{
-				userId: '1',
+				userId: '63f839003fcb69c17deb52c4',
 				comment:
 					'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Metus vulputate eu scelerisque felis imperdiet.',
-				upvotes: 0,
-				downvotes: 0,
+				upvotes: [],
+				downvotes: [],
 			},
 			{
-				userId: '2',
+				userId: '63f839003fcb69c17deb52c6',
 				comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-				upvotes: 0,
-				downvotes: 0,
+				upvotes: [],
+				downvotes: [],
 			},
 			{
-				userId: '3',
+				userId: '63f839003fcb69c17deb52c4',
 				comment:
 					'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
-				upvotes: 0,
-				downvotes: 0,
+				upvotes: [],
+				downvotes: [],
 			},
 		],
-	},	
+	},
 	{
 		topic: 'Leave Brittney Alone!',
 		category: 'entertainment',
-		triggerQuestionID:'63f4e0d53fcb69c17deb5280',
-		upvotes: 0,
-		downvotes: 0,
+		author: '63f839003fcb69c17deb52c5',
+		triggerQuestionID: '63f4e0d53fcb69c17deb5280',
+		upvotes: [],
+		downvotes: [],
 		comments: [
 			{
-				userId: '1',
+				userId: '63f839003fcb69c17deb52c4',
 				comment:
 					'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Metus vulputate eu scelerisque felis imperdiet.',
-				upvotes: 0,
-				downvotes: 0,
+				upvotes: [],
+				downvotes: [],
 			},
 			{
-				userId: '2',
+				userId: '63f839003fcb69c17deb52c6',
 				comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-				upvotes: 0,
-				downvotes: 0,
+				upvotes: [],
+				downvotes: [],
 			},
 			{
-				userId: '3',
+				userId: '63f839003fcb69c17deb52c4',
 				comment:
 					'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
-				upvotes: 0,
-				downvotes: 0,
+				upvotes: [],
+				downvotes: [],
 			},
 		],
 	},
 	{
 		topic: 'Brittney Spears is still alive?',
 		category: 'entertainment',
-		triggerQuestionID:'63f4e0d53fcb69c17deb5280',
-		upvotes: 0,
-		downvotes: 0,
+		author: '63f839003fcb69c17deb52c6',
+		triggerQuestionID: '63f4e0d53fcb69c17deb5280',
+		upvotes: [],
+		downvotes: [],
 		comments: [
 			{
-				userId: '1',
+				userId: '3f839003fcb69c17deb52c8',
 				comment:
 					'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Metus vulputate eu scelerisque felis imperdiet.',
-				upvotes: 0,
-				downvotes: 0,
+				upvotes: [],
+				downvotes: [],
 			},
 			{
-				userId: '2',
+				userId: '63f839003fcb69c17deb52c3',
 				comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-				upvotes: 0,
-				downvotes: 0,
+				upvotes: [],
+				downvotes: [],
 			},
 			{
-				userId: '3',
+				userId: '3f839003fcb69c17deb52c8',
 				comment:
 					'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
-				upvotes: 0,
-				downvotes: 0,
+				upvotes: [],
+				downvotes: [],
 			},
 		],
 	},
 	{
 		topic: 'They are fucking up this show',
 		category: 'entertainment',
+		author: '63f839003fcb69c17deb52c7',
 		triggerQuestionID: '63f4e0d53fcb69c17deb5281',
-		upvotes: 0,
-		downvotes: 0,
+		upvotes: [],
+		downvotes: [],
 		comments: [
 			{
-				userId: '1',
+				userId: '3f839003fcb69c17deb52c8',
 				comment:
 					'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Metus vulputate eu scelerisque felis imperdiet.',
-				upvotes: 0,
-				downvotes: 0,
+				upvotes: [],
+				downvotes: [],
 			},
 			{
-				userId: '2',
+				userId: '63f839003fcb69c17deb52c3',
 				comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-				upvotes: 0,
-				downvotes: 0,
+				upvotes: [],
+				downvotes: [],
 			},
 			{
-				userId: '3',
+				userId: '3f839003fcb69c17deb52c8',
 				comment:
 					'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
-				upvotes: 0,
-				downvotes: 0,
+				upvotes: [],
+				downvotes: [],
 			},
 		],
 	},
 	{
 		topic: 'The last of us is going to be the best show ever!',
 		category: 'entertainment',
+		author: '63f839003fcb69c17deb52c8',
 		triggerQuestionID: '63f4e0d53fcb69c17deb5281',
-		upvotes: 0,
-		downvotes: 0,
+		upvotes: [],
+		downvotes: [],
 		comments: [
 			{
-				userId: '1',
+				userId: '63f839003fcb69c17deb52c4',
 				comment:
 					'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Metus vulputate eu scelerisque felis imperdiet.',
-				upvotes: 0,
-				downvotes: 0,
+				upvotes: [],
+				downvotes: [],
 			},
 			{
-				userId: '2',
+				userId: '63f839003fcb69c17deb52c6',
 				comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-				upvotes: 0,
-				downvotes: 0,
+				upvotes: [],
+				downvotes: [],
 			},
 			{
-				userId: '3',
+				userId: '63f839003fcb69c17deb52c4',
 				comment:
 					'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
-				upvotes: 0,
-				downvotes: 0,
+				upvotes: [],
+				downvotes: [],
 			},
 		],
+	},
+];
+
+export const UserData = [
+	{
+		first_name: 'John ',
+		last_name: 'Doe',
+		email: 'jDoe@example.com',
+	},
+	{
+		first_name: 'Jane ',
+		last_name: 'Smith',
+		email: 'jSmith@example.com',
+	},
+	{
+		first_name: 'Alex',
+		last_name: 'Joseph',
+		email: 'alexjoseph@example.com',
+	},
+	{
+		first_name: 'Johnny ',
+		last_name: 'Appleseed',
+		email: 'japseed@example.com',
+	},
+	{
+		first_name: 'Olivia',
+		last_name: 'Brown',
+		email: 'olivia.brown@example.com',
+	},
+	{
+		first_name: 'Emma ',
+		last_name: 'Williams',
+		email: 'em.will@example.com',
 	},
 ];

@@ -17,8 +17,7 @@ const TriggerQuestionDisplay = ({
 }) => {
 	return (
 		<div className='grid gap-4'>
-			{/* <CategoryAndQuestion category={category} question={question} />		 */}
-			{/* <span className="text-3xl bg-triary">{question}</span> */}
+		
 			<TriggerQuestion category={category} question={question} />
 
 			<VoteDisplay

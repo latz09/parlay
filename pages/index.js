@@ -1,9 +1,11 @@
 
 import TriggerQuestionDisplay from '../components/triggerQuestions/TriggerQuestionDisplay';
-// import { DummyTriggerQuestions, DummyDiscussionData } from '../data/DUMMY_DATA';
+import { DummyTriggerQuestions, DummyDiscussionData, UserData } from '../data/DUMMY_DATA';
 import connectToDatabase from '../helpers/mongodb';
 
 export default function Home({ triggerQuestions }) {
+
+	// console.log(JSON.stringify(DummyDiscussionData));
 	return (
 		<div className='grid gap-16  max-w-5xl mx-auto p-4 my-4 lg:my-16 '>
 			{triggerQuestions.map((question) => (

@@ -9,7 +9,7 @@ async function handler(request, response) {
     const db = client.db('Parlay');
     const discussionsCollection = db.collection('discussions');   
     const discussion = await discussionsCollection.find({category: category}).toArray()
-    console.log(discussion)
+ 
     response.status(200).json(discussion)
 }
 
