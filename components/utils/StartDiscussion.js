@@ -9,7 +9,7 @@ const StartDiscussion = ({ id }) => {
 			<div className='grid place-items-center'>
 				{/* <div>{id}</div> */}
 				<button
-					className='btn bg-triary'
+					className='btn bg-triary text-dark/70'
 					onClick={() => {
 						setOpenModal(true);
 					}}

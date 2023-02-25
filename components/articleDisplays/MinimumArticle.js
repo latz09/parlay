@@ -19,7 +19,7 @@ const MinimumArticle = ({ articles }) => {
 										<span className='text-3xl text-light'>
 											<MdOutlineArticle />
 										</span>
-										<div className='font-bold text-dark/80  '>
+										<div className='font-bold text-light  '>
 											{' '}
 											{article.title}
 										</div>
