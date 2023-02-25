@@ -15,7 +15,7 @@ const DiscussionDisplay = ({ discussions }) => {
 							// whileInView={{ opacity: 1, scale: 1 }}
 							// transition={{ duration: 1, delay: .2 }}
 							key={discussion._id}
-							className='snap-center w-3/4 xl:w-1/3    flex-shrink-0  flex px-4 py-2  mx-4     rounded-tl-md shadow-lg  bg-primary/10'
+							className='snap-center w-3/4 xl:w-1/3    flex-shrink-0  flex px-4 py-2  mx-4      shadow-lg  bg-primary/50'
 						>
 							<div className='p-2  mx-auto '>
 								<DiscussionCard
@@ -47,7 +47,7 @@ export const DiscussionCard = ({
 }) => {
 	return (
 		<div className='flex flex-col justify-between gap-4 lg:gap-8 '>
-			<span className='text-xl lg:text-3xl text-primary'>{topic}</span>
+			<span className='text-xl lg:text-3xl text-light'>{topic}</span>
 			<CommentPreview comments={discussion} />
 			<VoteDisplay
 				upvotes={upvotes}
@@ -62,7 +62,7 @@ export const DiscussionCard = ({
 
 const CommentPreview = ({ comments }) => {
 	return (
-		<div className='grid gap-2 lg:mx-4 '>
+		<div className='grid gap-2 lg:mx-4 text-light font-semibold tracking-wider'>
 			<UserDisplay userId={comments[0].userId} />
 			<span className='mx-4'>{comments[0].comment}</span>
 		</div>

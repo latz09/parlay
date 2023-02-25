@@ -21,8 +21,8 @@ export default CommentInput;
 export const UserDisplay = ({ userId }) => {
 	return (
 		<div className='flex space-x-2 items-center '>
-			<span className="bg-primary/20 p-2 rounded-full ">
-                <FaUserAlt className='text-xl text-dark' />
+			<span className="bg-light p-2 rounded-full ">
+                <FaUserAlt className='text-xl text-primary' />
             </span>
 			<div>{userId}</div>
 		</div>

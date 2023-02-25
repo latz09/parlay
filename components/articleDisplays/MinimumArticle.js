@@ -12,14 +12,14 @@ const MinimumArticle = ({ articles }) => {
 					? articles.map((article, index) => (
 							<div
 								key={index}
-								className='snap-start w-1/2 xl:w-1/4  flex-shrink-0  flex px-4 py-8  m-4 bordr border-primary/50 border-r-primary/30 bg-triary/30 shadow-lg '
+								className='snap-start w-1/2 xl:w-1/4  flex-shrink-0  flex px-4 py-8  m-4  bg-triary shadow-lg '
 							>
 								<div className='flex flex-col justify-between gap-4  '>
 									<div className='grid gap-2'>
-										<span className='text-3xl text-triary'>
+										<span className='text-3xl text-light'>
 											<MdOutlineArticle />
 										</span>
-										<div className='font-bold text-primary  '>
+										<div className='font-bold text-dark/80  '>
 											{' '}
 											{article.title}
 										</div>
