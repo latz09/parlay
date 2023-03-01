@@ -5,11 +5,14 @@ import MinimumArticle from '../components/articleDisplays/MinimumArticle';
 import Spinner from '../components/utils/Spinner';
 
 import DiscussionsByCategory from '../components/discussions/DiscussionsByCategory';
-
+import { useSession, signOut } from 'next-auth/react';
 import { ObjectId } from 'mongodb';
 
 
 const TriggerQuestionPage = ({ discussions, id }) => {
+	
+	const { data: session } = useSession();
+	console.log(session);
 	
 
 	

@@ -4,10 +4,12 @@ import { TriggerQuestion } from '../../components/triggerQuestions/TriggerQuesti
 import VoteDisplay from '../../components/utils/VoteDisplay';
 import CommentDisplay from '../../components/CommentDisplay/CommentDisplay';
 import DiscussionsByCategory from '../../components/discussions/DiscussionsByCategory';
+import { useSession, } from 'next-auth/react';
 
 const DiscussionById = ({ discussion, id }) => {
 	const { upvotes, downvotes, topic, comments, category } = discussion;
-	
+	const { data: session } = useSession();
+	console.log(session);
 	return (
 		<div className='grid gap-2  max-w-7xl mx-auto px-4'>
 			<div className="my-4 lg:my-0 lg:h-[15vh] grid items-center">
@@ -17,10 +19,11 @@ const DiscussionById = ({ discussion, id }) => {
 					downvotes={downvotes + 1}
 					discussions={comments}
 					disabled={true}
+					
 				/>
 			</div>
 			<div className="h-[75vh] ">
-				<CommentDisplay comments={comments} />
+				<CommentDisplay comments={comments} sessionUser={session.user.email}/>
 			</div>
 			<DiscussionsByCategory category={'entertainment'} />
 			<DiscussionsByCategory category={'sports'} />

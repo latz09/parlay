@@ -26,7 +26,7 @@ async function createUser(email, password, id) {
 }
 
 const SignUpForm = ({ setOpenModal, id }) => {
-	console.log(id)
+	
 	const router = useRouter();
 	const [isLogin, setIsLogin] = useState(false);
 	const emailInputRef = useRef();
@@ -47,7 +47,7 @@ const SignUpForm = ({ setOpenModal, id }) => {
 
 		if (isLogin) {
 			const result = await signIn('credentials', data);
-			console.log(result)
+			console.log(result, )
 			if (!result.error) {
 				// set some auth state
 				setOpenModal(false);

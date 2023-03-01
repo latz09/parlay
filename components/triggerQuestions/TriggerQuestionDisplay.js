@@ -5,7 +5,7 @@ import CastTriggerQuestionVote from './utils/CastTriggerQuestionVote';
 import JoinDiscussionLink from '../utils/JoinDiscussionLink';
 import FullArticle from '../articleDisplays/FullArticle';
 import VoteDisplay from '../utils/VoteDisplay';
-import { useSession, signOut } from 'next-auth/react';
+import { useSession, } from 'next-auth/react';
 import LoginModal from '../login/LoginModal';
 
 const TriggerQuestionDisplay = ({

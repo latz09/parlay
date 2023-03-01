@@ -32,14 +32,16 @@ export default NextAuth({
 					throw new Error('Correct email / Wrong Password');
 				}
 
-				const result = { email: user.email };
+				const result = { email: user.email};
 
 				// client.close();
 
 				return result;
 			},
 		}),
+		
 	],
+	
 
 	secret: process.env.SECRET,
 });
