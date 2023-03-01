@@ -1,5 +1,6 @@
 import LoginModal from '../components/login/LoginModal';
 import TriggerQuestionDisplay from '../components/triggerQuestions/TriggerQuestionDisplay';
+import { useSession, signOut } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 
 import {
@@ -11,7 +12,7 @@ import {
 import connectToDatabase from '../helpers/mongodb';
 
 export default function Home({ triggerQuestions }) {
-	
+	const { data: session } = useSession();
 	const [questions, setQuestions] = useState();
 	// console.log(JSON.stringify(DummyDiscussionData));
 	useEffect(() => {
