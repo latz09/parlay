@@ -17,7 +17,6 @@ export default NextAuth({
 
 				const user = await usersCollection.findOne({
 					email: credentials.email,
-					
 				});
 
 				if (!user) {
@@ -29,12 +28,9 @@ export default NextAuth({
 					user.password
 				);
 
-				if (!isValid) {                    
+				if (!isValid) {
 					throw new Error('Correct email / Wrong Password');
-                    
 				}
-
-				
 
 				const result = { email: user.email };
 
@@ -44,4 +40,6 @@ export default NextAuth({
 			},
 		}),
 	],
+
+	secret: process.env.SECRET,
 });
