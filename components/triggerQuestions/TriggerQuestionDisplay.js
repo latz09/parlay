@@ -31,15 +31,11 @@ const TriggerQuestionDisplay = ({
 			/>
 			<FullArticle articles={relatedArticles} />
 			<CastTriggerQuestionVote />
-			{session ? (
+			
 				<Link href={`/${id}`}>
 					<JoinDiscussionLink />
 				</Link>
-			) : (
-				<div >
-					<LoginModal id={id}/>
-				</div>
-			)}
+		
 		</div>
 	);
 };
