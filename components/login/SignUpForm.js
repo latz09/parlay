@@ -1,9 +1,9 @@
-import { useRouter } from 'next/router';
+
 import { useRef, useState } from 'react';
 import { signIn } from 'next-auth/react';
 
 // create user--move out
-async function createUser(email, password) {
+async function createUser(email, password, id) {
 	const response = await fetch('/api/auth/signup', {
 		method: 'POST',
 		body: JSON.stringify({
@@ -25,7 +25,7 @@ async function createUser(email, password) {
 }
 
 const SignUpForm = ({ setOpenModal, id }) => {
-	const router = useRouter();
+	
 	const [isLogin, setIsLogin] = useState(false);
 	const emailInputRef = useRef();
 	const passwordInputRef = useRef();
@@ -48,7 +48,7 @@ const SignUpForm = ({ setOpenModal, id }) => {
 			console.log(result)
 			if (!result.error) {
 				// set some auth state
-				router.replace(`/${id}`);
+				setOpenModal(false);
 				
 			}
 		} else {

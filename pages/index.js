@@ -12,14 +12,14 @@ import {
 import connectToDatabase from '../helpers/mongodb';
 
 export default function Home({ triggerQuestions }) {
-	// const { data: session } = useSession();
+	const { data: session } = useSession();
 	const [questions, setQuestions] = useState();
 	// console.log(JSON.stringify(DummyDiscussionData));
 	useEffect(() => {
 		setQuestions(triggerQuestions);
 	}, [triggerQuestions]);
 
-	// console.log(session);
+	console.log(session);
 
 	return (
 		<>
@@ -27,14 +27,14 @@ export default function Home({ triggerQuestions }) {
 				<p>loading</p>
 			) : (
 				<div className='grid gap-16  max-w-5xl mx-auto p-4 my-4 lg:my-16 '>
-			
+					{session && <div onClick={() => signOut()}>{session.user.email}</div>}
 					{/* {session ? (
 						<div>
 							<div>{session.user.email}</div>
 							<div onClick={() => signOut()}>logout</div>
 						</div>
 					): <div>not logged in</div>} */}
-
+					<LoginModal />
 					{questions.map((question) => (
 						<div key={question._id}>
 							<TriggerQuestionDisplay
