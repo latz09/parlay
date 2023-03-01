@@ -1,6 +1,7 @@
 
 import { useRef, useState } from 'react';
 import { signIn } from 'next-auth/react';
+import { useRouter } from 'next/router';
 
 // create user--move out
 async function createUser(email, password, id) {
@@ -25,11 +26,12 @@ async function createUser(email, password, id) {
 }
 
 const SignUpForm = ({ setOpenModal, id }) => {
-	
+	console.log(id)
+	const router = useRouter();
 	const [isLogin, setIsLogin] = useState(false);
 	const emailInputRef = useRef();
 	const passwordInputRef = useRef();
-	console.log(isLogin)
+
 
 	async function submitHandler(e) {
 		e.preventDefault();
@@ -49,6 +51,7 @@ const SignUpForm = ({ setOpenModal, id }) => {
 			if (!result.error) {
 				// set some auth state
 				setOpenModal(false);
+				router.push(`/${id}`);
 				
 			}
 		} else {
