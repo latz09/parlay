@@ -5,6 +5,8 @@ import CastTriggerQuestionVote from './utils/CastTriggerQuestionVote';
 import JoinDiscussionLink from '../utils/JoinDiscussionLink';
 import FullArticle from '../articleDisplays/FullArticle';
 import VoteDisplay from '../utils/VoteDisplay';
+import { useSession, signOut } from 'next-auth/react';
+import LoginModal from '../login/LoginModal';
 
 const TriggerQuestionDisplay = ({
 	id,
@@ -15,9 +17,10 @@ const TriggerQuestionDisplay = ({
 	discussions,
 	relatedArticles,
 }) => {
+	const { data: session } = useSession();
+	console.log(session);
 	return (
 		<div className='grid gap-4'>
-		
 			<TriggerQuestion category={category} question={question} />
 
 			<VoteDisplay
@@ -28,17 +31,21 @@ const TriggerQuestionDisplay = ({
 			/>
 			<FullArticle articles={relatedArticles} />
 			<CastTriggerQuestionVote />
-			<Link href={`/${id}`}>
-				<JoinDiscussionLink />
-			</Link>
+			{session ? (
+				<Link href={`/${id}`}>
+					<JoinDiscussionLink />
+				</Link>
+			) : (
+				<div >
+					<LoginModal id={id}/>
+				</div>
+			)}
 		</div>
 	);
 };
 
 export default TriggerQuestionDisplay;
 
-// pink: #EC449b
-// green #99F443
 
 export const TriggerQuestion = ({ question }) => {
 	return (

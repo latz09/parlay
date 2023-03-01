@@ -22,7 +22,7 @@ const RelatedArticlesDisplay = ({ articles }) => {
 
 						<div className='font-bold text-secondary'> {article.title}</div>
 						<span className="font-semibold text-dark/70">{article.source}</span>
-						<div className="opacity-90">{article.openingParagraph}</div>
+						<div className="">{article.openingParagraph}</div>
 						<div className="my-2">
 							<SocialShares url={article.articleLink} />
 						</div>

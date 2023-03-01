@@ -7,9 +7,10 @@ import Spinner from '../components/utils/Spinner';
 import DiscussionsByCategory from '../components/discussions/DiscussionsByCategory';
 
 import { ObjectId } from 'mongodb';
-import StartDiscussion from '../components/utils/StartDiscussion';
+
 
 const TriggerQuestionPage = ({ discussions, id }) => {
+	
 
 	
 	
@@ -26,7 +27,7 @@ const TriggerQuestionPage = ({ discussions, id }) => {
 						discussions.discussions ? discussions.discussions.length : 0
 					}
 				/>
-				<StartDiscussion id={id} />
+			
 				<DiscussionsByTriggerQuestionId id={discussions._id} />
 				<MinimumArticle articles={discussions.relatedArticles} />
 				<DiscussionsByCategory category='sports' />

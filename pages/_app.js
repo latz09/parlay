@@ -1,7 +1,8 @@
 import { AnimatePresence, motion } from 'framer-motion';
+import { SessionProvider } from 'next-auth/react';
 import '../styles/globals.css';
 
-function MyApp({ Component, pageProps, router }) {
+function MyApp({ Component, pageProps, session, router }) {
 	const pageAnimateVariable = {
 		hidden: {
 			opacity: 0,
@@ -18,17 +19,19 @@ function MyApp({ Component, pageProps, router }) {
 
 	return (
 		<div>
-			<AnimatePresence mode='wait'>
-				<motion.div
-					key={router.route}
-					variants={pageAnimateVariable}
-					initial='hidden'
-					animate='visible'
-					exit='exit'
-				>
-					<Component {...pageProps} />{' '}
-				</motion.div>
-			</AnimatePresence>
+			<SessionProvider session={session} >
+				<AnimatePresence mode='wait'>
+					<motion.div
+						key={router.route}
+						variants={pageAnimateVariable}
+						initial='hidden'
+						animate='visible'
+						exit='exit'
+					>
+						<Component {...pageProps} />{' '}
+					</motion.div>
+				</AnimatePresence>
+			</SessionProvider>
 		</div>
 	);
 }
