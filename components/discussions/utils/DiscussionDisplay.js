@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import { UserDisplay } from '../../CommentDisplay/utils/CommentInput';
 
 const DiscussionDisplay = ({ discussions }) => {
-	console.log(discussions)
 	return (
 		<>
 			{discussions ? (
@@ -12,9 +11,8 @@ const DiscussionDisplay = ({ discussions }) => {
 					{/* <div className="text-center mt-8">all discussions</div> */}
 					{discussions.map((discussion) => (
 						<div
-						
 							key={discussion._id}
-							className='snap-center w-3/4 xl:w-1/3    flex-shrink-0  flex px-4 py-2  mx-4 rounded-sm     shadow-lg  border'
+							className='snap-center w-3/4 xl:w-1/3    flex-shrink-0  flex px-4 py-2  mx-4 rounded-sm     shadow-lg  bg-primary/20'
 						>
 							<div className='p-2  mx-auto '>
 								<DiscussionCard
@@ -44,21 +42,23 @@ export const DiscussionCard = ({
 	downvotes,
 	discussion,
 	id,
-	description
+	description,
 }) => {
 	return (
-		<div className='flex flex-col justify-between gap-4 lg:gap-8 '>
-			<span className='text-xl lg:text-3xl text-primary'>{topic}</span>
-<span>{description}</span>
-			
-			<VoteDisplay
-				upvotes={upvotes}
-				downvotes={downvotes}
-				discussions={discussion}
-				topic={topic}
-				discussionId={id}
-			/>
+		<div className='flex flex-col justify-between gap-4 lg:gap-8  h-full w-full '>
+			<div className='grid gap-4'>
+				<span className='text-xl lg:text-3xl text-primary'>{topic}</span>
+				<span>{description}</span>
+			</div>
+			<div className="w-full">
+				<VoteDisplay
+					upvotes={upvotes}
+					downvotes={downvotes}
+					discussions={discussion}
+					topic={topic}
+					discussionId={id}
+				/>
+			</div>
 		</div>
 	);
 };
-

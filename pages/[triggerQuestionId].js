@@ -8,6 +8,7 @@ import DiscussionsByCategory from '../components/discussions/DiscussionsByCatego
 import { useSession } from 'next-auth/react';
 import { ObjectId } from 'mongodb';
 import { useEffect, useState } from 'react';
+import TriggerQuestionPreview from '../components/triggerQuestions/TriggerQuestionPreview';
 
 const TriggerQuestionPage = ({ discussions}) => {
 	const [user, setUser] = useState();
@@ -49,6 +50,7 @@ const TriggerQuestionPage = ({ discussions}) => {
 					/>
 					<MinimumArticle articles={discussions.relatedArticles} />
 					<DiscussionsByCategory category='entertainment' />
+					<TriggerQuestionPreview />
 					<DiscussionsByCategory category='sports' />
 				</div>
 			</div>

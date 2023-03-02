@@ -10,8 +10,8 @@ function MyApp({ Component, pageProps, session, router }) {
 		visible: {
 			opacity: 1,
 			transition: {
-				delay: 0.5,
-				duration: 1,
+				delay: 0.8,
+				duration: 1.4,
 			},
 		},
 		exit: { opacity: 0, transition: { duration: 0.4 } },

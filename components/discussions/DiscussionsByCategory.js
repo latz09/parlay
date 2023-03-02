@@ -27,7 +27,7 @@ const DiscussionsByCategory = ({ category }) => {
 				<div className='grid gap-2'>
 					<SectionHeading title={`trending ${category} discussions`} />
 					<DiscussionDisplay discussions={discussions} />
-					<ButtonLink href={'/'} title={category} />
+					
 				</div>
 			)}
 		</div>
