@@ -2,6 +2,7 @@
 // setState  handle loading
 
 import { useState, useEffect } from 'react';
+import ButtonLink from '../utils/ButtonLink';
 import SectionHeading from '../utils/SectionHeading';
 import DiscussionDisplay from './utils/DiscussionDisplay';
 
@@ -26,6 +27,7 @@ const DiscussionsByCategory = ({ category }) => {
 				<div className='grid gap-2'>
 					<SectionHeading title={`trending ${category} discussions`} />
 					<DiscussionDisplay discussions={discussions} />
+					<ButtonLink href={'/'} title={category} />
 				</div>
 			)}
 		</div>
@@ -33,3 +35,6 @@ const DiscussionsByCategory = ({ category }) => {
 };
 
 export default DiscussionsByCategory;
+
+
+//MAKE THIS DISCUSSIONS BY FILTER 

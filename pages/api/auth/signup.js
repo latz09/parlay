@@ -8,8 +8,8 @@ async function handler(req, res) {
 
 	const data = req.body;
 
-	const { email, password } = data;
-
+	const { email, password, displayName } = data;
+ 
 	if (
 		!email ||
 		!email.includes('@') ||
@@ -38,6 +38,7 @@ async function handler(req, res) {
 	const result = await db.collection('users').insertOne({
 		email: email,
 		password: hashedPassword ,
+		displayName: displayName,
 	});
 
     res.status(201).json({ message: 'Created user!' });

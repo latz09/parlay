@@ -23,7 +23,7 @@ const DiscussionById = ({ discussion, id }) => {
 				/>
 			</div>
 			<div className="h-[75vh] ">
-				<CommentDisplay comments={comments} sessionUser={session.user.email}/>
+				<CommentDisplay comments={comments} />
 			</div>
 			<DiscussionsByCategory category={'entertainment'} />
 			<DiscussionsByCategory category={'sports'} />

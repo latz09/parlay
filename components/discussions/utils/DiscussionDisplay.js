@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { UserDisplay } from '../../CommentDisplay/utils/CommentInput';
 
 const DiscussionDisplay = ({ discussions }) => {
+	console.log(discussions)
 	return (
 		<>
 			{discussions ? (
@@ -11,9 +12,7 @@ const DiscussionDisplay = ({ discussions }) => {
 					{/* <div className="text-center mt-8">all discussions</div> */}
 					{discussions.map((discussion) => (
 						<div
-							// initial={{ opacity: 0, scale: .7 }}
-							// whileInView={{ opacity: 1, scale: 1 }}
-							// transition={{ duration: 1, delay: .2 }}
+						
 							key={discussion._id}
 							className='snap-center w-3/4 xl:w-1/3    flex-shrink-0  flex px-4 py-2  mx-4 rounded-sm     shadow-lg  border'
 						>
@@ -24,6 +23,7 @@ const DiscussionDisplay = ({ discussions }) => {
 									upvotes={discussion.upvotes}
 									downvotes={discussion.downvotes}
 									discussion={discussion.comments}
+									description={discussion.description}
 								/>
 							</div>
 						</div>
@@ -44,11 +44,13 @@ export const DiscussionCard = ({
 	downvotes,
 	discussion,
 	id,
+	description
 }) => {
 	return (
 		<div className='flex flex-col justify-between gap-4 lg:gap-8 '>
 			<span className='text-xl lg:text-3xl text-primary'>{topic}</span>
-			<CommentPreview comments={discussion} />
+<span>{description}</span>
+			
 			<VoteDisplay
 				upvotes={upvotes}
 				downvotes={downvotes}
@@ -60,11 +62,3 @@ export const DiscussionCard = ({
 	);
 };
 
-const CommentPreview = ({ comments }) => {
-	return (
-		<div className='grid gap-2 lg:mx-4  font-semibold tracking-wider'>
-			<UserDisplay userId={comments[0].userId} />
-			<span className='mx-4'>{comments[0].comment}</span>
-		</div>
-	);
-};
