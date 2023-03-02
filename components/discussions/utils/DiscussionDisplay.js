@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { UserDisplay } from '../../CommentDisplay/utils/CommentInput';
 
 const DiscussionDisplay = ({ discussions }) => {
+	
 	return (
 		<>
 			{discussions ? (
@@ -17,6 +18,7 @@ const DiscussionDisplay = ({ discussions }) => {
 							<div className='p-2  mx-auto '>
 								<DiscussionCard
 									id={discussion._id}
+									author={discussion.author}
 									topic={discussion.topic}
 									upvotes={discussion.upvotes}
 									downvotes={discussion.downvotes}
@@ -43,11 +45,13 @@ export const DiscussionCard = ({
 	discussion,
 	id,
 	description,
+	author
 }) => {
 	return (
 		<div className='flex flex-col justify-between gap-4 lg:gap-8  h-full w-full '>
 			<div className='grid gap-4'>
 				<span className='text-xl lg:text-3xl text-primary'>{topic}</span>
+				<span>{author}</span>
 				<span>{description}</span>
 			</div>
 			<div className="w-full">
