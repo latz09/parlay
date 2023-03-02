@@ -5,18 +5,19 @@ import VoteDisplay from '../../components/utils/VoteDisplay';
 import CommentDisplay from '../../components/CommentDisplay/CommentDisplay';
 import DiscussionsByCategory from '../../components/discussions/DiscussionsByCategory';
 import { useSession, } from 'next-auth/react';
+import TriggerQuestionsPreview from '../../components/triggerQuestions/TriggerQuestionPreview';
 
 const DiscussionById = ({ discussion, id }) => {
 	const { upvotes, downvotes, topic, comments, category } = discussion;
 	const { data: session } = useSession();
 	console.log(session);
 	return (
-		<div className='grid gap-2  max-w-7xl mx-auto px-4'>
+		<div className='grid gap-2  max-w-7xl mx-auto px-4 my-16'>
 			<div className="my-4 lg:my-0 lg:h-[15vh] grid items-center">
 				<DiscussionTopic topic={topic} />
 				<VoteDisplay
 					upvotes={upvotes}
-					downvotes={downvotes + 1}
+					downvotes={downvotes}
 					discussions={comments}
 					disabled={true}
 					
@@ -26,6 +27,7 @@ const DiscussionById = ({ discussion, id }) => {
 				<CommentDisplay comments={comments} />
 			</div>
 			<DiscussionsByCategory category={'entertainment'} />
+			<TriggerQuestionsPreview />
 			<DiscussionsByCategory category={'sports'} />
 		</div>
 	);
