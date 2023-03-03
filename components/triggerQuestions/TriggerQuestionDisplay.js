@@ -7,6 +7,7 @@ import FullArticle from '../articleDisplays/FullArticle';
 import VoteDisplay from '../utils/VoteDisplay';
 import { useSession, } from 'next-auth/react';
 import LoginModal from '../login/LoginModal';
+import { useEffect, useState } from 'react';
 
 const TriggerQuestionDisplay = ({
 	id,
@@ -18,7 +19,14 @@ const TriggerQuestionDisplay = ({
 	relatedArticles,
 }) => {
 	const { data: session } = useSession();
-	console.log(session);
+	const [sessionWasFound, setSessionWasFound] = useState(false);
+
+	useEffect(() => {
+		if (session) {
+			setSessionWasFound(true);
+		}
+	}, [session]);
+
 	return (
 		<div className='grid gap-4'>
 			<TriggerQuestion category={category} question={question} />
@@ -31,7 +39,7 @@ const TriggerQuestionDisplay = ({
 			/>
 			<FullArticle articles={relatedArticles} />
 			<CastTriggerQuestionVote />
-			{session ? (
+			{sessionWasFound ? (
 				<Link href={`/${id}`}>
 					<JoinDiscussionLink />
 				</Link>
