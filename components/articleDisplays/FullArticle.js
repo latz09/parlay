@@ -16,11 +16,11 @@ const RelatedArticlesDisplay = ({ articles }) => {
 
 				>
 					<div className='grid gap-2'>
-						<span className='text-3xl text-triary'>
+						<span className='text-3xl '>
 							<MdOutlineArticle />
 						</span>
 
-						<div className='font-bold text-secondary'> {article.title}</div>
+						<div className='font-bold '> {article.title}</div>
 						<span className="font-semibold text-dark/70">{article.source}</span>
 						<div className="">{article.openingParagraph}</div>
 						<div className="my-2">

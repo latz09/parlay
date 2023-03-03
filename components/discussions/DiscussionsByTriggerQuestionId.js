@@ -57,7 +57,7 @@ const StartOwnDiscussion = ({
 			{isNewDiscussionOpen && (
 				<ModalOverlay setModalIsOpen={setIsNewDiscussionOpen}>
 					<div className='h-full grid place-items-center text-triary font-bold '>
-						<div className='h-3/4  w-3/4 bg-dark/90 rounded'>
+						<div className='h-3/4   w-full lg:w-3/4 bg-dark/95'>
 							<NewDiscussionForm
 								setIsNewDiscussionOpen={setIsNewDiscussionOpen}
 								userId={userId}

@@ -107,10 +107,10 @@ const SignUpForm = ({ setOpenModal, id }) => {
 							id='displayName'
 							required
 							ref={DisplayNameInputRef}
-							className='bg-dark p-2 text-triary'
+							className='bg-dark p-2 text-secondary'
 						/>
 					</div>
-					<div className='grid gap-2'>
+					<div className='grid gap-2 '>
 						<label htmlFor='password' className='place-self-start'>
 							Password
 						</label>
@@ -126,7 +126,7 @@ const SignUpForm = ({ setOpenModal, id }) => {
 
 				<button
 					type='submit'
-					className='p-4 bg-triary  w-1/2 mx-auto rounded-full text-light'
+					className='btn w-1/2 mx-auto '
 				>
 					{isLogin ? 'Login' : 'Sign up'}
 				</button>
@@ -143,6 +143,7 @@ const SignInorUpToggle = ({ setIsLogin, isLogin }) => {
 	return (
 		<div className='my-16'>
 			<button
+				className='border-b border-primary/50 animate-pulse pb-2 '
 				onClick={() => {
 					setIsLogin(!isLogin);
 				}}

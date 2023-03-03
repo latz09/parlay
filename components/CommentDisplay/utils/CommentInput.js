@@ -1,10 +1,9 @@
 import { FaUserAlt } from 'react-icons/fa';
+import UserAvatar from '../../users/UserAvatar';
 
-
-const CommentInput = ({userId}) => {
+const CommentInput = ({ userId }) => {
 	return (
 		<div className='gap-4  lg:flex items-center lg:space-x-4'>
-			<UserDisplay userId={userId}/>
 			<div className='lg:flex-grow my-2'>
 				<input
 					type='text'
@@ -21,9 +20,9 @@ export default CommentInput;
 export const UserDisplay = ({ userId }) => {
 	return (
 		<div className='flex space-x-2 items-center '>
-			<span className=" p-2 rounded-full ">
-                <FaUserAlt className='text-xl text-primary' />
-            </span>
+			<span className=' p-2 rounded-full '>
+				<FaUserAlt className='text-xl text-primary' />
+			</span>
 			<div>{userId}</div>
 		</div>
 	);

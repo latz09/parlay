@@ -29,7 +29,7 @@ const TriggerQuestionsPreview = () => {
 				{triggerQuestions.map((question) => (
 					<div
 						key={question._id}
-						className='snap-center w-3/4 xl:w-1/3 grid bg-triary/20  flex-shrink-0  py-16   mx-4 rounded-sm     shadow-lg '
+						className='snap-center w-3/4 xl:w-1/3 grid border border-primary/50 scale-90 hover:scale-100 transition duration-700 shadow-secondary/20  flex-shrink-0  py-16   mx-2     shadow-lg '
 					>
 						<TriggerQuestionStats
 							id={question._id}
@@ -42,7 +42,7 @@ const TriggerQuestionsPreview = () => {
 						/>
 						<div className='grid place-items-center mt-16'>
 							<Link href={`/${question._id}`}>
-								<span className='btn bg-triary'>View This Parlay</span>
+								<span className='btn '>View This Parlay</span>
 							</Link>
 						</div>
 					</div>

@@ -2,9 +2,10 @@ import VoteDisplay from '../../utils/VoteDisplay';
 import Spinner from '../../utils/Spinner';
 import { motion } from 'framer-motion';
 import { UserDisplay } from '../../CommentDisplay/utils/CommentInput';
+import UserAvatar from '../../users/UserAvatar';
+import DateDisplay from '../../utils/DateDisplay';
 
 const DiscussionDisplay = ({ discussions }) => {
-	
 	return (
 		<>
 			{discussions ? (
@@ -13,7 +14,7 @@ const DiscussionDisplay = ({ discussions }) => {
 					{discussions.map((discussion) => (
 						<div
 							key={discussion._id}
-							className='snap-center w-3/4 xl:w-1/3    flex-shrink-0  flex px-4 py-2  mx-4 rounded-sm     shadow-lg  bg-primary/20'
+							className='snap-center w-3/4 xl:w-1/3    flex-shrink-0  flex px-4 py-2  mx-4 rounded-sm     shadow-lg  '
 						>
 							<div className='p-2  mx-auto '>
 								<DiscussionCard
@@ -24,6 +25,7 @@ const DiscussionDisplay = ({ discussions }) => {
 									downvotes={discussion.downvotes}
 									discussion={discussion.comments}
 									description={discussion.description}
+									createdAt={discussion.createdAt}
 								/>
 							</div>
 						</div>
@@ -45,16 +47,20 @@ export const DiscussionCard = ({
 	discussion,
 	id,
 	description,
-	author
+	author,
+	createdAt,
 }) => {
 	return (
 		<div className='flex flex-col justify-between gap-4 lg:gap-8  h-full w-full '>
-			<div className='grid gap-4'>
-				<span className='text-xl lg:text-3xl text-primary'>{topic}</span>
-				<span>{author}</span>
-				<span>{description}</span>
+			<div className='flex flex-col h-full gap-4'>
+				<div className='grid gap-2'>
+					<UserAvatar user={author} />
+					<DateDisplay date={createdAt} />
+					<span className='text-xl lg:text-2xl font-semibold py-2 text-center'>{`" ${topic} "`}</span>
+				</div>
+				<div className=' flex-grow grid place-items-center'>{description}</div>
 			</div>
-			<div className="w-full">
+			<div className='w-full'>
 				<VoteDisplay
 					upvotes={upvotes}
 					downvotes={downvotes}

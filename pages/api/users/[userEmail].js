@@ -1,5 +1,5 @@
 import connectToDatabase from "../../../helpers/mongodb";
-// <DiscussionsByTriggerQuestionId />
+//
 async function handler(request, response) {
     const userEmail = request.query.userEmail
 

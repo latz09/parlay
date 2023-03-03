@@ -28,13 +28,13 @@ const VoteDisplay = ({
 		<>
 			<div className='flex justify-around  '>
 				<div className='vote-display' onClick={handleUpVote}>
-					<span className='text-2xl'>
+					<span className='text-3xl'>
 						<BsHandThumbsUp />
 					</span>
 					<span>{upvote}</span>
 				</div>
 				<div className='vote-display' onClick={handleDownVote}>
-					<span className='text-2xl'>
+					<span className='text-3xl'>
 						<BsHandThumbsDown />
 					</span>
 					<span>{downvote}</span>
@@ -59,7 +59,7 @@ export default VoteDisplay;
 const ChatBox = ({ discussions }) => {
 	return (
 		<div className='vote-display '>
-			<span className='text-2xl'>
+			<span className='text-3xl'>
 				<BsChatLeft />
 			</span>
 			<span>{discussions ? discussions.length : 0}</span>

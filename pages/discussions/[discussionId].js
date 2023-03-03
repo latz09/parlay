@@ -4,32 +4,50 @@ import { TriggerQuestion } from '../../components/triggerQuestions/TriggerQuesti
 import VoteDisplay from '../../components/utils/VoteDisplay';
 import CommentDisplay from '../../components/CommentDisplay/CommentDisplay';
 import DiscussionsByCategory from '../../components/discussions/DiscussionsByCategory';
-import { useSession, } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
+import { useEffect, useState } from 'react';
 import TriggerQuestionsPreview from '../../components/triggerQuestions/TriggerQuestionPreview';
+import { Avatar } from '../../components/users/UserAvatar';
 
 const DiscussionById = ({ discussion, id }) => {
 	const { upvotes, downvotes, topic, comments, category } = discussion;
 	const { data: session } = useSession();
-	console.log(session);
+	const [user, setUser] = useState();
+
+	//if session fetch user data
+	useEffect(() => {
+		if (session) {
+			fetch(`/api/users/${session.user.email}`)
+				.then((res) => res.json())
+				.then((data) => {
+					setUser(data);
+				});
+		}
+	}, [session]);
+
 	return (
-		<div className='grid gap-2  max-w-7xl mx-auto px-4 my-16'>
-			<div className="my-4 lg:my-0 lg:h-[15vh] grid items-center">
-				<DiscussionTopic topic={topic} />
-				<VoteDisplay
-					upvotes={upvotes}
-					downvotes={downvotes}
-					discussions={comments}
-					disabled={true}
-					
-				/>
-			</div>
-			<div className="h-[75vh] ">
-				<CommentDisplay comments={comments} />
-			</div>
-			<DiscussionsByCategory category={'entertainment'} />
-			<TriggerQuestionsPreview />
-			<DiscussionsByCategory category={'sports'} />
-		</div>
+		<>
+			{user && (
+				<div className='grid gap-2  max-w-7xl mx-auto px-4 '>
+					<div className=' lg:my-0 lg:h-[15vh] grid gap-4 my-4 items-center'>
+						<DiscussionTopic topic={topic} />
+						<VoteDisplay
+							upvotes={upvotes}
+							downvotes={downvotes}
+							discussions={comments}
+							disabled={true}
+						/>
+					</div>
+					<div className='h-[75vh] '>
+						<Avatar displayName={user.displayName} email={user.email} />
+						<CommentDisplay comments={comments} userId={user._id} />
+					</div>
+					<DiscussionsByCategory category={'entertainment'} />
+					<TriggerQuestionsPreview />
+					<DiscussionsByCategory category={'sports'} />
+				</div>
+			)}
+		</>
 	);
 };
 
@@ -52,7 +70,7 @@ export async function getServerSideProps({ params, req, res }) {
 
 const DiscussionTopic = ({ topic }) => {
 	return (
-		<div className='text-center text-lg lg:text-3xl self-end text-primary lg:text-primary/70 tracking-wider'>
+		<div className='text-center text-3xl self-end lg:text-primary/70 tracking-wider'>
 			<span>{topic}</span>
 		</div>
 	);

@@ -23,8 +23,8 @@ const LoginModal = ({id}) => {
 
 			{openModal && (
 				<ModalOverlay setModalIsOpen={setOpenModal}>
-					<div className="h-full grid place-items-center text-triary font-bold text-center">
-                        <div className="h-3/4  w-3/4 bg-dark/90 rounded">                          
+					<div className="h-full grid place-items-center text-triary font-bold text-center mx-2 lg:mx-0">
+                        <div className="h-3/4   w-full lg:w-3/4 bg-dark/95">                          
                             <SignUpForm setOpenModal={setOpenModal} id={id}/>
                         </div>
                     </div>

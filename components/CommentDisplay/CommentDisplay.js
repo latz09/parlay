@@ -4,12 +4,14 @@ import CommentInput, { UserDisplay } from './utils/CommentInput';
 import Comment from './utils/Comment';
 import SortComments from './utils/SortComments';
 
-const CommentDisplay = ({ comments, sessionUser }) => {
-	console.log(comments);
+const CommentDisplay = ({ comments, userId }) => {
+	
+	
+	
 	return (
-		<div className='h-full flex flex-col justify-between gap-8 lg:w-2/3 mx-auto'>
+		<div className='h-full flex flex-col justify-between gap-8 lg:w-2/3 mx-auto '>
 			<div className=' grid items-center h-ful'>
-				<CommentInput userId={sessionUser}/>
+				<CommentInput userId={userId}/>
                 <SortComments />
 			</div>
 			<div className=' grid gap-2  overflow-y-scroll scrollbar-hide flex-grow h-full '>

@@ -49,8 +49,8 @@ export default TriggerQuestionDisplay;
 
 export const TriggerQuestion = ({ question }) => {
 	return (
-		<div className=' py-2 px-8 rounded-lg text-center text-primary font-semibold tracking-wider space-x-8 items-center text-2xl'>
-			<span className='text-2xl'>{question}</span>
+		<div className=' py-2 px-8 rounded-lg text-center font-semibold tracking-wider space-x-8 items-center '>
+			<span className='text-4xl'>{question}</span>
 		</div>
 	);
 };
