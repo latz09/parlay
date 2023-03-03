@@ -23,13 +23,13 @@ const TriggerQuestionsPreview = () => {
 
 	return (
 		<div className="grid place-items-center gap-8">
-        <div className="text-5xl tracking-wider text-primary">Parlays</div>
+        <div className="text-5xl tracking-wider text-primary font-tinos uppercase opacity-80">Parlays</div>
 			<div className=' snap-y mx-auto snap-mandatory   flex w-full   overflow-y-scroll scrollbar-hide my-2 '>
 
 				{triggerQuestions.map((question) => (
 					<div
 						key={question._id}
-						className='snap-center w-3/4 xl:w-1/3 grid border border-primary/50 scale-90 hover:scale-100 transition duration-700 shadow-secondary/20  flex-shrink-0  py-16   mx-2     shadow-lg '
+						className='snap-center w-3/4 xl:w-1/3 grid border border-primary/50 scale-90  shadow-secondary/20  flex-shrink-0  py-16   mx-2     shadow-lg '
 					>
 						<TriggerQuestionStats
 							id={question._id}
@@ -42,7 +42,7 @@ const TriggerQuestionsPreview = () => {
 						/>
 						<div className='grid place-items-center mt-16'>
 							<Link href={`/${question._id}`}>
-								<span className='btn '>View This Parlay</span>
+								<span className=' font-tinos text-2xl text-primary font-black border border-dark/20 p-4 hover:scale-90 hover:bg-primary hover:text-light transition duration-700 shadow hover:shadow-2xl'>View This Parlay</span>
 							</Link>
 						</div>
 					</div>

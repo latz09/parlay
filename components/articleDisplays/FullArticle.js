@@ -20,9 +20,9 @@ const RelatedArticlesDisplay = ({ articles }) => {
 							<MdOutlineArticle />
 						</span>
 
-						<div className='font-bold '> {article.title}</div>
+						<div className='font-semibold opacity-90 font-tinos text-2xl'> {article.title}</div>
 						<span className="font-semibold text-dark/70">{article.source}</span>
-						<div className="">{article.openingParagraph}</div>
+						<div className="font-semibold">{article.openingParagraph}</div>
 						<div className="my-2">
 							<SocialShares url={article.articleLink} />
 						</div>

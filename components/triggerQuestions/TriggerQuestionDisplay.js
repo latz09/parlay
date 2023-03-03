@@ -5,7 +5,7 @@ import CastTriggerQuestionVote from './utils/CastTriggerQuestionVote';
 import JoinDiscussionLink from '../utils/JoinDiscussionLink';
 import FullArticle from '../articleDisplays/FullArticle';
 import VoteDisplay from '../utils/VoteDisplay';
-import { useSession, } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 import LoginModal from '../login/LoginModal';
 import { useEffect, useState } from 'react';
 
@@ -29,7 +29,9 @@ const TriggerQuestionDisplay = ({
 
 	return (
 		<div className='grid gap-4'>
-			<TriggerQuestion category={category} question={question} />
+			<div className="text-4xl ">
+				<TriggerQuestion category={category} question={question} />
+			</div>
 
 			<VoteDisplay
 				upvotes={upvotes}
@@ -44,8 +46,8 @@ const TriggerQuestionDisplay = ({
 					<JoinDiscussionLink />
 				</Link>
 			) : (
-				<div >
-					<LoginModal id={id}/>
+				<div>
+					<LoginModal id={id} />
 				</div>
 			)}
 		</div>
@@ -54,11 +56,10 @@ const TriggerQuestionDisplay = ({
 
 export default TriggerQuestionDisplay;
 
-
 export const TriggerQuestion = ({ question }) => {
 	return (
-		<div className=' py-2 px-8 rounded-lg text-center font-semibold tracking-wider space-x-8 items-center '>
-			<span className='text-4xl'>{question}</span>
+		<div className=' py-2 px-8 rounded-lg text-center font-oswald font scale-y-125 font-semibold opacity-80 tracking-wider space-x-8 items-center  '>
+			<span>{question}</span>
 		</div>
 	);
 };

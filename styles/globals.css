@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,400;1,500;1,600;1,700&family=Oswald:wght@300;400;500;600;700&family=Questrial&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 html,
 body {
 	padding: 0;
@@ -12,7 +14,7 @@ body {
 
 @layer components {
 	.btn {
-		@apply py-2 px-8 text-xl text-center text-light tracking-wider font-semibold bg-primary   rounded;
+		@apply py-4 px-8 text-xl text-center text-[#ffffff] tracking-wider font-semibold bg-primary  uppercase rounded;
 	}
 
 

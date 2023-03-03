@@ -24,29 +24,23 @@ const UserAvatar = ({ user }) => {
 	}
 
 	return (
-		<div >
+		<div>
 			<Avatar displayName={displayName} email={neededUser.email} />
-		
 		</div>
 	);
 };
 
 export default UserAvatar;
 
-export const Avatar = ({displayName, email}) => {
-	
-
-
+export const Avatar = ({ displayName, email }) => {
 	return (
-		<div className='flex  items-center space-x-2'>
-			<span className='rounded-full px-4 py-2 text-light font-bold uppercase bg-primary grid place-items-center '>
+		<div className='flex  items-center space-x-2 font-questrial'>
+			<span className='rounded-full px-4 py-2 text-light font-bold uppercase bg-primary grid place-items-center font-tinos'>
 				{displayName[0]}
 			</span>
 			<div className='grid'>
 				<span className='font-semibold'>{displayName}</span>
-				<span className='text-sm tracking-wider opacity-80'>
-					{email}
-				</span>
+				<span className='text-sm tracking-wider opacity-80'>{email}</span>
 			</div>
 		</div>
 	);

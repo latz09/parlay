@@ -17,7 +17,12 @@ module.exports = {
 			dark: '#222222',
 			light: '#e6e9ed',
 			triary: '#28B281',
-			
+		},
+		fontFamily: {
+			tinos: ['Tinos', 'serif'],
+			mulish: ['Mulish', 'sans-serif'],
+			questrial: ['Questrial', 'sans-serif'],
+			oswald: ['Oswald', 'sans-serif'],
 		},
 	},
 

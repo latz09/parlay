@@ -42,7 +42,7 @@ const NewDiscussionForm = ({
 	return (
 		<>
 			<form onSubmit={submitNewDiscussion} className='text-light/80'>
-				<div className='m-8 grid gap-2'>
+				<div className='m-8 grid gap-2 tracking-wider'>
 					<button
 						className='text-end P-4'
 						onClick={() => {
@@ -56,7 +56,7 @@ const NewDiscussionForm = ({
 							htmlFor='topic'
 							className='place-self-center grid  place-items-center gap-1'
 						>
-							<span className='text-xl'>Topic of Discussion</span>
+							<span className='text-2xl font-tinos'>Topic of Discussion</span>
 							<span className='text-sm opacity-80 text-primary'>
 								Think of it as title
 							</span>
@@ -75,9 +75,9 @@ const NewDiscussionForm = ({
 							htmlFor='description'
 							className='place-self-center grid  place-items-center gap-1'
 						>
-							<span className='text-xl'>Description</span>
+							<span className='text-2xl font-tinos '>Description</span>
 							<span className='text-sm opacity-80 text-primary'>
-								Think of it as a short catchy headline
+								Think of it as a short catchy headline or take you have to start the discussion
 							</span>
 							<span className='text-sm opacity-80 text-primary'>
 								*Max Characters: 300

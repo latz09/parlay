@@ -12,9 +12,12 @@ const DiscussionDisplay = ({ discussions }) => {
 				<div className=' snap-y mx-auto snap-mandatory   flex w-full   overflow-y-scroll scrollbar-hide my-2 '>
 					{/* <div className="text-center mt-8">all discussions</div> */}
 					{discussions.map((discussion) => (
-						<div
+						<motion.div
 							key={discussion._id}
 							className='snap-center w-3/4 xl:w-1/3    flex-shrink-0  flex px-4 py-2  mx-4 rounded-sm     shadow-lg  '
+							initial={{ opacity: 0, scale: 0.8 }}
+							whileInView={{ opacity: 1, scale: 1 }}
+							transition={{ duration: 1.1 }}
 						>
 							<div className='p-2  mx-auto '>
 								<DiscussionCard
@@ -28,7 +31,7 @@ const DiscussionDisplay = ({ discussions }) => {
 									createdAt={discussion.createdAt}
 								/>
 							</div>
-						</div>
+						</motion.div>
 					))}{' '}
 				</div>
 			) : (
@@ -51,16 +54,28 @@ export const DiscussionCard = ({
 	createdAt,
 }) => {
 	return (
-		<div className='flex flex-col justify-between gap-4 lg:gap-8  h-full w-full '>
+		<div className='flex flex-col justify-between gap-4 lg:gap-8  h-full w-full tracking-wide'>
 			<div className='flex flex-col h-full gap-4'>
 				<div className='grid gap-2'>
 					<UserAvatar user={author} />
 					<DateDisplay date={createdAt} />
-					<span className='text-xl lg:text-2xl font-semibold py-2 text-center'>{`" ${topic} "`}</span>
+					<span className='text-xl lg:text-2xl font-semibol tracking-wider py-2 text-center font-tinos'>{`" ${topic} "`}</span>
 				</div>
-				<div className=' flex-grow grid place-items-center'>{description}</div>
+				<motion.div
+					className=' flex-grow grid place-items-center font-semibold opacity-90 '
+					initial={{ opacity: 0, scale: 0.8 }}
+					whileInView={{ opacity: 1, scale: 1 }}
+					transition={{ duration: 1.5 }}
+				>
+					{description}
+				</motion.div>
 			</div>
-			<div className='w-full'>
+			<motion.div
+				className='w-full'
+				initial={{ scale: 1,  scale: .97 }}
+				whileInView={{ scale: 1,  scale: 1 }}
+				transition={{ repeat: Infinity, duration: 1.5, repeatType: 'mirror', ease: 'easeInOut' }}
+			>
 				<VoteDisplay
 					upvotes={upvotes}
 					downvotes={downvotes}
@@ -68,7 +83,7 @@ export const DiscussionCard = ({
 					topic={topic}
 					discussionId={id}
 				/>
-			</div>
+			</motion.div>
 		</div>
 	);
 };

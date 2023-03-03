@@ -24,6 +24,7 @@ function MyApp({ Component, pageProps, session, router }) {
 					<motion.div
 						key={router.route}
 						variants={pageAnimateVariable}
+						className="font-mulish"
 						initial='hidden'
 						animate='visible'
 						exit='exit'

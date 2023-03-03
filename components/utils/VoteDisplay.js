@@ -26,6 +26,7 @@ const VoteDisplay = ({
 
 	return (
 		<>
+	
 			<div className='flex justify-around  '>
 				<div className='vote-display' onClick={handleUpVote}>
 					<span className='text-3xl'>
