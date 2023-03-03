@@ -70,7 +70,7 @@ export async function getServerSideProps({ params, req, res }) {
 
 const DiscussionTopic = ({ topic }) => {
 	return (
-		<div className='text-center text-3xl self-end lg:text-primary/70 tracking-wider'>
+		<div className='text-center font-oswald mt-2 text-3xl self-end  tracking-wider'>
 			<span>{topic}</span>
 		</div>
 	);
