@@ -18,6 +18,7 @@ const VoteDisplay = ({
 		console.log(discussionId);
 	};
 
+	console.log(downvotes)
 	return (
 		<>
 			<div className='flex justify-around  '>
@@ -36,7 +37,7 @@ const VoteDisplay = ({
 						whileInView={{ opacity: 1, scale: 1.1 }}
 						transition={{ duration: 1 }}
 					>
-						{/* {downvotes} */}
+						{downvotes}
 					</motion.div>
 				</div>
 				{!disabled && (

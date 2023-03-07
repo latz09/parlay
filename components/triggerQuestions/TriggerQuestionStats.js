@@ -8,6 +8,8 @@ const TriggerQuestionStats = ({
 	downvotes,
 	discussions,
 }) => {
+
+	// console.log(upvotes)
 	return (
 		<>
 			<div className="text-2xl pb-2 opacity-80">

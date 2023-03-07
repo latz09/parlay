@@ -15,6 +15,8 @@ const DiscussionById = ({ discussion, discussionId, comments }) => {
 	const [user, setUser] = useState();
 	const [discussionComments, setDiscussionComments] = useState([]);
 
+	
+
 	//if session fetch user data
 	useEffect(() => {
 		if (session) {
