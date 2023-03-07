@@ -52,7 +52,7 @@ const NewDiscussionForm = ({
 	return (
 		<>
 			<form onSubmit={submitNewDiscussion} className='text-light/80'>
-				<div className='m-8 grid gap-2 tracking-wider'>
+				<div className='m-2 lg:m-8 grid gap-2 tracking-wider'>
 					<button
 						className='text-end P-4'
 						onClick={() => {
@@ -105,7 +105,7 @@ const NewDiscussionForm = ({
 					</div>
 				</div>
 				<div className='text-center'>
-					<button className='btn ' type='submit'>
+					<button className='mt-4 lg:text-2xl font-tinos font-bold border border-primary/50 text-dark/80 text-light p-4 md:hover:scale-90 md:hover:bg-primary hover:text-light transition duration-700 shadow hover:shadow-2xl ' type='submit'>
 						Start the discussion
 					</button>
 				</div>
