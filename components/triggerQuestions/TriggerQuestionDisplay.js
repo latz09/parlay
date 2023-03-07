@@ -17,9 +17,14 @@ const TriggerQuestionDisplay = ({
 	downvotes,
 	discussions,
 	relatedArticles,
+	userId,
 }) => {
 	const { data: session } = useSession();
 	const [sessionWasFound, setSessionWasFound] = useState(false);
+
+	const [upVoteCount, setUpVoteCount] = useState(upvotes.length);
+
+	const [downVoteCount, setDownVoteCount] = useState(downvotes.length);
 
 	useEffect(() => {
 		if (session) {
@@ -27,20 +32,28 @@ const TriggerQuestionDisplay = ({
 		}
 	}, [session]);
 
+	// console.log(downvotes.length)
+
 	return (
 		<div className='grid gap-4'>
-			<div className="text-4xl ">
+			<div className='text-4xl '>
 				<TriggerQuestion category={category} question={question} />
 			</div>
 
 			<VoteDisplay
-				upvotes={upvotes}
-				downvotes={downvotes}
+				upvotes={upVoteCount}
+				downvotes={downVoteCount}
 				discussions={discussions}
 				disabled={true}
 			/>
 			<FullArticle articles={relatedArticles} />
-			<CastTriggerQuestionVote />
+			<CastTriggerQuestionVote
+				userId={userId}
+				triggerId={id}
+				setUpVoteCount={setUpVoteCount}
+				setDownVoteCount={setDownVoteCount}
+				disabled={!sessionWasFound}
+			/>
 			{sessionWasFound ? (
 				<Link href={`/${id}`}>
 					<JoinDiscussionLink />

@@ -49,12 +49,12 @@ const SignUpForm = ({ setOpenModal, id }) => {
 
 		if (isLogin) {
 			const result = await signIn('credentials', data);
-			console.log(result);
+			
 			if (!result.error) {
 				// set some auth state
 
-				router.push(`/${id}`);
-				// setOpenModal(false);
+				// router.push(`/${id}`);
+				setOpenModal(false);
 			}
 		} else {
 			try {

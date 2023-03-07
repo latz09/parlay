@@ -12,22 +12,29 @@ import TriggerQuestionPreview from '../components/triggerQuestions/TriggerQuesti
 
 const TriggerQuestionPage = ({ discussions}) => {
 	const [user, setUser] = useState();
+	const [sessionFound, setSessionFound] = useState(false);
 	const { data: session } = useSession();
 
 
-	
-	
-
-	//if session fetch user data
 	useEffect(() => {
 		if (session) {
 			fetch(`/api/users/${session.user.email}`)
 				.then((res) => res.json())
 				.then((data) => {
 					setUser(data);
+					setSessionFound(true);				
 				});
+		} else {
+			window.location.href = '/';
 		}
+
+
 	}, [session]);
+
+	if (!sessionFound) {
+		
+	}
+
 
 	return (
 		<>

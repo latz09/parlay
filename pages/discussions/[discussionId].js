@@ -23,6 +23,8 @@ const DiscussionById = ({ discussion, discussionId, comments }) => {
 				.then((data) => {
 					setUser(data);
 				});
+		} else {
+			window.location.href = '/';
 		}
 	}, [session]);
 

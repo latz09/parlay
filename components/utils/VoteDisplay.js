@@ -10,15 +10,8 @@ const VoteDisplay = ({
 	disabled,
 	discussionId,
 }) => {
-	const [upvote, setUpvote] = useState(upvotes);
-	const [downvote, setDownVote] = useState(downvotes);
-
-	const handleUpVote = () => {
-		setUpvote(upvote + 1);
-	};
-	const handleDownVote = () => {
-		setDownVote(downvote + 1);
-	};
+	const handleUpVote = () => {};
+	const handleDownVote = () => {};
 
 	const handleClick = () => {
 		console.log(discussionId);
@@ -26,29 +19,24 @@ const VoteDisplay = ({
 
 	return (
 		<>
-	
 			<div className='flex justify-around  '>
 				<div className='vote-display' onClick={handleUpVote}>
 					<span className='text-3xl'>
 						<BsHandThumbsUp />
 					</span>
-					<span>{upvote}</span>
+					<span>{upvotes}</span>
 				</div>
 				<div className='vote-display' onClick={handleDownVote}>
 					<span className='text-3xl'>
 						<BsHandThumbsDown />
 					</span>
-					<span>{downvote}</span>
+					<span>{downvotes}</span>
 				</div>
-				{!disabled ? (
+				{!disabled && (
 					<div>
 						<Link href={`/discussions/${discussionId}`}>
 							<ChatBox discussions={discussions} />
 						</Link>
-					</div>
-				) : (
-					<div>
-						<ChatBox discussions={discussions} />
 					</div>
 				)}
 			</div>

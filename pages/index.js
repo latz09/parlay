@@ -13,13 +13,22 @@ import connectToDatabase from '../helpers/mongodb';
 
 export default function Home({ triggerQuestions }) {
 	const { data: session } = useSession();
+	const [userId, setUserId] = useState();
 	const [questions, setQuestions] = useState();
-	// console.log(JSON.stringify(DummyDiscussionData));
-	useEffect(() => {
-		setQuestions(triggerQuestions);
-	}, [triggerQuestions]);
 
 	
+
+	useEffect(() => {
+		setQuestions(triggerQuestions);
+		if (session) {
+			fetch(`/api/users/${session.user.email}`)
+				.then((res) => res.json())
+				.then((data) => {
+					setUserId(data._id);
+				});
+		}
+		// fetch user by email and set user
+	}, [triggerQuestions, session]);
 
 	return (
 		<>
@@ -27,8 +36,6 @@ export default function Home({ triggerQuestions }) {
 				<p>loading</p>
 			) : (
 				<div className='grid gap-16  max-w-5xl mx-auto p-4 my-4 lg:my-16 '>
-				
-			
 					{questions.map((question) => (
 						<div key={question._id}>
 							<TriggerQuestionDisplay
@@ -38,7 +45,8 @@ export default function Home({ triggerQuestions }) {
 								upvotes={question.upvotes}
 								downvotes={question.downvotes}
 								discussions={question.discussions}
-								relatedArticles={question.relatedArticles}
+								relatedArticles={question.relatedArticles}							
+								userId={userId}
 							/>
 						</div>
 					))}
