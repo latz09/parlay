@@ -1,6 +1,7 @@
 import { BsHandThumbsUp, BsHandThumbsDown, BsChatLeft } from 'react-icons/bs';
 import { useState } from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 const VoteDisplay = ({
 	upvotes,
@@ -30,7 +31,13 @@ const VoteDisplay = ({
 					<span className='text-3xl'>
 						<BsHandThumbsDown />
 					</span>
-					<span>{downvotes}</span>
+					<motion.div
+						initial={{ opacity: 0, scale: 0.8 }}
+						whileInView={{ opacity: 1, scale: 1.1 }}
+						transition={{ duration: 1 }}
+					>
+						{/* {downvotes} */}
+					</motion.div>
 				</div>
 				{!disabled && (
 					<div>

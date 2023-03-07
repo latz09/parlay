@@ -55,7 +55,7 @@ const CastTriggerQuestionVote = ({
 			{disabled ? (
 				<div className='flex justify-around [&>*]:btn'>
 					<button
-						className='w-1/5'
+						className=''
 						onClick={() => {
 							setOpenModal(true);
 						}}
@@ -63,7 +63,7 @@ const CastTriggerQuestionVote = ({
 						agree
 					</button>
 					<button
-						className='bg-secondary w-1/5'
+						className='bg-secondary '
 						onClick={() => {
 							setOpenModal(true);
 						}}
@@ -72,11 +72,11 @@ const CastTriggerQuestionVote = ({
 					</button>
 				</div>
 			) : (
-				<div className='flex justify-around [&>*]:btn'>
-					<button className='w-1/5' onClick={handleUpVote}>
+				<div className='grid gap-2 xl:flex justify-around [&>*]:btn'>
+					<button className='' onClick={handleUpVote}>
 						agree
 					</button>
-					<button className='bg-secondary w-1/5' onClick={handleDownVote}>
+					<button className='bg-secondary ' onClick={handleDownVote}>
 						disagree
 					</button>
 				</div>
