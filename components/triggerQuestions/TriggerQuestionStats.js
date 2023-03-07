@@ -7,6 +7,9 @@ const TriggerQuestionStats = ({
 	upvotes,
 	downvotes,
 	discussions,
+	setUpVoteCount,
+	setDownVoteCount,
+	userId,
 }) => {
 
 	return (
@@ -19,6 +22,10 @@ const TriggerQuestionStats = ({
 				downvotes={downvotes}
 				discussions={discussions ? discussions.length : 0}
 				disabled={true}
+				usedToVote={true}
+				setUpVoteCount={setUpVoteCount}
+				setDownVoteCount={setDownVoteCount}
+				
 			/>
 		</>
 	);

@@ -7,28 +7,25 @@ const VoteDisplay = ({
 	upvotes,
 	downvotes,
 	discussions,
-	topic,
+	usedToVote,
 	disabled,
 	discussionId,
+	
 }) => {
-	const handleUpVote = () => {};
-	const handleDownVote = () => {};
 
-	const handleClick = () => {
-		console.log(discussionId);
-	};
+
 
 
 	return (
 		<>
 			<div className='flex justify-around  '>
-				<div className='vote-display' onClick={handleUpVote}>
+				<div className='vote-display' >
 					<span className='text-3xl'>
 						<BsHandThumbsUp />
 					</span>
 					<span>{upvotes}</span>
 				</div>
-				<div className='vote-display' onClick={handleDownVote}>
+				<div className='vote-display' >
 					<span className='text-3xl'>
 						<BsHandThumbsDown />
 					</span>

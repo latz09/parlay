@@ -53,7 +53,7 @@ const CastTriggerQuestionVote = ({
 	return (
 		<>
 			{disabled ? (
-				<div className='flex justify-around [&>*]:btn'>
+				<div className='grid gap-2 xl:flex justify-around [&>*]:btn'>
 					<button
 						className=''
 						onClick={() => {
@@ -82,13 +82,13 @@ const CastTriggerQuestionVote = ({
 				</div>
 			)}
 
-{openModal && (
+			{openModal && (
 				<ModalOverlay setModalIsOpen={setOpenModal}>
-					<div className="h-full grid place-items-center text-triary font-bold text-center mx-2 lg:mx-0">
-                        <div className="h-3/4   w-full lg:w-3/4 bg-dark/95">                          
-                            <SignUpForm setOpenModal={setOpenModal} id={userId}/>
-                        </div>
-                    </div>
+					<div className='h-full grid place-items-center text-triary font-bold text-center mx-2 lg:mx-0'>
+						<div className='h-3/4   w-full lg:w-3/4 bg-dark/95'>
+							<SignUpForm setOpenModal={setOpenModal} id={userId} />
+						</div>
+					</div>
 				</ModalOverlay>
 			)}
 		</>

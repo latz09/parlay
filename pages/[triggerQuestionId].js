@@ -12,7 +12,9 @@ import TriggerQuestionPreview from '../components/triggerQuestions/TriggerQuesti
 
 const TriggerQuestionPage = ({ discussions}) => {
 	const [user, setUser] = useState();
-	const [sessionFound, setSessionFound] = useState(false);
+	const [sessionFound, setSessionFound] = useState(false);	
+	const [upVoteCount, setUpVoteCount] = useState(discussions.upvotes.length);
+	const [downVoteCount, setDownVoteCount] = useState(discussions.downvotes.length);
 	const { data: session } = useSession();
 
 
@@ -35,18 +37,23 @@ const TriggerQuestionPage = ({ discussions}) => {
 		
 	}
 
+	
 
 	return (
 		<>
 			<div className='grid  lg:p-4  gap-4 my-8 mx-2 '>
+				
 				<TriggerQuestionStats
 					category={discussions.category}
 					question={discussions.question}
-					upvotes={discussions.upvotes.length}
-					downvotes={discussions.downvotes.length}
+					upvotes={upVoteCount}
+					downvotes={downVoteCount}
 					discussions={
 						discussions.discussions ? discussions.discussions.length : 0
 					}
+					setUpVoteCount={setUpVoteCount}
+					setDownVoteCount={setDownVoteCount}
+					
 				/>
 				<div className='grid gap-16 mb-32'>
 					<DiscussionsByTriggerQuestionId

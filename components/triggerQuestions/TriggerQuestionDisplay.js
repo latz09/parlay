@@ -45,6 +45,7 @@ const TriggerQuestionDisplay = ({
 				downvotes={downVoteCount}
 				discussions={discussions}
 				disabled={true}
+				usedToVote={false}
 			/>
 			<FullArticle articles={relatedArticles} />
 			<CastTriggerQuestionVote
