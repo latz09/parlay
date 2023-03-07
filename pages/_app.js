@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { SessionProvider } from 'next-auth/react';
+import MainLayout from '../components/layout/MainLayout';
 import '../styles/globals.css';
 
 function MyApp({ Component, pageProps, session, router }) {
@@ -19,19 +20,21 @@ function MyApp({ Component, pageProps, session, router }) {
 
 	return (
 		<div>
-			<SessionProvider session={session} >
-				<AnimatePresence mode='wait'>
-					<motion.div
-						key={router.route}
-						variants={pageAnimateVariable}
-						className="font-mulish"
-						initial='hidden'
-						animate='visible'
-						exit='exit'
-					>
-						<Component {...pageProps} />{' '}
-					</motion.div>
-				</AnimatePresence>
+			<SessionProvider session={session}>
+				<MainLayout>
+					<AnimatePresence mode='wait'>
+						<motion.div
+							key={router.route}
+							variants={pageAnimateVariable}
+							className='font-mulish'
+							initial='hidden'
+							animate='visible'
+							exit='exit'
+						>
+							<Component {...pageProps} />{' '}
+						</motion.div>
+					</AnimatePresence>
+				</MainLayout>
 			</SessionProvider>
 		</div>
 	);

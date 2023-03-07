@@ -9,10 +9,11 @@ import { useEffect, useState } from 'react';
 import TriggerQuestionsPreview from '../../components/triggerQuestions/TriggerQuestionPreview';
 import { Avatar } from '../../components/users/UserAvatar';
 
-const DiscussionById = ({ discussion, id }) => {
-	const { upvotes, downvotes, topic, comments, category } = discussion;
+const DiscussionById = ({ discussion, discussionId, comments }) => {
+	const { upvotes, downvotes, topic, category } = discussion;
 	const { data: session } = useSession();
 	const [user, setUser] = useState();
+	const [discussionComments, setDiscussionComments] = useState(comments);
 
 	//if session fetch user data
 	useEffect(() => {
@@ -40,7 +41,15 @@ const DiscussionById = ({ discussion, id }) => {
 					</div>
 					<div className='h-[75vh] '>
 						<Avatar displayName={user.displayName} email={user.email} />
-						<CommentDisplay comments={comments} userId={user._id} />
+						{/* {discussion} */}
+						{/* {discussionComments && (
+							<CommentDisplay
+								userId={user._id}
+								discussionId={discussionId}
+								comments={discussionComments}
+								setComments={setDiscussionComments}
+							/>
+						)} */}
 					</div>
 					<DiscussionsByCategory category={'entertainment'} />
 					<TriggerQuestionsPreview />
@@ -56,15 +65,24 @@ export default DiscussionById;
 export async function getServerSideProps({ params, req, res }) {
 	const { discussionId } = params;
 
-	// const discussionId = '63f56ffb3fcb69c17deb52a6'
-
 	const client = await connectToDatabase;
 	const db = client.db('Parlay');
-	const collection = db.collection('discussions');
-	const data = await collection.findOne({ _id: new ObjectId(discussionId) });
+	const discussionCollection = db.collection('discussions');
+	const discussionData = await discussionCollection.findOne({
+		_id: new ObjectId(discussionId),
+	});
+
+	const commentsCollection = db.collection('comments');
+	const commentData = await commentsCollection
+		.find({ discussionId: new ObjectId(discussionId) })
+		.toArray();
 
 	return {
-		props: { discussion: JSON.parse(JSON.stringify(data)), id: discussionId },
+		props: {
+			discussion: JSON.parse(JSON.stringify(discussionData)),
+			discussionId: discussionId,
+			comments: JSON.parse(JSON.stringify(commentData)),
+		},
 	};
 }
 

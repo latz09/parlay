@@ -4,12 +4,15 @@ import ModalOverlay from '../utils/ModalOverlay';
 import DiscussionDisplay from './utils/DiscussionDisplay';
 import NewDiscussionForm from './NewDiscussionForm';
 
-const DiscussionsByTriggerQuestionId = ({ triggerQId, sessionUserId, category }) => {
-	
+const DiscussionsByTriggerQuestionId = ({
+	triggerQId,
+	sessionUserId,
+	category,
+}) => {
 	//go through all of discussions that have a triggerquestionId that matches the current trigger question
-	const [discussions, setDiscussions] = useState();
+	const [discussions, setDiscussions] = useState([]);
 	const [isNewDiscussionOpen, setIsNewDiscussionOpen] = useState(false);
-	
+
 	useEffect(() => {
 		fetch(`/api/discussions/byTriggerQuestion/${triggerQId}`)
 			.then((res) => res.json())
@@ -21,13 +24,21 @@ const DiscussionsByTriggerQuestionId = ({ triggerQId, sessionUserId, category })
 	return (
 		<div className='grid   w-full h-full max-w-7xl mx-auto '>
 			<SectionHeading title='active discussions' />
-			<DiscussionDisplay discussions={discussions} />
+			{discussions && discussions.length !== 0 ? (
+				<DiscussionDisplay discussions={discussions} />
+			) : (
+				<div className="text-center text-2xl my-8 italic tracking-wider opacity-70 font-tinos">Be the first to get the discussions rolling...</div>
+			)}
+
 			<StartOwnDiscussion
 				isNewDiscussionOpen={isNewDiscussionOpen}
 				setIsNewDiscussionOpen={setIsNewDiscussionOpen}
 				userId={sessionUserId}
 				triggerQId={triggerQId}
 				category={category}
+				discussions={discussions}
+				setDiscussions={setDiscussions}
+				
 			/>
 		</div>
 	);
@@ -40,9 +51,11 @@ const StartOwnDiscussion = ({
 	setIsNewDiscussionOpen,
 	userId,
 	triggerQId,
-	category
-}) => {
+	category,
+	discussions,
+	setDiscussions,
 	
+}) => {
 	return (
 		<>
 			<div className='text-center mt-8 '>
@@ -61,8 +74,11 @@ const StartOwnDiscussion = ({
 							<NewDiscussionForm
 								setIsNewDiscussionOpen={setIsNewDiscussionOpen}
 								userId={userId}
-								triggerQId= {triggerQId}
+								triggerQId={triggerQId}
 								category={category}
+								discussions={discussions}
+								setDiscussions={setDiscussions}
+								
 							/>
 						</div>
 					</div>

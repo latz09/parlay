@@ -6,12 +6,19 @@ import UserAvatar from '../../users/UserAvatar';
 import DateDisplay from '../../utils/DateDisplay';
 
 const DiscussionDisplay = ({ discussions }) => {
+	
+	let reversedDiscussions;
+	if (discussions) {
+		reversedDiscussions = discussions.map((x, i, a) => a[a.length - i - 1]);
+	}
+
+
 	return (
 		<>
 			{discussions ? (
 				<div className=' snap-y mx-auto snap-mandatory   flex w-full   overflow-y-scroll scrollbar-hide my-2 '>
 					{/* <div className="text-center mt-8">all discussions</div> */}
-					{discussions.map((discussion) => (
+					{reversedDiscussions.map((discussion) => (
 						<motion.div
 							key={discussion._id}
 							className='snap-center w-3/4 xl:w-1/3    flex-shrink-0  flex px-4 py-2  mx-4 rounded-sm     shadow-lg  '
@@ -72,9 +79,14 @@ export const DiscussionCard = ({
 			</div>
 			<motion.div
 				className='w-full'
-				initial={{ scale: 1,  scale: .97 }}
-				whileInView={{ scale: 1,  scale: 1 }}
-				transition={{ repeat: Infinity, duration: 1.5, repeatType: 'mirror', ease: 'easeInOut' }}
+				initial={{ scale: 1, scale: 0.97 }}
+				whileInView={{ scale: 1, scale: 1 }}
+				transition={{
+					repeat: Infinity,
+					duration: 1.5,
+					repeatType: 'mirror',
+					ease: 'easeInOut',
+				}}
 			>
 				<VoteDisplay
 					upvotes={upvotes}

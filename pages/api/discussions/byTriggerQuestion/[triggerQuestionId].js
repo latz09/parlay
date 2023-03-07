@@ -8,8 +8,8 @@ async function handler(request, response) {
     const client = await connectToDatabase; 
 	const db = client.db('Parlay');
 	const discussionsCollection = db.collection('discussions');   
-    const discussion = await discussionsCollection.find({triggerQuestionID: new ObjectId(id)}).toArray()
-   
+    // const discussion = await discussionsCollection.find({triggerQuestionID: new ObjectId(id)}).toArray()
+    const discussion = await discussionsCollection.find({triggerQuestionID: new ObjectId(id)}).sort({date: -1}).toArray()
 
     response.status(200).json(discussion)
 }

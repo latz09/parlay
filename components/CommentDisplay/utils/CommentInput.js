@@ -1,16 +1,62 @@
 import { FaUserAlt } from 'react-icons/fa';
 import UserAvatar from '../../users/UserAvatar';
+import { useRef } from 'react';
 
-const CommentInput = ({ userId }) => {
+const CommentInput = ({ userId, discussionId, comments, setComments }) => {
+	const commentInputRef = useRef();
+	
+	
+
+	
+
+	async function handleSubmit(e) {
+		e.preventDefault();
+		const comment = commentInputRef.current.value;
+
+		const newComment = {
+			author: userId,
+			discussionId: discussionId,
+			comment: comment,
+		};
+
+		const response = await fetch(`/api/comments/${discussionId}`, {
+			method: 'POST',
+			body: JSON.stringify(newComment),
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		});
+
+		const data = await response.json();
+		// setComments([...comments, data]);
+
+		
+
+			
+
+
+
+		commentInputRef.current.value = '';
+
+
+	}
+
 	return (
 		<div className='gap-4  lg:flex items-center lg:space-x-4'>
-			<div className='lg:flex-grow my-2'>
+			<form onSubmit={handleSubmit} className='lg:flex-grow my-2'>
 				<input
 					type='text'
+					ref={commentInputRef}
 					className='px-2 py-4  w-4/5  lg:w-1/2'
 					placeholder='Tell us what you think...'
 				/>
-			</div>
+				<button
+					type='submit'
+					className='bg-dark  text-light mx-4 px-2 py-4 font-tinos font-bold text-lg'
+				>
+					Submit
+				</button>
+			</form>
 		</div>
 	);
 };

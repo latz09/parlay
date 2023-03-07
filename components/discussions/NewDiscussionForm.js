@@ -6,6 +6,8 @@ const NewDiscussionForm = ({
 	userId,
 	triggerQId,
 	category,
+	discussions,
+	setDiscussions,
 }) => {
 	const topicInputRef = useRef();
 	const desriptionInputRef = useRef();
@@ -36,6 +38,14 @@ const NewDiscussionForm = ({
 			throw new Error(responseData.message || 'Something went wrong!');
 		}
 
+		
+		fetch(`/api/discussions/byTriggerQuestion/${triggerQId}`)
+			.then((res) => res.json())
+			.then((data) => {
+				setDiscussions(data);
+			});
+		
+
 		setIsNewDiscussionOpen(false);
 	}
 
@@ -58,7 +68,7 @@ const NewDiscussionForm = ({
 						>
 							<span className='text-2xl font-tinos'>Topic of Discussion</span>
 							<span className='text-sm opacity-80 text-primary'>
-								Think of it as title
+								Think of it as catchy headline or take you have to start the discussion
 							</span>
 						</label>
 						<input
@@ -77,7 +87,7 @@ const NewDiscussionForm = ({
 						>
 							<span className='text-2xl font-tinos '>Description</span>
 							<span className='text-sm opacity-80 text-primary'>
-								Think of it as a short catchy headline or take you have to start the discussion
+								Think of it as a pinned post in a forum
 							</span>
 							<span className='text-sm opacity-80 text-primary'>
 								*Max Characters: 300

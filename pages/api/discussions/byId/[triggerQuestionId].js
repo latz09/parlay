@@ -6,6 +6,9 @@ import connectToDatabase from "../../../../helpers/mongodb"
 
 
 async function handler(request, response) {
+
+ 
+
     const triggerId = request.query.triggerQuestionId
 
     const client = await connectToDatabase; 
