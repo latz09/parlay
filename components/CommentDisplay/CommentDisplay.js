@@ -40,7 +40,7 @@ const CommentDisplay = ({
 							>
 							<UserDisplay userId={comment.authorName} />
 							</motion.div>
-							<div className='flex justify-between gap-8 border-b pb-8 border-primary/50'>
+							<div className='grid gap-8 border-b pb-8 border-primary/50'>
 								<motion.div className='ml-4 flex-grow'
 									initial={{ opacity: 0, scale: .7 }}
 									whileInView={{ opacity: 1, scale: 1 }}
@@ -49,7 +49,7 @@ const CommentDisplay = ({
 								>
 									{comment.comment}
 								</motion.div>
-								<div className="flex space-x-4 place-self-end">
+								<div className="flex space-x-4">
 									<span>like</span>
 									<span>dislike</span>
 								</div>

@@ -35,8 +35,8 @@ const TriggerQuestionsPreview = () => {
 							id={question._id}
 							category={question.category}
 							question={question.question}
-							upvotes={question.upvotes}
-							downvotes={question.downvotes}
+							upvotes={question.upvotes.length}
+							downvotes={question.downvotes.length}
 							discussions={question.discussions}
 							relatedArticles={question.relatedArticles}
 						/>

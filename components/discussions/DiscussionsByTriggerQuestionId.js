@@ -60,7 +60,7 @@ const StartOwnDiscussion = ({
 		<>
 			<div className='text-center mt-8 '>
 				<button
-					className='btn'
+					className='text-2xl font-tinos font-bold border border-primary/50 text-dark/80 p-4 md:hover:scale-90 md:hover:bg-primary hover:text-light transition duration-700 shadow hover:shadow-2xl'
 					onClick={() => setIsNewDiscussionOpen(!isNewDiscussionOpen)}
 				>
 					Start Your Own Discussion

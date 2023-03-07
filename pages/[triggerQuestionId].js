@@ -42,8 +42,8 @@ const TriggerQuestionPage = ({ discussions}) => {
 				<TriggerQuestionStats
 					category={discussions.category}
 					question={discussions.question}
-					upvotes={discussions.upvotes}
-					downvotes={discussions.downvotes}
+					upvotes={discussions.upvotes.length}
+					downvotes={discussions.downvotes.length}
 					discussions={
 						discussions.discussions ? discussions.discussions.length : 0
 					}

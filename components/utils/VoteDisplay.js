@@ -18,7 +18,7 @@ const VoteDisplay = ({
 		console.log(discussionId);
 	};
 
-	console.log(downvotes)
+
 	return (
 		<>
 			<div className='flex justify-around  '>
