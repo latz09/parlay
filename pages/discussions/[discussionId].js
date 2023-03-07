@@ -13,7 +13,7 @@ const DiscussionById = ({ discussion, discussionId, comments }) => {
 	const { upvotes, downvotes, topic, category } = discussion;
 	const { data: session } = useSession();
 	const [user, setUser] = useState();
-	const [discussionComments, setDiscussionComments] = useState(comments);
+	const [discussionComments, setDiscussionComments] = useState([]);
 
 	//if session fetch user data
 	useEffect(() => {
@@ -25,6 +25,12 @@ const DiscussionById = ({ discussion, discussionId, comments }) => {
 				});
 		}
 	}, [session]);
+
+	useEffect(() => {
+		setDiscussionComments(comments);
+	}, [comments]);
+
+	
 
 	return (
 		<>
@@ -39,18 +45,16 @@ const DiscussionById = ({ discussion, discussionId, comments }) => {
 							disabled={true}
 						/>
 					</div>
-					<div className='h-[75vh] '>
-						<Avatar displayName={user.displayName} email={user.email} />
-						{/* {discussion} */}
-						{/* {discussionComments && (
-							<CommentDisplay
-								userId={user._id}
-								discussionId={discussionId}
-								comments={discussionComments}
-								setComments={setDiscussionComments}
-							/>
-						)} */}
-					</div>
+
+					<CommentDisplay
+						userId={user._id}
+						discussionId={discussionId}
+						comments={discussionComments}
+						setComments={setDiscussionComments}
+						displayName={user.displayName}
+						email={user.email}
+					/>
+
 					<DiscussionsByCategory category={'entertainment'} />
 					<TriggerQuestionsPreview />
 					<DiscussionsByCategory category={'sports'} />

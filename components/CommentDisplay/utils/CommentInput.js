@@ -2,24 +2,21 @@ import { FaUserAlt } from 'react-icons/fa';
 import UserAvatar from '../../users/UserAvatar';
 import { useRef } from 'react';
 
-const CommentInput = ({ userId, discussionId, comments, setComments }) => {
+const CommentInput = ({ userId, discussionId, displayName, setComments }) => {
 	const commentInputRef = useRef();
-	
-	
-
-	
 
 	async function handleSubmit(e) {
 		e.preventDefault();
 		const comment = commentInputRef.current.value;
 
 		const newComment = {
-			author: userId,
+			authorId: userId,
+			authorName: displayName,
 			discussionId: discussionId,
 			comment: comment,
 		};
 
-		const response = await fetch(`/api/comments/${discussionId}`, {
+		const response = await fetch('/api/comments/' + discussionId, {
 			method: 'POST',
 			body: JSON.stringify(newComment),
 			headers: {
@@ -28,17 +25,20 @@ const CommentInput = ({ userId, discussionId, comments, setComments }) => {
 		});
 
 		const data = await response.json();
-		// setComments([...comments, data]);
-
 		
-
-			
+		fetch('/api/comments/' + discussionId) 
+			.then((res) => res.json())
+			.then((data) => {
+				setComments(data.comments);
+			});
 
 
 
 		commentInputRef.current.value = '';
 
 
+
+	
 	}
 
 	return (
@@ -62,6 +62,22 @@ const CommentInput = ({ userId, discussionId, comments, setComments }) => {
 };
 
 export default CommentInput;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 export const UserDisplay = ({ userId }) => {
 	return (

@@ -1,41 +1,63 @@
 import { BsHandThumbsUp, BsHandThumbsDown } from 'react-icons/bs';
 import CommentInput, { UserDisplay } from './utils/CommentInput';
 import { useState, useEffect } from 'react';
-
+import { motion } from 'framer-motion';
 import Comment from './utils/Comment';
 import SortComments from './utils/SortComments';
+import { Avatar } from '../users/UserAvatar';
 
-const CommentDisplay = ({ userId, comments, setComments, discussionId }) => {
+const CommentDisplay = ({
+	userId,
+	discussionId,
+	setComments,
+	comments,
+	displayName,
+	email,
+}) => {
 	
+
 	return (
-		<>
-			{comments && (
-				<div className='h-full flex flex-col justify-between gap-8 lg:w-2/3 mx-auto '>
-					<div className=' grid items-center h-ful'>
-						<CommentInput
-							userId={userId}
-							discussionId={discussionId}
-							comments={comments}							
-							setComments={setComments}
-						/>
-						
-						{/* <SortComments /> */}
-					</div>
-					<div className=' grid gap-2  overflow-y-scroll scrollbar-hide flex-grow h-full '>
-						{comments.map((comment, index) => (
-							<div key={index}>
-								<Comment
-									comment={comment.comment}
-									userId={comment.userId}
-									upvotes={comment.upvotes}
-									downvotes={comment.downvotes}
-								/>
+		<div className='mb-12 '>
+			<Avatar displayName={displayName} email={email} />
+			<CommentInput
+				userId={userId}
+				discussionId={discussionId}
+				displayName={displayName}
+				setComments={setComments}
+
+			/>
+			{comments.length === 0 && <p className="text-center my-4 italic opacity-70">No comments yet</p>}
+
+			<div className='grid gap-8 my-4 max-w-3xl mx-auto'>
+				{comments.length > 0 &&
+					comments.map((comment, index) => (
+						<div key={index} className='grid gap-2'>
+							<motion.div 
+								initial={{ opacity: 0}}
+								whileInView={{ opacity: 1}}
+								transition={{ delay: 0.2, duration: 1 }}
+
+							>
+							<UserDisplay userId={comment.authorName} />
+							</motion.div>
+							<div className='flex justify-between gap-8 border-b pb-8 border-primary/50'>
+								<motion.div className='ml-4 flex-grow'
+									initial={{ opacity: 0, scale: .7 }}
+									whileInView={{ opacity: 1, scale: 1 }}
+									transition={{ delay: 0.2, duration: 1, type: 'spring', stiffness: 100 }}
+
+								>
+									{comment.comment}
+								</motion.div>
+								<div className="flex space-x-4 place-self-end">
+									<span>like</span>
+									<span>dislike</span>
+								</div>
 							</div>
-						))}
-					</div>
-				</div>
-			)}
-		</>
+						</div>
+					))}
+			</div>
+		</div>
 	);
 };
 
