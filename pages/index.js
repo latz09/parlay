@@ -27,7 +27,7 @@ export default function Home({ triggerQuestions }) {
 				<p>loading</p>
 			) : (
 				<div className='grid gap-16  max-w-5xl mx-auto p-4 my-4 lg:my-16 '>
-					{session && <div onClick={() => signOut()}>HI {session.user.email}.  click to logout</div>}
+				
 			
 					{questions.map((question) => (
 						<div key={question._id}>
