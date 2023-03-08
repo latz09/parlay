@@ -30,6 +30,13 @@ export default function Home({ triggerQuestions }) {
 		// fetch user by email and set user
 	}, [triggerQuestions, session]);
 
+	if (userId) {
+		console.log('user id', userId);
+		
+	}
+
+	
+
 	return (
 		<>
 			{!questions ? (
