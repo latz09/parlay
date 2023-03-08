@@ -53,7 +53,7 @@ export default function Home({ triggerQuestions }) {
 								downvotes={question.downvotes}
 								discussions={question.discussions}
 								relatedArticles={question.relatedArticles}							
-								userId={userId}
+								userId={userId ? userId : null}
 							/>
 						</div>
 					))}
