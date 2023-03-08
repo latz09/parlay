@@ -29,7 +29,7 @@ const TriggerQuestionDisplay = ({
 	useEffect(() => {
 		if (session) {
 			setSessionWasFound(true);
-		}
+		}	
 	}, [session]);
 
 	// console.log(downvotes.length)
@@ -48,6 +48,7 @@ const TriggerQuestionDisplay = ({
 				usedToVote={false}
 			/>
 			<FullArticle articles={relatedArticles} />
+			
 			<CastTriggerQuestionVote
 				userId={userId}
 				triggerId={id}
@@ -77,3 +78,5 @@ export const TriggerQuestion = ({ question }) => {
 		</div>
 	);
 };
+
+

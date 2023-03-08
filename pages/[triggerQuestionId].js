@@ -9,14 +9,16 @@ import { useSession } from 'next-auth/react';
 import { ObjectId } from 'mongodb';
 import { useEffect, useState } from 'react';
 import TriggerQuestionPreview from '../components/triggerQuestions/TriggerQuestionPreview';
+import RelatedArticlesDisplay from '../components/articleDisplays/FullArticle';
 
-const TriggerQuestionPage = ({ discussions}) => {
+const TriggerQuestionPage = ({ discussions }) => {
 	const [user, setUser] = useState();
-	const [sessionFound, setSessionFound] = useState(false);	
+	const [sessionFound, setSessionFound] = useState(false);
 	const [upVoteCount, setUpVoteCount] = useState(discussions.upvotes.length);
-	const [downVoteCount, setDownVoteCount] = useState(discussions.downvotes.length);
+	const [downVoteCount, setDownVoteCount] = useState(
+		discussions.downvotes.length
+	);
 	const { data: session } = useSession();
-
 
 	useEffect(() => {
 		if (session) {
@@ -24,25 +26,19 @@ const TriggerQuestionPage = ({ discussions}) => {
 				.then((res) => res.json())
 				.then((data) => {
 					setUser(data);
-					setSessionFound(true);				
+					setSessionFound(true);
 				});
 		} else {
 			window.location.href = '/';
 		}
-
-
 	}, [session]);
 
 	if (!sessionFound) {
-		
 	}
-
-	
 
 	return (
 		<>
 			<div className='grid  lg:p-4  gap-4 my-8 mx-2 '>
-				
 				<TriggerQuestionStats
 					category={discussions.category}
 					question={discussions.question}
@@ -53,16 +49,17 @@ const TriggerQuestionPage = ({ discussions}) => {
 					}
 					setUpVoteCount={setUpVoteCount}
 					setDownVoteCount={setDownVoteCount}
-					
 				/>
 				<div className='grid gap-16 mb-32'>
 					<DiscussionsByTriggerQuestionId
 						triggerQId={discussions._id}
 						sessionUserId={user ? user._id : null}
 						category={discussions.category}
-
 					/>
-					<MinimumArticle articles={discussions.relatedArticles} />
+					<div className="max-w-7xl mx-auto">
+						<RelatedArticlesDisplay articles={discussions.relatedArticles} />
+					</div>
+
 					<DiscussionsByCategory category='entertainment' />
 					<TriggerQuestionPreview />
 					<DiscussionsByCategory category='sports' />

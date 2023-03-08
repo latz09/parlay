@@ -30,10 +30,6 @@ export default function Home({ triggerQuestions }) {
 		// fetch user by email and set user
 	}, [triggerQuestions, session]);
 
-	if (userId) {
-		console.log('user id', userId);
-		
-	}
 
 	
 
@@ -42,7 +38,7 @@ export default function Home({ triggerQuestions }) {
 			{!questions ? (
 				<p>loading...</p>
 			) : (
-				<div className='grid gap-16  max-w-5xl mx-auto p-4 my-4 lg:my-16 '>
+				<div className='grid gap-16  max-w-7xl mx-auto p-4 my-4 lg:my-16 '>
 					{questions.map((question) => (
 						<div key={question._id}>
 							<TriggerQuestionDisplay
@@ -53,7 +49,8 @@ export default function Home({ triggerQuestions }) {
 								downvotes={question.downvotes}
 								discussions={question.discussions}
 								relatedArticles={question.relatedArticles}							
-								userId={userId ? userId : null}
+								userId={userId ? userId : ''}
+								// CHECK IF THIS FIXES IT...I HAVENT PUSHED TO REPOSITORY YET
 							/>
 						</div>
 					))}
