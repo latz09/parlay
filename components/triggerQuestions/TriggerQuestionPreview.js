@@ -26,7 +26,7 @@ const TriggerQuestionsPreview = () => {
 			<div className='text-5xl tracking-wider text-primary font-tinos uppercase opacity-80'>
 				Parlays
 			</div>
-			<div className=' snap-y mx-auto snap-mandatory   flex w-full   overflow-y-scroll scrollbar-hide my-2  text-[#ffffff]'>
+			<div className=' snap-y mx-auto snap-mandatory   flex w-full  h-full overflow-y-scroll scrollbar-hide my-2  text-[#ffffff]'>
 				{triggerQuestions.map((question) => (
 					<div
 						key={question._id}
