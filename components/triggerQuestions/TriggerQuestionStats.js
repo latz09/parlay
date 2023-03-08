@@ -14,7 +14,7 @@ const TriggerQuestionStats = ({
 
 	return (
 		<>
-			<div className="text-2xl pb-2 opacity-80">
+			<div className="text-2xl pb-2 ">
 				<TriggerQuestion question={question} />
 			</div>
 			<VoteDisplay
@@ -25,7 +25,7 @@ const TriggerQuestionStats = ({
 				usedToVote={true}
 				setUpVoteCount={setUpVoteCount}
 				setDownVoteCount={setDownVoteCount}
-				
+
 			/>
 		</>
 	);

@@ -50,7 +50,7 @@ const TriggerQuestionPage = ({ discussions }) => {
 					setUpVoteCount={setUpVoteCount}
 					setDownVoteCount={setDownVoteCount}
 				/>
-				<div className='grid gap-16 mb-32'>
+				<div className='grid gap-24 mb-32'>
 					<DiscussionsByTriggerQuestionId
 						triggerQId={discussions._id}
 						sessionUserId={user ? user._id : null}

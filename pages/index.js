@@ -38,7 +38,7 @@ export default function Home({ triggerQuestions }) {
 			{!questions ? (
 				<p>loading...</p>
 			) : (
-				<div className='grid gap-16  max-w-7xl mx-auto p-4 my-4 lg:my-16 '>
+				<div className='grid gap-24  max-w-7xl mx-auto p-4 my-8 lg:my-24 '>
 					{questions.map((question) => (
 						<div key={question._id}>
 							<TriggerQuestionDisplay
