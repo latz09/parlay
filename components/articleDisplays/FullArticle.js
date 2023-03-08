@@ -15,7 +15,7 @@ const RelatedArticlesDisplay = ({ articles }) => {
 				>
 					<div
 						style={{
-							backgroundImage: `url(${'https://www.gannett-cdn.com/presto/2023/02/06/NPPP/f70e1e5b-c92e-4173-985c-080ef76e315f-USATSI_19804048.jpg'})`,
+							backgroundImage: `url(${'https://www.boston.com/wp-content/uploads/2021/12/Brady-Grok-61ad4874f06a7-scaled.jpg'})`,
 							backgroundSize: 'cover',
 						}}
 						className='grid gap-2 relative p-2 lg:p-8 rounded-lg '
