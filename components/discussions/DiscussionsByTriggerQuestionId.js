@@ -3,6 +3,8 @@ import SectionHeading from '../utils/SectionHeading';
 import ModalOverlay from '../utils/ModalOverlay';
 import DiscussionDisplay from './utils/DiscussionDisplay';
 import NewDiscussionForm from './NewDiscussionForm';
+import { motion } from 'framer-motion';
+import Spinner from '../utils/Spinner';
 
 const DiscussionsByTriggerQuestionId = ({
 	triggerQId,
@@ -21,13 +23,23 @@ const DiscussionsByTriggerQuestionId = ({
 			});
 	}, [triggerQId]);
 
+	if (!discussions) {
+		return (
+			<div className=" h-[45vh] grid place-items-center">
+			<Spinner />
+		</div>
+		);
+	}
+
 	return (
 		<div className='grid   w-full h-full max-w-7xl mx-auto '>
 			<SectionHeading title='active discussions' />
 			{discussions && discussions.length !== 0 ? (
 				<DiscussionDisplay discussions={discussions} />
 			) : (
-				<div className="text-center text-2xl my-8 italic tracking-wider opacity-70 font-tinos">Be the first to get the discussions rolling...</div>
+				<div className='text-center text-2xl my-8 italic tracking-wider opacity-70 font-tinos'>
+					Be the first to get the discussions rolling...
+				</div>
 			)}
 
 			<StartOwnDiscussion
@@ -38,7 +50,6 @@ const DiscussionsByTriggerQuestionId = ({
 				category={category}
 				discussions={discussions}
 				setDiscussions={setDiscussions}
-				
 			/>
 		</div>
 	);
@@ -54,34 +65,42 @@ const StartOwnDiscussion = ({
 	category,
 	discussions,
 	setDiscussions,
-	
 }) => {
 	return (
 		<>
-			<div className='text-center mt-8 '>
-				<button
+			<motion.div
+				className='text-center mt-8 antialiased'
+				animate={{
+					x: [-3, 3, -3, 0],
+					// color: ['#f00', '#f00', '#f00', '#fff'],
+					scale: [1, 1.1, 1, 1],
+					transition: {
+						duration: 1,
+						repeat: Infinity,
+						repeatType: 'loop',
+						ease: 'easeInOut',
+						repeatDelay: 3,
+					},
+				}}
+			>
+				<motion.button
 					className='text-2xl font-tinos font-bold  text-dark/80 p-4 md:hover:scale-90  transition duration-700 '
 					onClick={() => setIsNewDiscussionOpen(!isNewDiscussionOpen)}
 				>
 					Start Your Own Discussion
-				</button>
-			</div>
+				</motion.button>
+			</motion.div>
 
 			{isNewDiscussionOpen && (
 				<ModalOverlay setModalIsOpen={setIsNewDiscussionOpen}>
-					<div className='h-full grid place-items-center text-triary font-bold '>
-						<div className='h-3/4   w-full lg:w-3/4 bg-dark/95'>
-							<NewDiscussionForm
-								setIsNewDiscussionOpen={setIsNewDiscussionOpen}
-								userId={userId}
-								triggerQId={triggerQId}
-								category={category}
-								discussions={discussions}
-								setDiscussions={setDiscussions}
-								
-							/>
-						</div>
-					</div>
+					<NewDiscussionForm
+						setIsNewDiscussionOpen={setIsNewDiscussionOpen}
+						userId={userId}
+						triggerQId={triggerQId}
+						category={category}
+						discussions={discussions}
+						setDiscussions={setDiscussions}
+					/>
 				</ModalOverlay>
 			)}
 		</>

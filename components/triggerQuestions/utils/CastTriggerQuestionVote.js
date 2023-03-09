@@ -1,4 +1,9 @@
 import { useState } from 'react';
+
+import {
+	BsFillHandThumbsUpFill,
+	BsFillHandThumbsDownFill,
+} from 'react-icons/bs';
 import SignUpForm from '../../login/SignUpForm';
 import ModalOverlay from '../../utils/ModalOverlay';
 
@@ -53,31 +58,41 @@ const CastTriggerQuestionVote = ({
 	return (
 		<>
 			{disabled ? (
-				<div className='grid gap-2 xl:flex justify-around [&>*]:btn'>
-					<button
-						className=''
+				<div className='grid gap-2 xl:flex justify-around [&>*]:btn-vote'>
+					<button className='flex items-center space-x-2'
 						onClick={() => {
 							setOpenModal(true);
 						}}
 					>
-						agree
+						<span className="opacity-80">agree</span>
+						<span>
+							<BsFillHandThumbsUpFill />
+						</span>
 					</button>
-					<button
-						className='bg-secondary '
+					<button className='flex items-center space-x-2'
 						onClick={() => {
 							setOpenModal(true);
 						}}
 					>
-						disagree
+						<span className="text-primary ">disagree</span>
+						<span>
+							<BsFillHandThumbsDownFill />
+						</span>
 					</button>
 				</div>
 			) : (
-				<div className='grid gap-2 xl:flex justify-around [&>*]:btn'>
-					<button className='' onClick={handleUpVote}>
-						agree
+				<div className='grid gap-2 xl:flex justify-around [&>*]:btn-vote'>
+					<button className='flex items-center space-x-2' onClick={handleUpVote}>
+						<span className="opacity-80">agree</span>
+						<span className="text-primary">
+							<BsFillHandThumbsUpFill />
+						</span>
 					</button>
-					<button className='bg-secondary ' onClick={handleDownVote}>
-						disagree
+					<button className='flex items-center space-x-2' onClick={handleDownVote}>
+						<span className="text-primary ">disagree</span>
+						<span>
+							<BsFillHandThumbsDownFill />
+						</span>
 					</button>
 				</div>
 			)}

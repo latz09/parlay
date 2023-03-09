@@ -24,13 +24,9 @@ const ModalOverlay = ({ children, setModalIsOpen }) => {
 				initial='hidden'
 				animate='visible'
 				exit='exit'
-				className='fixed top-0 left-0 w-full h-full bg-dark/30   z-40'
+				className='fixed   top-0 left-0 w-full h-full bg-dark/80  z-40'
 			>
-				<div className=' flex flex-col justify-between  w-full max-w-4xl mx-auto  h-full '>
-				
-
-					<div className='h-full'>{children}</div>
-				</div>
+				<div className='h-full '>{children}</div>
 			</motion.div>
 		</AnimatePresence>
 	);

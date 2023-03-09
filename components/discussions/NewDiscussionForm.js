@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
-// import { ObjectId } from 'mongodb'
+
+import { VscChromeClose } from 'react-icons/vsc';
 
 const NewDiscussionForm = ({
 	setIsNewDiscussionOpen,
@@ -38,79 +39,81 @@ const NewDiscussionForm = ({
 			throw new Error(responseData.message || 'Something went wrong!');
 		}
 
-		
 		fetch(`/api/discussions/byTriggerQuestion/${triggerQId}`)
 			.then((res) => res.json())
 			.then((data) => {
 				setDiscussions(data);
 			});
-		
 
 		setIsNewDiscussionOpen(false);
 	}
 
 	return (
-		<>
-			<form onSubmit={submitNewDiscussion} className='text-light/80'>
-				<div className='m-2 lg:m-8 grid gap-2 tracking-wider'>
-					<button
-						className='text-end P-4'
-						onClick={() => {
-							setIsNewDiscussionOpen(false);
-						}}
-					>
-						X
-					</button>
+		<div className="h-full text-light flex items-center">
+			<form onSubmit={submitNewDiscussion} className='border-2 border-primary w-1/2 mx-auto bg-primary '>
+				<div className='m-2 lg:m-8 grid gap-8 tracking-wider '>
+					<div className='flex justify-between'>
+						<div className='text-3xl'>New Discussion</div>
+						<button
+							className='mr-4 text-4xl  transition duration-700'
+							onClick={() => {
+								setIsNewDiscussionOpen(false);
+							}}
+						>
+
+						<VscChromeClose />
+						</button>
+					</div>
+
 					<div className='grid gap-2 '>
 						<label
 							htmlFor='topic'
-							className='place-self-center grid  place-items-center gap-1'
+							className='grid'
 						>
-							<span className='text-2xl font-tinos'>Topic of Discussion</span>
-							<span className='text-sm opacity-80 text-primary'>
-								Think of it as catchy headline or take you have to start the discussion
-							</span>
+							<span className='text-2xl font-tinos'>Topic </span>
+							
 						</label>
 						<input
 							type='text'
 							id='topic'
 							required
 							ref={topicInputRef}
-							className='bg-dark p-2 text-triary'
+							className='form-input text-3xl'
 						/>
 					</div>
 
 					<div className='grid gap-2'>
 						<label
 							htmlFor='description'
-							className='place-self-center grid  place-items-center gap-1'
+							className='grid   gap-1'
 						>
 							<span className='text-2xl font-tinos '>Description</span>
-							<span className='text-sm opacity-80 text-primary'>
-								Think of it as a pinned post in a forum
-							</span>
+							
 							<span className='text-sm opacity-80 text-primary'>
 								*Max Characters: 300
 							</span>
 						</label>
 						<textarea
 							type='text'
-							rows='5'
+							rows='3'
 							id='deescription'
 							required
 							ref={desriptionInputRef}
 							maxLength='300'
-							className='bg-dark'
+							className='form-input mx-2 lg:mx-8'
 						/>
 					</div>
 				</div>
 				<div className='text-center'>
-					<button className='mt-4 lg:text-2xl font-tinos font-bold border border-primary/50 text-dark/80 text-light p-4 md:hover:scale-90 md:hover:bg-primary hover:text-light transition duration-700 shadow hover:shadow-2xl ' type='submit'>
-						Start the discussion
+					<button
+						className='p-4 mb-4 text-2xl tracking-wider uppercase  font-oswald font-bold hover:scale-90 transition duration-700'
+						type='submit'
+					>
+						start discussion
 					</button>
 				</div>
 			</form>
-		</>
+		</div>
 	);
 };
 

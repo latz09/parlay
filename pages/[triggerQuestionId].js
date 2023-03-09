@@ -34,6 +34,11 @@ const TriggerQuestionPage = ({ discussions }) => {
 	}, [session]);
 
 	if (!sessionFound) {
+		return (
+		<div className=" h-[45vh] grid place-items-center">
+			<Spinner />
+		</div>
+		)
 	}
 
 	return (
