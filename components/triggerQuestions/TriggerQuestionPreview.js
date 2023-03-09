@@ -50,7 +50,7 @@ const TriggerQuestionsPreview = () => {
 							/>
 							<div className='grid place-items-center mt-16'>
 								<Link href={`/${question._id}`}>
-									<span className=' font-tinos text-2xl text-light font-black border bg-primary border-dark/20 p-4 hover:scale-90 hover:bg-primary/80 hover:text-light transition duration-700 shadow hover:shadow-2xl'>
+									<span className=' font-tinos text-2xl text-light font-black border bg-primary border-dark/10 p-4 hover:scale-90 hover:bg-primary/80 hover:text-light transition duration-700 shadow hover:shadow-2xl'>
 										View This Parlay
 									</span>
 								</Link>
