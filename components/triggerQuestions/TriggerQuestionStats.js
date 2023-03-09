@@ -14,8 +14,8 @@ const TriggerQuestionStats = ({
 
 	return (
 		<>
-			<div className="text-2xl pb-2 ">
-				<TriggerQuestion question={question} />
+			<div className="text-xl lg:text-2xl pb-4  text-center font-oswald font scale-y-125 font-semibold opacity-80 tracking-wider space-x-8 items-center">
+				{question} 
 			</div>
 			<VoteDisplay
 				upvotes={upvotes}
