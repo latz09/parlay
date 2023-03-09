@@ -2,6 +2,7 @@ import TriggerQuestionStats from './TriggerQuestionStats';
 import { useState, useEffect } from 'react';
 import Spinner from '../utils/Spinner';
 import Link from 'next/link';
+import SectionHeading from '../utils/SectionHeading';
 
 const TriggerQuestionsPreview = () => {
 	const [isLoading, setIsLoading] = useState(true);
@@ -23,8 +24,8 @@ const TriggerQuestionsPreview = () => {
 
 	return (
 		<div className='grid place-items-center gap-8 h-full'>
-			<div className='text-5xl tracking-wider text-primary font-tinos uppercase opacity-80'>
-				Parlays
+			<div className='text-2xl lg:text-5xl font-oswald uppercase mt-4 font-semibold opacity-80'>
+				<span>parlays</span>
 			</div>
 			<div className=' snap-y mx-auto snap-mandatory   flex w-full  h-full overflow-y-scroll scrollbar-hide my-2  text-[#ffffff]'>
 				{triggerQuestions.map((question) => (
@@ -32,12 +33,12 @@ const TriggerQuestionsPreview = () => {
 						key={question._id}
 						className='snap-center w-3/4 xl:w-1/3 grid border border-primary/50    flex-shrink-0     mx-2     shadow-lg h-full'
 						style={{
-							backgroundImage: `url(${'https://static.www.nfl.com/image/private/t_headshot_desktop/league/q7dpdlxyu5rs05rgh1le'})`,
+							backgroundImage: `url(${question.image})`,
 							backgroundSize: 'cover',
 							backgroundPosition: 'center',
 						}}
 					>
-						<div className="bg-gradient-to-r from-black via-black/70 to-black py-12 h-full">
+						<div className='bg-gradient-to-t from-black via-black/70 to-black/70 py-12 h-full'>
 							<TriggerQuestionStats
 								id={question._id}
 								category={question.category}

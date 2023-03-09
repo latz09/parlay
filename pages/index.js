@@ -12,11 +12,10 @@ import {
 import connectToDatabase from '../helpers/mongodb';
 
 export default function Home({ triggerQuestions }) {
+	
 	const { data: session } = useSession();
 	const [userId, setUserId] = useState();
 	const [questions, setQuestions] = useState();
-
-	
 
 	useEffect(() => {
 		setQuestions(triggerQuestions);
@@ -29,9 +28,6 @@ export default function Home({ triggerQuestions }) {
 		}
 		// fetch user by email and set user
 	}, [triggerQuestions, session]);
-
-
-	
 
 	return (
 		<>
@@ -48,7 +44,7 @@ export default function Home({ triggerQuestions }) {
 								upvotes={question.upvotes}
 								downvotes={question.downvotes}
 								discussions={question.discussions}
-								relatedArticles={question.relatedArticles}							
+								relatedArticles={question.relatedArticles}
 								userId={userId ? userId : ''}
 								// CHECK IF THIS FIXES IT...I HAVENT PUSHED TO REPOSITORY YET
 							/>

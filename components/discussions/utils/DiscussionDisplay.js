@@ -19,7 +19,7 @@ const DiscussionDisplay = ({ discussions }) => {
 					{reversedDiscussions.map((discussion) => (
 						<div
 							key={discussion._id}
-							className='snap-center w-4/5 md:w-1/2 flex-shrink-0'
+							className='snap-center w-4/5 mx-8 md:w-1/2 flex-shrink-0 '
 						>
 							<div className='p-2 mx-auto'>
 								<DiscussionCard
@@ -57,7 +57,7 @@ export const DiscussionCard = ({
 }) => {
 	return (
 		<motion.div
-			className='flex flex-col justify-between gap-4 lg:gap-8  h-full w-full tracking-wide  p-4  bg-dark/5 rounded-b-sm shadow-lg  border-t-4 border-primary'
+			className='flex flex-col justify-between gap-4 lg:gap-8  h-full w-full tracking-wide  p-4    border-t-4 border-primary '
 			initial={{ scale: 0.995 }}
 			animate={{
 				scale: 1,
