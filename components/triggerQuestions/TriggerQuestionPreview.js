@@ -31,14 +31,14 @@ const TriggerQuestionsPreview = () => {
 				{triggerQuestions.map((question) => (
 					<div
 						key={question._id}
-						className='snap-center w-3/4 xl:w-1/3 grid border border-primary/50    flex-shrink-0     mx-2     shadow-lg h-full'
+						className='snap-center w-3/4 xl:w-1/3 grid     flex-shrink-0     mx-4     shadow-lg h-full'
 						style={{
 							backgroundImage: `url(${question.image})`,
 							backgroundSize: 'cover',
 							backgroundPosition: 'center',
 						}}
 					>
-						<div className='bg-gradient-to-t from-black via-black/70 to-black/70 py-12 h-full'>
+						<div className='bg-gradient-to-t from-black via-black/70 to-black/70 p-12 h-full'>
 							<TriggerQuestionStats
 								id={question._id}
 								category={question.category}

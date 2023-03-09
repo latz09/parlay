@@ -25,7 +25,7 @@ const RelatedArticlesDisplay = ({ articles }) => {
 						}}
 						className='grid gap-2 relative p-2 lg:p-8 rounded-lg '
 					>
-						<div className='absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/60 z-10 rounded-lg '></div>{' '}
+						<div className='absolute inset-0 bg-gradient-to-t  from-black/90 via-black/60 to-black/30 z-10 rounded-lg '></div>{' '}
 						{/* Add the semi-transparent dark background */}
 						<span className='text-3xl '>
 							<MdOutlineArticle />
@@ -37,8 +37,8 @@ const RelatedArticlesDisplay = ({ articles }) => {
 						<span className='font-semibold opacity-80 z-20'>
 							{article.source}
 						</span>
-						<div className='font-semibold z-20'>{article.openingParagraph}</div>
-						<div className='my-2 z-20 flex justify-between items-center'>
+						<div className='font-semibold z-20 '>{article.openingParagraph}</div>
+						<div className='my-2 z-20 flex justify-between items-center '>
 							<SocialShares url={article.articleLink} />
 							<a href={article.articleLink}
 								target="_blank"
