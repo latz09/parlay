@@ -57,7 +57,7 @@ export const DiscussionCard = ({
 }) => {
 	return (
 		<motion.div
-			className='flex flex-col justify-between gap-4 lg:gap-8  h-full w-full tracking-wide  p-4  bg-[#343434] rounded-sm shadow-lg border-2 border-primary/50 text-[#E6E9ED]'
+			className='flex flex-col justify-between gap-4 lg:gap-8  h-full w-full tracking-wide  p-4  bg-dark/5 rounded-b-sm shadow-lg  border-t-4 border-primary'
 			initial={{ scale: 0.995 }}
 			animate={{
 				scale: 1,
@@ -78,10 +78,10 @@ export const DiscussionCard = ({
 				<div className='grid gap-2'>
 					<UserAvatar user={author} />
 					<DateDisplay date={createdAt} />
-					<div className='text-xl lg:text-2xl font-semibol tracking-wider py-2 text-cente font-questrial'>{`${topic}`}</div>
+					<div className='text-xl lg:text-xl  font-semibold tracking-wider py-2 text-cente font-questrial'>{`${topic}`}</div>
 				</div>
 				<motion.div
-					className=' flex-grow grid place-items-center font-questrial tracking-wider text-lg   rounded-md p-4 shadow-lg'
+					className=' flex-grow grid  font-questrial  tracking-wider md:text-lg   rounded-md'
 					initial={{ opacity: 0, scale: 0.8 }}
 					whileInView={{ opacity: 1, scale: 1 }}
 					transition={{ duration: 1.5 }}
@@ -89,17 +89,7 @@ export const DiscussionCard = ({
 					{description}
 				</motion.div>
 			</div>
-			<motion.div
-				className='w-full'
-				initial={{ scale: 1, scale: 0.97 }}
-				whileInView={{ scale: 1, scale: 1 }}
-				transition={{
-					repeat: Infinity,
-					duration: 1.5,
-					repeatType: 'mirror',
-					ease: 'easeInOut',
-				}}
-			>
+		
 				<VoteDisplay
 					upvotes={upvotes}
 					downvotes={downvotes}
@@ -107,7 +97,7 @@ export const DiscussionCard = ({
 					topic={topic}
 					discussionId={id}
 				/>
-			</motion.div>
+			
 		</motion.div>
 	);
 };
