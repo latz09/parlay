@@ -17,6 +17,7 @@ const RelatedArticlesDisplay = ({ articles }) => {
 						style={{
 							backgroundImage: `url(${'https://www.boston.com/wp-content/uploads/2021/12/Brady-Grok-61ad4874f06a7-scaled.jpg'})`,
 							backgroundSize: 'cover',
+							backgroundPosition: 'center',
 						}}
 						className='grid gap-2 relative p-2 lg:p-8 rounded-lg '
 					>
