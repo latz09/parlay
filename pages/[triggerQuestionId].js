@@ -56,9 +56,8 @@ const TriggerQuestionPage = ({ discussions }) => {
 						sessionUserId={user ? user._id : null}
 						category={discussions.category}
 					/>
-					
-						<RelatedArticlesDisplay articles={discussions.relatedArticles} />
-					
+
+					<RelatedArticlesDisplay articles={discussions.relatedArticles} />
 
 					<DiscussionsByCategory category='entertainment' />
 					<TriggerQuestionPreview />

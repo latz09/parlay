@@ -8,6 +8,7 @@ import VoteDisplay from '../utils/VoteDisplay';
 import { useSession } from 'next-auth/react';
 import LoginModal from '../login/LoginModal';
 import { useEffect, useState } from 'react';
+import Spinner from '../utils/Spinner';
 
 const TriggerQuestionDisplay = ({
 	id,
@@ -19,7 +20,7 @@ const TriggerQuestionDisplay = ({
 	relatedArticles,
 	userId,
 }) => {
-	const { data: session } = useSession();
+	const { data: session, isLoading } = useSession();
 	const [sessionWasFound, setSessionWasFound] = useState(false);
 
 	const [upVoteCount, setUpVoteCount] = useState(upvotes.length);
@@ -32,9 +33,16 @@ const TriggerQuestionDisplay = ({
 		}	
 	}, [session]);
 
-	// console.log(downvotes.length)
+	if (isLoading) {
+		return <Spinner />;
+		
+		
+	}
 
 	return (
+
+	
+
 		<div className='grid gap-4'>
 			<div className='text-4xl '>
 				<TriggerQuestion category={category} question={question} />
