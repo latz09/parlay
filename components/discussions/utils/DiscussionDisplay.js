@@ -19,7 +19,7 @@ const DiscussionDisplay = ({ discussions }) => {
 					{reversedDiscussions.map((discussion) => (
 						<div
 							key={discussion._id}
-							className='snap-center w-4/5 mx-8 md:w-1/2 flex-shrink-0 '
+							className='snap-center w-3/4 mx-8 md:w-1/2 flex-shrink-0 '
 						>
 							<div className='p-2 mx-auto'>
 								<DiscussionCard
