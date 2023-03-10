@@ -3,6 +3,8 @@ import { useSession, signOut } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import logo from '../../public/images/quick-logo.png'
+import Image from 'next/image';
 
 const MainLayout = ({ children }) => {
 	const [user, setUser] = useState();
@@ -64,8 +66,11 @@ const Navbar = ({ name }) => {
 
 const Logo = () => {
 	return (
-		<div className='text-2xl lg:text-5xl   text-dark/70 rotate-3 font-oswald font-black hover:text-dark transition duration-700  '>
-			P
+		// <div className='text-2xl lg:text-5xl   text-dark/70 rotate-3 font-oswald font-black hover:text-dark transition duration-700  '>
+		// 	P
+		// </div>
+		<div className="">
+		<Image src={logo} alt="logo" width={100} height={100} />
 		</div>
 	);
 };
