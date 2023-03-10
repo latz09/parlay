@@ -97,11 +97,11 @@ export const DiscussionCard = ({
 						documentId={id}
 						userId={userId}
 					/>
-					f
+					
 				</div>
 				<div className=''>
 					<Link href={`/discussions/${id}`}>
-						<div className="flex items-center space-x-3 text-3xl font-bold text-primary">
+						<div className="flex items-center space-x-3 text-2xl lg:text-3xl font-bold text-primary">
 						<span>1</span>
 							<span>
 								<BsChatLeft />
