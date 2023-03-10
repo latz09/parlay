@@ -50,10 +50,10 @@ const NewDiscussionForm = ({
 
 	return (
 		<div className="h-full text-light flex items-center">
-			<form onSubmit={submitNewDiscussion} className='border-2 border-primary w-1/2 mx-auto bg-primary '>
+			<form onSubmit={submitNewDiscussion} className='p-4 w-11/12 h-3/4 lg:w-1/2 mx-auto bg-primary '>
 				<div className='m-2 lg:m-8 grid gap-8 tracking-wider '>
 					<div className='flex justify-between'>
-						<div className='text-3xl'>New Discussion</div>
+						<div className='text-2xl lg:text-3xl'>New Discussion</div>
 						<button
 							className='mr-4 text-4xl  transition duration-700'
 							onClick={() => {
@@ -70,7 +70,7 @@ const NewDiscussionForm = ({
 							htmlFor='topic'
 							className='grid'
 						>
-							<span className='text-2xl font-tinos'>Topic </span>
+							<span className='text-xl lg:text-2xl font-tinos '>Topic </span>
 							
 						</label>
 						<input
@@ -87,7 +87,7 @@ const NewDiscussionForm = ({
 							htmlFor='description'
 							className='grid   gap-1'
 						>
-							<span className='text-2xl font-tinos '>Description</span>
+							<span className='text-xl lg:text-2xl font-tinos '>Description</span>
 							
 							<span className='text-sm opacity-80 text-primary'>
 								*Max Characters: 300
@@ -96,17 +96,17 @@ const NewDiscussionForm = ({
 						<textarea
 							type='text'
 							rows='3'
-							id='deescription'
+							id='description'
 							required
 							ref={desriptionInputRef}
 							maxLength='300'
-							className='form-input mx-2 lg:mx-8'
+							className='form-input'
 						/>
 					</div>
 				</div>
 				<div className='text-center'>
 					<button
-						className='p-4 mb-4 text-2xl tracking-wider uppercase  font-oswald font-bold hover:scale-90 transition duration-700'
+						className='p-4 mb-4 text-xl lg:text-2xl tracking-wider uppercase  font-oswald font-bold hover:scale-90 transition duration-700'
 						type='submit'
 					>
 						start discussion

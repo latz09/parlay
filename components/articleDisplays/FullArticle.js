@@ -11,7 +11,7 @@ const RelatedArticlesDisplay = ({ articles }) => {
 			{articles.map((article, index) => (
 				<motion.div
 					key={index}
-					className='snap-center mx-2 lg:mx-8 flex-shrink-0 w-4/5 md:w-3/4 xl:w-1/3 flex'
+					className='snap-center mr-2 lg:mr-8  flex-shrink-0 w-4/5 md:w-3/4 xl:w-1/3 flex'
 					initial={{ opacity: 0, x: 60 }}
 					animate={{ opacity: 1, x: 0 }}
 					exit={{ opacity: 0, x: -60 }}
