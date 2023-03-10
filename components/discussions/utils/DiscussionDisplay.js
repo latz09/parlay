@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 import { BsChatLeft } from 'react-icons/bs';
 
-const DiscussionDisplay = ({ discussions }) => {
+const DiscussionDisplay = ({ discussions, userId }) => {
 	let reversedDiscussions;
 	if (discussions) {
 		reversedDiscussions = discussions.map((x, i, a) => a[a.length - i - 1]);
@@ -33,6 +33,7 @@ const DiscussionDisplay = ({ discussions }) => {
 									discussion={discussion.comments}
 									description={discussion.description}
 									createdAt={discussion.createdAt}
+									userId={userId}
 								/>
 							</div>
 						</div>
@@ -49,9 +50,7 @@ export default DiscussionDisplay;
 
 export const DiscussionCard = ({
 	topic,
-	upvotes,
-	downvotes,
-	discussion,
+	userId,
 	id,
 	description,
 	author,
@@ -96,8 +95,9 @@ export const DiscussionCard = ({
 					<VoteDisplayTwo
 						collection={'discussions'}
 						documentId={id}
-						userId={author._id}
+						userId={userId}
 					/>
+					f
 				</div>
 				<div className=''>
 					<Link href={`/discussions/${id}`}>

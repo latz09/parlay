@@ -17,6 +17,7 @@ export default function Home({ triggerQuestions }) {
 	const { data: session } = useSession();
 	const [userId, setUserId] = useState();
 	const [questions, setQuestions] = useState();
+	console.log(session)
 
 	useEffect(() => {
 		setQuestions(triggerQuestions);

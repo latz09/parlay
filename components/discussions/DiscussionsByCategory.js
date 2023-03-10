@@ -6,7 +6,7 @@ import ButtonLink from '../utils/ButtonLink';
 import SectionHeading from '../utils/SectionHeading';
 import DiscussionDisplay from './utils/DiscussionDisplay';
 
-const DiscussionsByCategory = ({ category }) => {
+const DiscussionsByCategory = ({ category, userId }) => {
 	const [isLoading, setIsLoading] = useState(true);
 	const [discussions, setDiscussions] = useState([]);
 
@@ -26,8 +26,7 @@ const DiscussionsByCategory = ({ category }) => {
 			{discussions.length > 1 && (
 				<div className='grid gap-2'>
 					<SectionHeading title={`trending ${category} discussions`} />
-					<DiscussionDisplay discussions={discussions} />
-					
+					<DiscussionDisplay discussions={discussions} userId={userId} />
 				</div>
 			)}
 		</div>
@@ -36,5 +35,4 @@ const DiscussionsByCategory = ({ category }) => {
 
 export default DiscussionsByCategory;
 
-
-//MAKE THIS DISCUSSIONS BY FILTER 
+//MAKE THIS DISCUSSIONS BY FILTER
