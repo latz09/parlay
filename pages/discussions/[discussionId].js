@@ -7,7 +7,8 @@ import DiscussionsByCategory from '../../components/discussions/DiscussionsByCat
 import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import TriggerQuestionsPreview from '../../components/triggerQuestions/TriggerQuestionPreview';
-import { Avatar } from '../../components/users/UserAvatar';
+
+import VoteDisplayTwo from '../../components/utils/VoteDisplayTwo';
 
 const DiscussionById = ({ discussion, discussionId, comments }) => {
 	const { upvotes, downvotes, topic, category } = discussion;
@@ -16,7 +17,7 @@ const DiscussionById = ({ discussion, discussionId, comments }) => {
 	const [discussionComments, setDiscussionComments] = useState([]);
 
 	
-
+console.log(user)
 	//if session fetch user data
 	useEffect(() => {
 		if (session) {
@@ -42,12 +43,12 @@ const DiscussionById = ({ discussion, discussionId, comments }) => {
 				<div className='grid gap-2  max-w-7xl mx-auto px-4 '>
 					<div className=' lg:my-0 lg:h-[15vh] grid gap-4 my-4 items-center'>
 						<DiscussionTopic topic={topic} />
-						<VoteDisplay
-							upvotes={upvotes}
-							downvotes={downvotes}
-							discussions={comments}
-							disabled={true}
-						/>
+						<VoteDisplayTwo
+						collection={'discussions'}
+						documentId={discussionId}
+						userId={user._id}
+					/>
+						
 					</div>
 
 					<CommentDisplay
@@ -60,7 +61,7 @@ const DiscussionById = ({ discussion, discussionId, comments }) => {
 					/>
 
 					<DiscussionsByCategory category={'entertainment'} />
-					<TriggerQuestionsPreview />
+					<TriggerQuestionsPreview userId={user ? user._id : null} />
 					<DiscussionsByCategory category={'sports'} />
 				</div>
 			)}
@@ -96,7 +97,7 @@ export async function getServerSideProps({ params, req, res }) {
 
 const DiscussionTopic = ({ topic }) => {
 	return (
-		<div className='text-center font-oswald mt-2 text-3xl self-end  tracking-wider'>
+		<div className='text-xl lg:text-4xl pb-4  text-center font-oswald font scale-y-125 font-semibold opacity-80 tracking-wider space-x-8 items-center'>
 			<span>{topic}</span>
 		</div>
 	);

@@ -14,6 +14,9 @@ const CommentInput = ({ userId, discussionId, displayName, setComments }) => {
 			authorName: displayName,
 			discussionId: discussionId,
 			comment: comment,
+			createdAt: new Date().toISOString(),
+			upvotes: [],
+			downvotes: [],
 		};
 
 		const response = await fetch('/api/comments/' + discussionId, {

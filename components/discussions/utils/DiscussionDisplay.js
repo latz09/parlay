@@ -4,6 +4,10 @@ import { motion } from 'framer-motion';
 import { UserDisplay } from '../../CommentDisplay/utils/CommentInput';
 import UserAvatar from '../../users/UserAvatar';
 import DateDisplay from '../../utils/DateDisplay';
+import VoteDisplayTwo from '../../utils/VoteDisplayTwo';
+import Link from 'next/link';
+
+import { BsChatLeft } from 'react-icons/bs';
 
 const DiscussionDisplay = ({ discussions }) => {
 	let reversedDiscussions;
@@ -89,15 +93,26 @@ export const DiscussionCard = ({
 					{description}
 				</motion.div>
 			</div>
-		
-				<VoteDisplay
-					upvotes={upvotes}
-					downvotes={downvotes}
-					discussions={discussion}
-					topic={topic}
-					discussionId={id}
-				/>
-			
+			<div className='flex items-center justify-evenly'>
+				<div className='borde w-3/4 '>
+					<VoteDisplayTwo
+						collection={'discussions'}
+						documentId={id}
+						userId={author._id}
+					/>
+				</div>
+				<div className=''>
+					<Link href={`/discussions/${id}`}>
+						<div className="flex items-center space-x-3 text-3xl font-bold text-primary">
+						<span>1</span>
+							<span>
+								<BsChatLeft />
+							</span>
+							
+						</div>
+					</Link>
+				</div>
+			</div>
 		</motion.div>
 	);
 };

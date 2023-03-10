@@ -1,15 +1,13 @@
 import connectToDatabase from '../helpers/mongodb';
-import TriggerQuestionStats from '../components/triggerQuestions/TriggerQuestionStats';
 import DiscussionsByTriggerQuestionId from '../components/discussions/DiscussionsByTriggerQuestionId';
-import MinimumArticle from '../components/articleDisplays/MinimumArticle';
 import Spinner from '../components/utils/Spinner';
-
 import DiscussionsByCategory from '../components/discussions/DiscussionsByCategory';
 import { useSession } from 'next-auth/react';
 import { ObjectId } from 'mongodb';
 import { useEffect, useState } from 'react';
-import TriggerQuestionPreview from '../components/triggerQuestions/TriggerQuestionPreview';
+import TriggerQuestionsPreview from '../components/triggerQuestions/TriggerQuestionPreview';
 import RelatedArticlesDisplay from '../components/articleDisplays/FullArticle';
+import VoteDisplayTwo from '../components/utils/VoteDisplayTwo';
 
 const TriggerQuestionPage = ({ discussions }) => {
 	const [user, setUser] = useState();
@@ -35,39 +33,43 @@ const TriggerQuestionPage = ({ discussions }) => {
 
 	if (!sessionFound) {
 		return (
-		<div className=" h-[45vh] grid place-items-center">
-			<Spinner />
-		</div>
-		)
+			<div className=' h-[45vh] grid place-items-center'>
+				<Spinner />
+			</div>
+		);
 	}
 
 	return (
 		<>
-			<div className='grid  lg:p-4  gap-4 my-8 mx-2 '>
-				<TriggerQuestionStats
-					category={discussions.category}
-					question={discussions.question}
-					upvotes={upVoteCount}
-					downvotes={downVoteCount}
-					discussions={
-						discussions.discussions ? discussions.discussions.length : 0
-					}
-					setUpVoteCount={setUpVoteCount}
-					setDownVoteCount={setDownVoteCount}
+			<div className='grid  lg:p-4  gap-4 my-8 mx-2 '>			
+				<TriggerQuestionHead question={discussions.question} />
+				<VoteDisplayTwo
+					collection={'trigger_questions'}
+					documentId={discussions._id}
+					userId={user ? user._id : null}
 				/>
+
 				<div className='grid gap-24 mb-32'>
 					<DiscussionsByTriggerQuestionId
 						triggerQId={discussions._id}
 						sessionUserId={user ? user._id : null}
 						category={discussions.category}
 					/>
-
 					<RelatedArticlesDisplay articles={discussions.relatedArticles} />
-
 					<DiscussionsByCategory category='entertainment' />
-					<TriggerQuestionPreview />
+					<TriggerQuestionsPreview userId={user ? user._id : null} />
 					<DiscussionsByCategory category='sports' />
 				</div>
+			</div>
+		</>
+	);
+};
+
+const TriggerQuestionHead = ({ question }) => {
+	return (
+		<>
+			<div className='text-xl lg:text-4xl pb-4  text-center font-oswald font scale-y-125 font-semibold opacity-80 tracking-wider space-x-8 items-center'>
+				{question}
 			</div>
 		</>
 	);

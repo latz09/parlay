@@ -19,7 +19,7 @@ async function handler(req, res) {
 	};
 		
 
-	res.status(200).json(  voteCounts );
+	res.status(200).json({  voteCounts} );
 }
 
 export default handler;

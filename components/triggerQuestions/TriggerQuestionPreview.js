@@ -3,8 +3,9 @@ import { useState, useEffect } from 'react';
 import Spinner from '../utils/Spinner';
 import Link from 'next/link';
 import SectionHeading from '../utils/SectionHeading';
+import VoteDisplayTwo from '../utils/VoteDisplayTwo';
 
-const TriggerQuestionsPreview = () => {
+const TriggerQuestionsPreview = ({userId}) => {
 	const [isLoading, setIsLoading] = useState(true);
 	const [triggerQuestions, setTriggerQuestions] = useState([]);
 
@@ -39,14 +40,16 @@ const TriggerQuestionsPreview = () => {
 						}}
 					>
 						<div className='bg-gradient-to-t from-black via-black/70 to-black/70 p-12 h-full'>
-							<TriggerQuestionStats
-								id={question._id}
-								category={question.category}
-								question={question.question}
-								upvotes={question.upvotes.length}
-								downvotes={question.downvotes.length}
-								discussions={question.discussions}
-								relatedArticles={question.relatedArticles}
+						<div className="text-xl lg:text-2xl pb-4  text-center font-oswald font scale-y-125 font-semibold opacity-80 tracking-wider space-x-8 items-center">
+				{question.question} 
+			</div>
+							<VoteDisplayTwo
+							collection={'trigger_questions'}					
+							documentId={question._id}
+							userId={userId}
+
+
+
 							/>
 							<div className='grid place-items-center mt-16'>
 								<Link href={`/${question._id}`}>

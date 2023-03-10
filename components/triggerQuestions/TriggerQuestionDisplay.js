@@ -9,6 +9,7 @@ import { useSession } from 'next-auth/react';
 import LoginModal from '../login/LoginModal';
 import { useEffect, useState } from 'react';
 import Spinner from '../utils/Spinner';
+import VoteDisplayTwo from '../utils/VoteDisplayTwo';
 
 const TriggerQuestionDisplay = ({
 	id,
@@ -30,36 +31,36 @@ const TriggerQuestionDisplay = ({
 	useEffect(() => {
 		if (session) {
 			setSessionWasFound(true);
-		}	
+		}
 	}, [session]);
 
 	if (isLoading) {
 		return <Spinner />;
-		
-		
 	}
 
 	return (
-
-	
-
 		<div className='grid gap-4'>
-			<div className='text-4xl '>
-				<TriggerQuestion category={category} question={question} />
-			</div>
+			<div className='text-2xl lg:text-4xl '>
+				<TriggerQuestion question={question} />
+			</div>			
+			<VoteDisplayTwo
+				collection={'trigger_questions'}
+				documentId={id}
+				userId={userId}
 
-			<VoteDisplay
-				upvotes={upVoteCount}
-				downvotes={downVoteCount}
-				discussions={discussions}
-				disabled={true}
-				usedToVote={false}
+				upVoteCount={upVoteCount}
+				downVoteCount={downVoteCount}
+				setUpVoteCount={setUpVoteCount}
+				setDownVoteCount={setDownVoteCount}
+				
 			/>
 			<FullArticle articles={relatedArticles} />
-			
+
 			<CastTriggerQuestionVote
 				userId={userId}
 				triggerId={id}
+				documentId={id}
+				collection={'trigger_questions'}
 				setUpVoteCount={setUpVoteCount}
 				setDownVoteCount={setDownVoteCount}
 				disabled={!sessionWasFound}
@@ -81,10 +82,8 @@ export default TriggerQuestionDisplay;
 
 export const TriggerQuestion = ({ question }) => {
 	return (
-		<div className=' py-2 px-8 rounded-lg text-center font-oswald font scale-y-125 font-semibold opacity-80 tracking-wider space-x-8 items-center  '>
+		<div className=' py-2  text-center font-oswald  md:scale-y-125 font-semibold opacity-80 tracking-wider   '>
 			<span>{question}</span>
 		</div>
 	);
 };
-
-

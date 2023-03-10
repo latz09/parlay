@@ -10,49 +10,78 @@ import ModalOverlay from '../../utils/ModalOverlay';
 const CastTriggerQuestionVote = ({
 	userId,
 	triggerId,
+	collection,
 	setUpVoteCount,
 	setDownVoteCount,
 	disabled,
+	documentId
 }) => {
-	const [x, setX] = useState();
+	const [error, setError] = useState(null);
 	const [openModal, setOpenModal] = useState(false);
+
 	const handleUpVote = async () => {
-		const res = await fetch(`/api/triggerQuestionVotes/upvote`, {
+		const res = await fetch(`/api/votes`, {
 			method: 'POST',
 			body: JSON.stringify({
 				userId,
-				triggerId,
+				collection,
+				documentId,
+				voteType: 'upvote',
 			}),
 			headers: {
 				'Content-Type': 'application/json',
 			},
 		});
+		const data = await res.json();
 
-		fetch(`api/triggerQuestionVotes/${triggerId}`)
-			.then((res) => res.json())
-			.then((data) => {
-				setUpVoteCount(data.upvotes.length);
-				setDownVoteCount(data.downvotes.length);
-			});
+		async function fetchVotes() {
+			try {
+				const res = await fetch(
+					`/api/votes?collection=${collection}&documentId=${documentId}`
+				);
+				if (!res.ok) {
+					throw new Error(`HTTP error! status: ${res.status}`);
+				}
+				const data = await res.json();
+				setUpVoteCount(data);
+			} catch (err) {
+				setError(err.message);
+			}
+		}
+
+		fetchVotes();
 	};
-
 	const handleDownVote = async () => {
-		const res = await fetch(`/api/triggerQuestionVotes/downvote`, {
+		const res = await fetch(`/api/votes`, {
 			method: 'POST',
 			body: JSON.stringify({
 				userId,
-				triggerId,
+				collection,
+				documentId,
+				voteType: 'downvote',
 			}),
 			headers: {
 				'Content-Type': 'application/json',
 			},
 		});
-		fetch(`api/triggerQuestionVotes/${triggerId}`)
-			.then((res) => res.json())
-			.then((data) => {
-				setUpVoteCount(data.upvotes.length);
-				setDownVoteCount(data.downvotes.length);
-			});
+		const data = await res.json();
+
+		async function fetchVotes() {
+			try {
+				const res = await fetch(
+					`/api/votes?collection=${collection}&documentId=${documentId}`
+				);
+				if (!res.ok) {
+					throw new Error(`HTTP error! status: ${res.status}`);
+				}
+				const data = await res.json();
+				setDownVoteCount(data);
+			} catch (err) {
+				setError(err.message);
+			}
+		}
+
+		fetchVotes();
 	};
 
 	return (
