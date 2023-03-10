@@ -2,7 +2,7 @@ import { MdOutlineArticle } from 'react-icons/md';
 import { FaLink } from 'react-icons/fa';
 import SocialShares from '../utils/SocialShares';
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 const RelatedArticlesDisplay = ({ articles }) => {
 	
