@@ -1,7 +1,5 @@
-import VoteDisplay from '../../utils/VoteDisplay';
 import Spinner from '../../utils/Spinner';
 import { motion } from 'framer-motion';
-import { UserDisplay } from '../../CommentDisplay/utils/CommentInput';
 import UserAvatar from '../../users/UserAvatar';
 import DateDisplay from '../../utils/DateDisplay';
 import VoteDisplayTwo from '../../utils/VoteDisplayTwo';

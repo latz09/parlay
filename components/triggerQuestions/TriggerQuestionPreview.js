@@ -1,8 +1,8 @@
-import TriggerQuestionStats from './TriggerQuestionStats';
+
 import { useState, useEffect } from 'react';
 import Spinner from '../utils/Spinner';
 import Link from 'next/link';
-import SectionHeading from '../utils/SectionHeading';
+
 import VoteDisplayTwo from '../utils/VoteDisplayTwo';
 
 const TriggerQuestionsPreview = ({userId}) => {
@@ -24,7 +24,7 @@ const TriggerQuestionsPreview = ({userId}) => {
 	}
 
 	return (
-		<div className='grid place-items-center gap-8 h-full'>
+		<div className='grid place-items-center gap-8 h-full max-w-7xl mx-auto'>
 			<div className='text-2xl lg:text-5xl font-oswald uppercase mt-4 font-semibold opacity-80'>
 				<span>parlays</span>
 			</div>

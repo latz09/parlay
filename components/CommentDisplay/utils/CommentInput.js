@@ -1,5 +1,5 @@
 import { FaUserAlt } from 'react-icons/fa';
-import UserAvatar from '../../users/UserAvatar';
+
 import { useRef } from 'react';
 
 const CommentInput = ({ userId, discussionId, displayName, setComments }) => {

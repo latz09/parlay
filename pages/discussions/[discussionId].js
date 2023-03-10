@@ -1,7 +1,6 @@
 import connectToDatabase from '../../helpers/mongodb';
 import { ObjectId } from 'mongodb';
-import { TriggerQuestion } from '../../components/triggerQuestions/TriggerQuestionDisplay';
-import VoteDisplay from '../../components/utils/VoteDisplay';
+
 import CommentDisplay from '../../components/CommentDisplay/CommentDisplay';
 import DiscussionsByCategory from '../../components/discussions/DiscussionsByCategory';
 import { useSession } from 'next-auth/react';
@@ -11,7 +10,7 @@ import TriggerQuestionsPreview from '../../components/triggerQuestions/TriggerQu
 import VoteDisplayTwo from '../../components/utils/VoteDisplayTwo';
 
 const DiscussionById = ({ discussion, discussionId, comments }) => {
-	const { upvotes, downvotes, topic, category } = discussion;
+	const {  topic } = discussion;
 	const { data: session } = useSession();
 	const [user, setUser] = useState();
 	const [discussionComments, setDiscussionComments] = useState([]);

@@ -1,10 +1,10 @@
 import Link from 'next/link';
-import { SectionHeading } from '../../pages/[triggerQuestionId]';
+
 import CastTriggerQuestionVote from './utils/CastTriggerQuestionVote';
 // import CategoryAndQuestion from './CategoryAndQuestion';
 import JoinDiscussionLink from '../utils/JoinDiscussionLink';
 import FullArticle from '../articleDisplays/FullArticle';
-import VoteDisplay from '../utils/VoteDisplay';
+
 import { useSession } from 'next-auth/react';
 import LoginModal from '../login/LoginModal';
 import { useEffect, useState } from 'react';
@@ -42,17 +42,15 @@ const TriggerQuestionDisplay = ({
 		<div className='grid gap-4'>
 			<div className='text-2xl lg:text-4xl '>
 				<TriggerQuestion question={question} />
-			</div>			
+			</div>
 			<VoteDisplayTwo
 				collection={'trigger_questions'}
 				documentId={id}
 				userId={userId}
-
 				upVoteCount={upVoteCount}
 				downVoteCount={downVoteCount}
 				setUpVoteCount={setUpVoteCount}
 				setDownVoteCount={setDownVoteCount}
-				
 			/>
 			<FullArticle articles={relatedArticles} />
 
