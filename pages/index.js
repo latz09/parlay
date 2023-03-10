@@ -10,6 +10,7 @@ import {
 } from '../data/DUMMY_DATA';
 
 import connectToDatabase from '../helpers/mongodb';
+import Meta from '../components/utils/Meta';
 
 export default function Home({ triggerQuestions }) {
 	
@@ -31,6 +32,13 @@ export default function Home({ triggerQuestions }) {
 
 	return (
 		<>
+					<Meta
+				pageTitle={'PARLAY'}
+				description={
+					'THE SPOTIFY OF DEBATE. Parlay is a platform that allows you to debate with others on any topic.'
+				}
+				keywords={'parlay, debate, spotify, music, politics, sports, religion, science, philosophy, technology, entertainment,'}
+			/>
 			{!questions ? (
 				<p>loading...</p>
 			) : (
