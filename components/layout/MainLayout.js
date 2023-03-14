@@ -3,7 +3,7 @@ import { useSession, signOut } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import logo from '../../public/images/quick-logo.png';
+import logo from '../../public/images/logo/logo.png';
 import Image from 'next/image';
 
 const MainLayout = ({ children }) => {
@@ -37,14 +37,14 @@ const Navbar = ({ name }) => {
 	}
 
 	return (
-		<div className='mx-[10vw] flex justify-between items-center my-4'>
+		<div className='mx-[10vw] flex justify-between items-center mt-4'>
 			<div className="grid gap-2">
 				<Link href='/'>
 					<Logo />
 				</Link>
-				<div className='font-oswald text-xl md:text-2xl opacity-80'>
+				{/* <div className='font-oswald text-xl md:text-2xl opacity-80'>
 					{name && <span>Welcome {name}</span>}
-				</div>
+				</div> */}
 			</div>
 
 			<span className='text-2xl font-bold text-primary'>
@@ -65,11 +65,11 @@ const Navbar = ({ name }) => {
 
 const Logo = () => {
 	return (
-		// <div className='text-2xl lg:text-5xl   text-dark/70 rotate-3 font-oswald font-black hover:text-dark transition duration-700  '>
-		// 	P
-		// </div>
-		<div className=''>
-			<Image src={logo} alt='logo' width={100} height={100} />
+		<div className='flex justify-center space-x-2 items-center text-4xl font-extrabold font-mulish '>
+		  <div className='w-16  '>
+			<Image src={logo} alt='logo'  />
+		  </div>
+		  <div>Parley</div>
 		</div>
-	);
+	  );
 };

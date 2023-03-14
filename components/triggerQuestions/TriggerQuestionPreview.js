@@ -1,11 +1,10 @@
-
 import { useState, useEffect } from 'react';
 import Spinner from '../utils/Spinner';
 import Link from 'next/link';
 
 import VoteDisplayTwo from '../utils/VoteDisplayTwo';
 
-const TriggerQuestionsPreview = ({userId}) => {
+const TriggerQuestionsPreview = ({ userId }) => {
 	const [isLoading, setIsLoading] = useState(true);
 	const [triggerQuestions, setTriggerQuestions] = useState([]);
 
@@ -28,7 +27,7 @@ const TriggerQuestionsPreview = ({userId}) => {
 			<div className='text-2xl lg:text-5xl font-oswald uppercase mt-4 font-semibold opacity-80'>
 				<span>parlays</span>
 			</div>
-			<div className=' snap-y mx-auto snap-mandatory   flex w-full  h-full overflow-y-scroll scrollbar-hide my-2  text-[#ffffff]'>
+			<div className=' snap-y mx-auto snap-mandatory   flex w-full   overflow-y-scroll scrollbar-hide my-2  text-[#ffffff] h-[45vh]'>
 				{triggerQuestions.map((question) => (
 					<div
 						key={question._id}
@@ -39,24 +38,19 @@ const TriggerQuestionsPreview = ({userId}) => {
 							backgroundPosition: 'center',
 						}}
 					>
-						<div className='bg-gradient-to-t from-black via-black/70 to-black/70 p-12 h-full'>
-						<div className="text-xl lg:text-2xl pb-4  text-center font-oswald font scale-y-125 font-semibold opacity-80 tracking-wider space-x-8 items-center">
-				{question.question} 
-			</div>
-							<VoteDisplayTwo
-							collection={'trigger_questions'}					
-							documentId={question._id}
-							userId={userId}
-
-
-
-							/>
-							<div className='grid place-items-center mt-16'>
-								<Link href={`/${question._id}`}>
-									<span className=' font-tinos md:text-2xl text-light font-black border bg-primary border-dark/10 p-4 hover:scale-90 hover:bg-primary/80 hover:text-light transition duration-700 shadow hover:shadow-2xl '>
-										View This Parlay
-									</span>
-								</Link>
+						<div className='bg-gradient-to-t from-black via-black/80 to-black/50  flex flex-col justify-between '>
+							<div></div>
+							<div className="grid gap-4 m-4 place-items-cente">
+								<div className='text-xl lg:text-2xl   text-center font-oswald font scale-y-125 font-semibold opacity-80 tracking-wider space-x-8 items-center'>
+									{question.question}
+								</div>
+								<div className='place-self-end '>
+									<Link href={`/${question._id}`}>
+										<span className=' font-tinos md:text-2xl  font-black text-triary hover:text-light transition duration-700 shadow hover:shadow-2xl '>
+											View This Parlay
+										</span>
+									</Link>
+								</div>
 							</div>
 						</div>
 					</div>

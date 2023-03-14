@@ -25,9 +25,9 @@ const DiscussionsByTriggerQuestionId = ({
 
 	if (!discussions) {
 		return (
-			<div className=" h-[45vh] grid place-items-center">
-			<Spinner />
-		</div>
+			<div className=' h-[45vh] grid place-items-center'>
+				<Spinner />
+			</div>
 		);
 	}
 
@@ -35,7 +35,10 @@ const DiscussionsByTriggerQuestionId = ({
 		<div className='grid   w-full h-full max-w-7xl mx-auto '>
 			<SectionHeading title='active discussions' />
 			{discussions && discussions.length !== 0 ? (
-				<DiscussionDisplay discussions={discussions} />
+				<DiscussionDisplay
+					discussions={discussions}
+					userId={sessionUserId}
+				/>
 			) : (
 				<div className='text-center text-2xl my-8 italic tracking-wider opacity-70 font-tinos'>
 					Be the first to get the discussions rolling...

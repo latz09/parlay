@@ -16,6 +16,7 @@ const CastTriggerQuestionVote = ({
 	disabled,
 	documentId
 }) => {
+	
 	const [error, setError] = useState(null);
 	const [openModal, setOpenModal] = useState(false);
 
@@ -43,7 +44,8 @@ const CastTriggerQuestionVote = ({
 					throw new Error(`HTTP error! status: ${res.status}`);
 				}
 				const data = await res.json();
-				setUpVoteCount(data);
+				setUpVoteCount(data.upvotes);
+				setDownVoteCount(data.downvotes);				
 			} catch (err) {
 				setError(err.message);
 			}
@@ -75,7 +77,8 @@ const CastTriggerQuestionVote = ({
 					throw new Error(`HTTP error! status: ${res.status}`);
 				}
 				const data = await res.json();
-				setDownVoteCount(data);
+				setUpVoteCount(data.upvotes);
+				setDownVoteCount(data.downvotes);	
 			} catch (err) {
 				setError(err.message);
 			}
@@ -112,14 +115,14 @@ const CastTriggerQuestionVote = ({
 			) : (
 				<div className='grid gap-2 place-items-center xl:flex justify-around [&>*]:btn-vote'>
 					<button className='flex items-center space-x-2' onClick={handleUpVote}>
-						<span className="opacity-80">agree</span>
-						<span className="text-primary">
+						<span className="">agree</span>
+						<span className="text-triary">
 							<BsFillHandThumbsUpFill />
 						</span>
 					</button>
 					<button className='flex items-center space-x-2' onClick={handleDownVote}>
-						<span className="text-primary ">disagree</span>
-						<span>
+						<span className=" ">disagree</span>
+						<span className="text-primary">
 							<BsFillHandThumbsDownFill />
 						</span>
 					</button>

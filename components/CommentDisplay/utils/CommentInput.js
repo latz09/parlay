@@ -28,20 +28,14 @@ const CommentInput = ({ userId, discussionId, displayName, setComments }) => {
 		});
 
 		const data = await response.json();
-		
-		fetch('/api/comments/' + discussionId) 
+
+		fetch('/api/comments/' + discussionId)
 			.then((res) => res.json())
 			.then((data) => {
 				setComments(data.comments);
 			});
 
-
-
 		commentInputRef.current.value = '';
-
-
-
-	
 	}
 
 	return (
@@ -65,22 +59,6 @@ const CommentInput = ({ userId, discussionId, displayName, setComments }) => {
 };
 
 export default CommentInput;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 export const UserDisplay = ({ userId }) => {
 	return (

@@ -17,8 +17,7 @@ export default function Home({ triggerQuestions }) {
 	const { data: session } = useSession();
 	const [userId, setUserId] = useState();
 	const [questions, setQuestions] = useState();
-	console.log(session)
-
+	
 	useEffect(() => {
 		setQuestions(triggerQuestions);
 		if (session) {
@@ -55,7 +54,7 @@ export default function Home({ triggerQuestions }) {
 								discussions={question.discussions}
 								relatedArticles={question.relatedArticles}
 								userId={userId ? userId : ''}
-								// CHECK IF THIS FIXES IT...I HAVENT PUSHED TO REPOSITORY YET
+							
 							/>
 						</div>
 					))}

@@ -3,7 +3,15 @@ import { ObjectId } from 'mongodb';
 
 async function handler(req, res) {
 	if (req.method === 'POST') {
-		const { discussionId, comment, authorId, authorName } = req.body;
+		const {
+			discussionId,
+			comment,
+			authorId,
+			authorName,
+			createdAt,
+			upvotes,
+			downvotes,
+		} = req.body;
 
 		const client = await connectToDatabase;
 		const db = client.db('Parlay');
@@ -14,6 +22,9 @@ async function handler(req, res) {
 			comment: comment,
 			authorId: new ObjectId(authorId),
 			authorName: authorName,
+			createdAt: createdAt,
+			upvotes: upvotes,
+			downvotes: downvotes,
 		});
 
 		res.status(201).json({ message: 'Comment added!' });
@@ -27,8 +38,9 @@ async function handler(req, res) {
 		const commentsCollection = db.collection('comments');
 
 		const comments = await commentsCollection
-			.find({ discussionId: new ObjectId(discussionId) })
-			.toArray();
+		.find({ discussionId: new ObjectId(discussionId) })
+		.sort({ createdAt: -1 }) // Sort comments by creation date in descending order
+		.toArray();
 
 		res.status(200).json({ comments: comments });
 	}

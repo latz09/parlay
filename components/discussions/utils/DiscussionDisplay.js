@@ -5,19 +5,23 @@ import DateDisplay from '../../utils/DateDisplay';
 import VoteDisplayTwo from '../../utils/VoteDisplayTwo';
 import Link from 'next/link';
 
-import { BsChatLeft } from 'react-icons/bs';
-
+import { BsFillChatLeftDotsFill } from 'react-icons/bs';
+import {useState} from 'react'
 const DiscussionDisplay = ({ discussions, userId }) => {
+
+
+
 	let reversedDiscussions;
 	if (discussions) {
 		reversedDiscussions = discussions.map((x, i, a) => a[a.length - i - 1]);
+	
 	}
 
+	
 	return (
 		<>
 			{discussions ? (
 				<div className=' snap-y mx-auto snap-mandatory   flex w-full   overflow-y-scroll scrollbar-hide my-2 items-center'>
-					{/* <div className="text-center mt-8">all discussions</div> */}
 					{reversedDiscussions.map((discussion) => (
 						<div
 							key={discussion._id}
@@ -55,7 +59,14 @@ export const DiscussionCard = ({
 	description,
 	author,
 	createdAt,
+	upvotes,
+	downvotes,
 }) => {
+	const [upVoteCount, setUpVoteCount] = useState(upvotes.length);
+	const [downVoteCount, setDownVoteCount] = useState(downvotes.length);
+
+
+
 	return (
 		<motion.div
 			className='flex flex-col justify-between gap-4 lg:gap-8  h-full w-full tracking-wide  p-4    border-t-4 border-primary '
@@ -96,17 +107,19 @@ export const DiscussionCard = ({
 						collection={'discussions'}
 						documentId={id}
 						userId={userId}
+						upVoteCount={upVoteCount}
+						downVoteCount={downVoteCount}
+						setUpVoteCount={setUpVoteCount}
+						setDownVoteCount={setDownVoteCount}
 					/>
-					
 				</div>
 				<div className=''>
 					<Link href={`/discussions/${id}`}>
-						<div className="flex items-center space-x-3 text-2xl lg:text-3xl font-bold text-primary">
-						<span>1</span>
+						<div className='flex items-center space-x-2 text-2xl lg:text-3xl font-bold text-triary'>
+							<span className="scale-75 text-primary">1</span>
 							<span>
-								<BsChatLeft />
+								<BsFillChatLeftDotsFill />
 							</span>
-							
 						</div>
 					</Link>
 				</div>

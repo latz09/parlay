@@ -12,11 +12,13 @@ module.exports = {
 	theme: {
 		extend: {},
 		colors: {
-			primary: '#FF1D46',
+			// primary: '#FF1D46',
+			primary: '#F95DAC',
 			secondary: '#00A24F',
-			dark: '#222222',
+			dark: '#070928',
 			light: '#e6e9ed',
-			triary: '#28B281',
+			// triary: '#28B281',
+			triary: '#2ADAF1',
 			black: '#000000',
 		},
 		fontFamily: {

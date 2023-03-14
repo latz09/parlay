@@ -4,8 +4,8 @@ html,
 body {
 	padding: 0;
 	margin: 0;
-	background-color: #e6e9ed;
-	color: #222222;
+	background-color: #F2F2FF;
+	color: #070928;
 }
 
 @tailwind base;

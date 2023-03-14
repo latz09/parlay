@@ -35,7 +35,7 @@ export default UserAvatar;
 export const Avatar = ({ displayName, email }) => {
 	return (
 		<div className='flex  items-center space-x-2 font-questrial'>
-			<span className='rounded-full px-4 py-2 text-light font-bold uppercase bg-primary grid place-items-center font-tinos'>
+			<span className='rounded-full px-6 py-4 text-primary font-extrabold uppercase bg-triary grid place-items-center '>
 				{displayName[0]}
 			</span>
 			<div className='grid'>

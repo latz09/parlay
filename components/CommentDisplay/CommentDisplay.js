@@ -1,8 +1,9 @@
 import CommentInput, { UserDisplay } from './utils/CommentInput';
 
 import { motion } from 'framer-motion';
-
-import { Avatar } from '../users/UserAvatar';
+import {useState} from 'react'
+import UserAvatar, { Avatar } from '../users/UserAvatar';
+import VoteDisplayTwo from '../utils/VoteDisplayTwo';
 
 const CommentDisplay = ({
 	userId,
@@ -12,7 +13,11 @@ const CommentDisplay = ({
 	displayName,
 	email,
 }) => {
+
+	
 	return (
+		
+
 		<div className='mb-12 '>
 			<Avatar displayName={displayName} email={email} />
 			<CommentInput
@@ -34,9 +39,11 @@ const CommentDisplay = ({
 								whileInView={{ opacity: 1 }}
 								transition={{ delay: 0.2, duration: 1 }}
 							>
-								<UserDisplay userId={comment.authorName} />
+								<UserAvatar
+									user={userId}
+								/>
 							</motion.div>
-							<div className='grid gap-8 border-b pb-8 border-primary/50'>
+							<div className='grid  border-b pb-8 border-primary/50'>
 								<motion.div
 									className='ml-4 flex-grow'
 									initial={{ opacity: 0, scale: 0.7 }}
@@ -50,10 +57,18 @@ const CommentDisplay = ({
 								>
 									{comment.comment}
 								</motion.div>
-								<div className='flex space-x-4'>
-									<span>like</span>
-									<span>dislike</span>
-								</div>
+								
+								{/* <VoteDisplayTwo 
+									collection={'comments'}
+									documentId={comment._id}
+									userId={userId}
+									upVoteCount={upVoteCount}
+									downVoteCount={downVoteCount}
+									setUpVoteCount={setUpVoteCount}
+									setDownVoteCount={setDownVoteCount}
+								/> */}
+								
+								
 							</div>
 						</div>
 					))}

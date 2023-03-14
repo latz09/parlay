@@ -17,7 +17,7 @@ const TriggerQuestionPage = ({ discussions }) => {
 		discussions.downvotes.length
 	);
 	const { data: session } = useSession();
-	console.log(user);
+	
 	useEffect(() => {
 		if (session) {
 			fetch(`/api/users/${session.user.email}`)
@@ -41,12 +41,18 @@ const TriggerQuestionPage = ({ discussions }) => {
 
 	return (
 		<>
-			<div className='grid  lg:p-4  gap-4 my-8 mx-2 '>
+			<div className='grid  lg:p-4  gap-4 my-8 px-2 max-w-[90rem] mx-auto'>
 				<TriggerQuestionHead question={discussions.question} />
 				<VoteDisplayTwo
 					collection={'trigger_questions'}
 					documentId={discussions._id}
 					userId={user ? user._id : null}
+					upVoteCount={upVoteCount}
+					downVoteCount={downVoteCount}
+					setUpVoteCount={setUpVoteCount}
+					setDownVoteCount={setDownVoteCount}
+
+					
 				/>
 
 				<div className='grid gap-24 mb-32'>
@@ -55,14 +61,15 @@ const TriggerQuestionPage = ({ discussions }) => {
 						sessionUserId={user ? user._id : null}
 						category={discussions.category}
 					/>
+					
 					<RelatedArticlesDisplay articles={discussions.relatedArticles} />
 					<DiscussionsByCategory
-						category='entertainment'
+						category='Entertainment'
 						userId={user ? user._id : null}
 					/>
 					<TriggerQuestionsPreview userId={user ? user._id : null} />
 					<DiscussionsByCategory
-						category='sports'
+						category='Sports'
 						userId={user ? user._id : null}
 					/>
 				</div>

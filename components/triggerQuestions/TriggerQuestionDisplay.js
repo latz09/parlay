@@ -51,6 +51,8 @@ const TriggerQuestionDisplay = ({
 				downVoteCount={downVoteCount}
 				setUpVoteCount={setUpVoteCount}
 				setDownVoteCount={setDownVoteCount}
+				disabled={!sessionWasFound}
+			
 			/>
 			<FullArticle articles={relatedArticles} />
 
