@@ -65,8 +65,8 @@ const Navbar = ({ name }) => {
 
 const Logo = () => {
 	return (
-		<div className='flex justify-center space-x-2 items-center text-4xl font-extrabold font-mulish '>
-		  <div className='w-16  '>
+		<div className='flex justify-center space-x-2 items-center text-lg sm:text-xl md:text-3xl font-semibold  md:font-extrabold font-mulish '>
+		  <div className='w-8 md:w-16  '>
 			<Image src={logo} alt='logo'  />
 		  </div>
 		  <div>Parley</div>
