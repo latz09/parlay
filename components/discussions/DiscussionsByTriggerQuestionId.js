@@ -76,7 +76,7 @@ const StartOwnDiscussion = ({
 				animate={{
 					x: [-3, 3, -3, 0],
 					// color: ['#f00', '#f00', '#f00', '#fff'],
-					scale: [1, 1.1, 1, 1],
+					scale: [.9, 1, .9, 1],
 					transition: {
 						duration: 1,
 						repeat: Infinity,
