@@ -14,7 +14,7 @@ const JoinDiscussionLink = () => {
 					repeatType: 'reverse',
 				}}
 			>
-				<span className='text-xl lg:text-3xl font-oswald uppercase mt-4 font-semibold border-b pb-1 border-primary '>
+				<span className='text-2xl lg:text-3xl font-oswald uppercase mt-4 font-semibold border-b pb-1 border-primary '>
 					join the discussions
 				</span>
 			</motion.div>
